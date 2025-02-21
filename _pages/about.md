@@ -250,7 +250,7 @@ Note: The first author Biao Wu canceled my co-authorship during the second submi
 # 💼 Experiences
 - \[2024.09 - now\] <img src='files/mbzuai.png' style='width: 1.2em;'> MBZUAI (Supervisor: [Prof.Xiuying Chen](https://mbzuai.ac.ae/study/faculty/xiuying-chen/),topic:Trustworthy MLLMs)
 - \[2023.10 - 2025.02\] <img src='files/UTS.png' style='width: 1.2em;'> University of Technology Sydney, Research Intern (Supervisor: [Prof.Ling Chen](https://profiles.uts.edu.au/Ling.Chen) and [Prof.Meng Fang](https://mengfn.github.io/),topic: Multimodal Agents)
-- \[2023.03 - 2024.01\] <img src='files/NTU.png' style='width: 2.8em;'> Nanyang Technological University, Research Intern (Supervisor: [Prof.Dayan Guan](https://dayan-guan.github.io/),topic: Multimodal LLMs)
+- \[2023.03 - 2024.01\] <img src='files/ntu.png' style='width: 2.8em;'> Nanyang Technological University, Research Intern (Supervisor: [Prof.Dayan Guan](https://dayan-guan.github.io/),topic: Multimodal LLMs)
 
 
 # 🏆 Honors and Awards
