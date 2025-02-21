@@ -84,7 +84,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/benchlmm.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='files/BenchLMM.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 
@@ -101,7 +101,7 @@ Rizhao Cai\*, **Zirui Song\***, Dayan Guan, Zhenhao Chen, Yaohang Li, Xing Luo, 
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/medinst.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='files/MedINST.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
   [**MedINST: Meta Dataset of Biomedical Instructions**](https://arxiv.org/abs/2410.13458) ![Static Badge](https://img.shields.io/badge/EMNLP'2024-red)
@@ -160,7 +160,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/fuse.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='files/FUSE.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
   [**From a Tiny Slip to a Giant Leap: An LLM-Based Simulation for Fake News Evolution**](https://arxiv.org/abs/2410.19064) ![Static Badge](https://img.shields.io/badge/ARR2025-Submission-green)
