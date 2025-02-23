@@ -275,4 +275,5 @@ Note: The first author Biao Wu canceled my co-authorship during the second submi
 
 You can find my [full CV](files/CV_Zirui.pdf) here (Latest update: **Oct 14th, 2024**).
 
-<script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=Ca6TcKEKBfDCZisGng4G5iWOJYU6lXKk3BvcIe2062Y"></script>
+
+<script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk'></script>
