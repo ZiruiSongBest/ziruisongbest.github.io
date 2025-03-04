@@ -32,6 +32,9 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 >  I am very excited to discuss potential collaborations, please feel free to [contact me](ziruisong2003@gmail.com).
 
 # 💻 News
+
+<p style="color: purple; font-weight: bold;">
+2025-03-01: “I was admitted to the PhD program in the NLP department at <a href=""> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
 <p style="color: red; font-weight: bold;">
 2025-01-23: <a href="">One paper</a>  was accepted by NAACL 2025. </p>
 
