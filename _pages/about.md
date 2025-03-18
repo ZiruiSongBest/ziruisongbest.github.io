@@ -62,7 +62,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 # 📖 Educations
   <!-- * 2021.09->2023.06 : B.E.,<img src='files/NEU.png' style='width: 1.2em;'> Northeastern University(NEU) -->
   * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'> University of Technology Sydney(UTS) **WES: 3.93/4.00**
-  * 2025.08->2029.05 (Expected) :PhD, <img src='files/MBZUAI.png' style='width: 1.2em;'> Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)
+  * 2025.08->2029.05 (Expected) :PhD, <img src='files/mbzuai.png' style='width: 1.2em;'> Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)
 <!-- ### Proficiencies
       
 *   **WAM:87.6/100** (First Class Honors)  
