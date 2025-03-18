@@ -48,7 +48,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 <p style="color: red; font-weight: bold;">
 2024-07-01: <a href="">One paper</a>  was accepted by ECCV 2024. </p> 
 	
-2024-02-29: Prof. Ling Chen had accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute(AAII). <br>
+2023-11-29: Prof. Ling Chen had accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute(AAII). <br>
 2023-07-01: I am honored to be selected as an international exchange student majoring in Softawre Engineering at UTS. <br>
 2023-05-18: Prof. Dayan Guan had accepted me as a remote undergraduate research assistant at ROSE Lab. <br>
 <!-- 2022-04-11: Prof. Miao Fang had accepted me as an undergraduate research assistant at NEU-NLP Lab. <br> -->
