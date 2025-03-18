@@ -60,13 +60,13 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 - **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
 
 # 📖 Educations
-  * 2021.09->2023.06 : B.E.,<img src='files/NEU.png' style='width: 1.2em;'> Northeastern University(NEU)
-  * 2023.06->2025.07 (Expected) : B.E.,<img src='files/UTS.png' style='width: 1.2em;'> University of Technology Sydney(UTS)
-
-### Proficiencies
+  <!-- * 2021.09->2023.06 : B.E.,<img src='files/NEU.png' style='width: 1.2em;'> Northeastern University(NEU) -->
+  * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'> University of Technology Sydney(UTS) **WES: 3.93/4.00**
+  * 2025.08->2029.05 (Expected) :PhD, <img src='files/MBZUAI.png' style='width: 1.2em;'> Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)
+<!-- ### Proficiencies
       
 *   **WAM:87.6/100** (First Class Honors)  
-*   **WES: 3.93/4.00** 
+*   **WES: 3.93/4.00**  -->
 
 ### Skills
 * I have the necessary theoretical foundation and skills in AI/NLP research, including proficiency in deep learning frameworks (**PyTorch**, **TensorFlow**), training and evaluation techniques, and large-scale data management. 
