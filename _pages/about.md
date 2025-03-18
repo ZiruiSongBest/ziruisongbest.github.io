@@ -61,7 +61,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 📖 Educations
   <!-- * 2021.09->2023.06 : B.E.,<img src='files/NEU.png' style='width: 1.2em;'> Northeastern University(NEU) -->
-  * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'><a href="https://www.uts.edu.au/">University of Technology Sydney(UTS)</a>  QS Ranking: 88, U.S. News Ranking: 85 **GPA: 3.93/4.00**
+  * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'><a href="https://www.uts.edu.au/">University of Technology Sydney(UTS)</a>  QS Ranking: 88, U.S. News Ranking: 85. **GPA: 3.93/4.00**
   * 2025.08->2029.05 (Expected) :PhD, <img src='files/mbzuai.png' style='width: 1.2em;'><a href="https://www.mbzuai.ac.ae/">Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)</a>
 
 
