@@ -51,7 +51,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 2024-02-29: Prof. Ling Chen had accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute(AAII). <br>
 2023-07-01: I am honored to be selected as an international exchange student majoring in Softawre Engineering at UTS. <br>
 2023-05-18: Prof. Dayan Guan had accepted me as a remote undergraduate research assistant at ROSE Lab. <br>
-2022-04-11: Prof. Miao Fang had accepted me as an undergraduate research assistant at NEU-NLP Lab. <br>
+<!-- 2022-04-11: Prof. Miao Fang had accepted me as an undergraduate research assistant at NEU-NLP Lab. <br> -->
 
 
 
@@ -68,9 +68,9 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 *   **WAM:87.6/100** (First Class Honors)  
 *   **WES: 3.93/4.00**  -->
 
-### Skills
+<!-- ### Skills
 * I have the necessary theoretical foundation and skills in AI/NLP research, including proficiency in deep learning frameworks (**PyTorch**, **TensorFlow**), training and evaluation techniques, and large-scale data management. 
-* Also I have some experience in finetuning LLMs(**LLama**) and LVMs(**LLaVA, Qwen-VL**). 
+* Also I have some experience in finetuning LLMs(**LLama**) and LVMs(**LLaVA, Qwen-VL**).  -->
 
 
 
