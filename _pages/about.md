@@ -274,7 +274,7 @@ I learned the importance of balancing coding proficiency with broader research a
 
 # 📜 References
 
-You can find my [full CV](files/CV_Zirui.pdf) here (Latest update: **Oct 14th, 2024**).
+You can find my [full CV](https://github.com/ZiruiSongBest/ziruisongbest.github.io/blob/main/files/CV_zirui.pdf) here (Latest update: **Oct 14th, 2024**).
 
 
 <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk'></script>
