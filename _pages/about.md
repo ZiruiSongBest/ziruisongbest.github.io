@@ -256,7 +256,7 @@ Note: The first author Biao Wu canceled my co-authorship during the second submi
 
 
 
-# 📝 Reflections
+<!-- # 📝 Reflections
 During my recent internship at an AI lab, I collaborated with my colleagues, Yuxuan Ji and Yaohang Li, on developing a prototype NLP system aimed at automatically summarizing scientific articles. Our goal was to improve research efficiency by parsing vast amounts of literature and generating concise summaries for quick reference. I was responsible for designing and implementing key modules in Python, while Yuxuan and Yaohang handled data preprocessing and model fine-tuning. We held weekly milestone meetings to assess our progress and address obstacles in data collection, model selection, and system deployment.
 
 At first, I was both excited and a bit overwhelmed—this was the first time I applied my software engineering background in a project heavily focused on NLP. The idea of contributing to something that could genuinely benefit researchers worldwide thrilled me, but it also made me anxious about whether my technical decisions would meet the team’s high standards. Over time, my nervousness subsided, replaced by growing confidence and enthusiasm for our collaborative achievements.
@@ -268,7 +268,7 @@ One major challenge was handling large-scale text datasets. Our team initially u
 This experience underscored how integral communication is to interdisciplinary work. By sharing simplified diagrams of model workflows, we saved time explaining algorithmic details. Meanwhile, consistent feedback loops—both online and in person—ensured our design decisions were continuously refined. Ultimately, collaboration turned challenges into opportunities for learning, allowing each of us to contribute our strengths.
 
 I learned the importance of balancing coding proficiency with broader research awareness. Going forward, I plan to deepen my NLP knowledge by studying cutting-edge language models and to sharpen my communication skills—through regular presentations and technical writing—to better convey complex ideas. Moreover, I will proactively set clear objectives for each team discussion, ensuring that we remain focused and efficient. By blending strong technical foundations, open-minded collaboration, and structured communication, I believe I can make more impactful contributions to NLP research in the future.
-
+ -->
 
 
 
