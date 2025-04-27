@@ -29,7 +29,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 💻 News
 <p style="color: red; font-weight: bold;">
-2025-03-01: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
+2025-04-20: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
 <p style="color: purple; font-weight: bold;">
 2025-03-01: “I was admitted to the PhD program in the NLP department at <a href=""> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
 <p style="color: red; font-weight: bold;">
