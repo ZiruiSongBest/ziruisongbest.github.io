@@ -19,20 +19,17 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), a forth year Undergraduate at University of Technology Sydeny(UTS) majoring in Software Engineering. Also I am a visiting student supervised by <a href="https://scholar.google.com.au/citations?hl=en&user=COUnAF4AAAAJ&view_op=list_works&sortby=pubdate">Prof. Xiuying Chen</a> in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department . I have become a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), a forth year Undergraduate at University of Technology Sydeny(UTS) majoring in Software Engineering. Also I am a future PhD student(starting from August 2025) supervised by <a href="https://scholar.google.com.au/citations?hl=en&user=COUnAF4AAAAJ&view_op=list_works&sortby=pubdate">Prof. Xiuying Chen</a> in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department . I have become a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
 
 
 
-
-
-
-
->  I am very excited to discuss potential collaborations, please feel free to [contact me](ziruisong2003@gmail.com).
+ My supervisor, Prof. Xiuying Chen is looking for potential PhD students(with 3.5w RMB/month), Master Students(with 3.1w RMB/month) and Interns(1.6w RMB/month for undergraduates and masters. 2w RMB/month for PhD students). Feel free to contact [Prof. Chen](xiuying.cheng@mbzuai.ac.ae)  or [me](ziruisong2003@gmail.com) for more information.
 
 # 💻 News
-
+<p style="color: red; font-weight: bold;">
+2025-03-01: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
 <p style="color: purple; font-weight: bold;">
 2025-03-01: “I was admitted to the PhD program in the NLP department at <a href=""> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
 <p style="color: red; font-weight: bold;">
