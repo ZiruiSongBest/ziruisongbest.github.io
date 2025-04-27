@@ -25,7 +25,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 
 
- My supervisor, Prof. Xiuying Chen is looking for potential PhD students(with 3.5w RMB/month), Master Students(with 3.1w RMB/month) and Interns(1.6w RMB/month for undergraduates and masters. 2w RMB/month for PhD students). Feel free to contact [Prof. Chen](xiuying.cheng@mbzuai.ac.ae)  or [me](ziruisong2003@gmail.com) for more information.
+ My supervisor, Prof. Xiuying Chen is looking for potential PhD students(with 3.5w RMB/month), Master Students(with 3.1w RMB/month) and Interns(1.6w RMB/month for undergraduates and masters. 2w RMB/month for PhD students). All money are tax-free. Feel free to contact [Prof. Chen](xiuying.cheng@mbzuai.ac.ae)  or [me](ziruisong2003@gmail.com) for more information.
 
 # 💻 News
 <p style="color: red; font-weight: bold;">
