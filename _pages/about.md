@@ -19,7 +19,7 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), a forth year Undergraduate at University of Technology Sydeny(UTS) majoring in Software Engineering. Also I am a future PhD student(starting from August 2025) supervised by <a href="https://scholar.google.com.au/citations?hl=en&user=COUnAF4AAAAJ&view_op=list_works&sortby=pubdate">Prof. Xiuying Chen</a> in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department . I have become a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), a forth year Undergraduate at University of Technology Sydeny(UTS) majoring in Software Engineering. Also I am an incoming PhD student(starting from August 2025) supervised by <a href="https://scholar.google.com.au/citations?hl=en&user=COUnAF4AAAAJ&view_op=list_works&sortby=pubdate">Prof. Xiuying Chen</a> in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department . I have become a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
 
@@ -54,7 +54,9 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
     </div>
 </details>
 
+# Academic Service
 
+- **Reviewer**: NeurIPS 2025, ACM MM 2025, ACL 2025, NAACL 2025, IJCAI 2025, EMNLP 2024, 
 # 💡 Research Interest
 - **Multimodal AI**: My current research goal is to **integrate** multimodal information to improve the performance of large language models, at the same time, I am also seek for applications of multimodal models in **Geolocation** and **Embodied AI** domains.
 - **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
