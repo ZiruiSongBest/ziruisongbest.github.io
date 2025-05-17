@@ -28,24 +28,26 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
  My supervisor, Prof. Xiuying Chen is looking for potential PhD students(with 3.5w RMB/month), Master Students(with 3.1w RMB/month) and Interns(1.6w RMB/month for undergraduates and masters. 2w RMB/month for PhD students). All money are tax-free. Feel free to contact [Prof. Chen](xiuying.cheng@mbzuai.ac.ae)  or [me](ziruisong2003@gmail.com) for more information.
 
 # 💻 News
+ <p style="color: red; font-weight: bold;">
+2025-05-16: <a href="">One paper</a>  was accepted by ACL 2025.</p>
+<p style="color: red; font-weight: bold;">
+ 2025-04-20: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
+<p style="color: purple; font-weight: bold;">
+2025-03-01: “I was admitted to the PhD program in the NLP department at <a href=""> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
+<p style="color: red; font-weight: bold;">
+2025-01-23: <a href="">One paper</a>  was accepted by NAACL 2025. </p>
+<p style="color: red; font-weight: bold;">
+2025-01-02: <a href="">One paper</a>  was accepted by Communications Chemistry. </p>
+<p>2024-09-25: First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen. <br></p>
+<p style="color: red; font-weight: bold;">
+2024-09-20: <a href="">One paper</a>  was accepted by EMNLP 2024. </p>
+<p style="color: red; font-weight: bold;">
+2024-07-01: <a href="">One paper</a>  was accepted by ECCV 2024. </p>
+
 <details>
-    <summary style="font-weight: bold; cursor: pointer; margin-bottom: 10px;">💻 News (点击展开/折叠)</summary>
+    <summary style="font-weight: bold; cursor: pointer; margin-bottom: 10px;"> Click to expand </summary>
     <div>
-        <p style="color: red; font-weight: bold;">
-        2025-05-16: <a href="">One paper</a>  was accepted by ACL 2025.</p>
-        <p style="color: red; font-weight: bold;">
-        2025-04-20: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
-        <p style="color: purple; font-weight: bold;">
-        2025-03-01: “I was admitted to the PhD program in the NLP department at <a href=""> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
-        <p style="color: red; font-weight: bold;">
-        2025-01-23: <a href="">One paper</a>  was accepted by NAACL 2025. </p>
-        <p style="color: red; font-weight: bold;">
-        2025-01-02: <a href="">One paper</a>  was accepted by Communications Chemistry. </p>
-        <p>2024-09-25: First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen. <br></p>
-        <p style="color: red; font-weight: bold;">
-        2024-09-20: <a href="">One paper</a>  was accepted by EMNLP 2024. </p>
-        <p style="color: red; font-weight: bold;">
-        2024-07-01: <a href="">One paper</a>  was accepted by ECCV 2024. </p>
+
         <p>2023-11-29: Prof. Ling Chen had accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute(AAII). <br></p>
         <p>2023-07-01: I am honored to be selected as an international exchange student majoring in Softawre Engineering at UTS. <br></p>
         <p>2023-05-18: Prof. Dayan Guan had accepted me as a remote undergraduate research assistant at ROSE Lab. <br></p>
