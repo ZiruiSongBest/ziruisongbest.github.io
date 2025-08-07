@@ -29,9 +29,9 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 💻 News
  <p style="color: black; font-weight: bold;">
-2025-07-25: I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours</p>
- <p style="color: black; font-weight: bold;">
-2025-07-06: I won the Dean's List 2025 prize from UTS</p>
+2025-07-25: I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours<br></p>
+ <p 
+2025-07-06: I won the Dean's List 2025 prize from UTS<br></p>
  <p style="color: red; font-weight: bold;">
 2025-07-02: <a href="">One paper</a>  was accepted by ECAI 2026.</p>
  <p style="color: red; font-weight: bold;">
