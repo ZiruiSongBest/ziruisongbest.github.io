@@ -19,7 +19,7 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), a forth year Undergraduate at University of Technology Sydeny(UTS) majoring in Software Engineering. Also I am an incoming PhD student(starting from August 2025) in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department . I have become a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first year PhD student in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department. I got my Bachelor of Engineering (Honours) degree in Software Engineering  with first class honours from University of Technology Sydeny(UTS).  Before that, I am a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
 
@@ -28,6 +28,10 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
  
 
 # 💻 News
+ <p style="color: black; font-weight: bold;">
+2025-07-25: I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours</p>
+ <p style="color: black; font-weight: bold;">
+2025-07-06: I won the Dean's List 2025 prize from UTS</p>
  <p style="color: red; font-weight: bold;">
 2025-07-02: <a href="">One paper</a>  was accepted by ECAI 2026.</p>
  <p style="color: red; font-weight: bold;">
