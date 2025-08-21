@@ -19,7 +19,7 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first year PhD student in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department. I got my Bachelor of Engineering (Honours) degree in Software Engineering  with first class honours from University of Technology Sydeny(UTS).  Before that, I am a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first year PhD student in <a href="https://www.mbzuai.ac.ae">MBZUAI</a> NLP department. I got my Bachelor of Engineering (Honours) degree in Software Engineering  with first class honours from University of Technology Sydeny(UTS). Also I am visiting student in MBZUAI NLP department under the supervision of <a href="https://profiles.mbzuai.ac.ae/Xiuying.Chen">Prof. Xiuying Chen</a>. Before that, I am a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I am fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
 
