@@ -63,7 +63,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # Academic Service
 
-- **Reviewer**: NeurIPS 2025, ACM MM 2025, ACL 2025, NAACL 2025, ICME 2025,IJCAI 2025, EMNLP 2024, 
+- **Reviewer**:  AAAI 2026, EMNLP 2025, COLM 2025, ACM MM 2025, NeurIPS 2025, ACL 2025, NAACL 2025, ICME 2025,IJCAI 2025, EMNLP 2024, 
 # 💡 Research Interest
 - **Multimodal AI**: My current research goal is to **integrate** multimodal information to improve the performance of large language models, at the same time, I am also seek for applications of multimodal models in **Geolocation** and **Embodied AI** domains.
 - **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
