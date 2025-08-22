@@ -140,7 +140,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/geolocation.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><img src='files/geolocation.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
   [**Geolocation with Real Human Gameplay Data: A Large-Scale Dataset and Human-Like Reasoning Framework**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/AAAI2026_submission-red)
@@ -152,7 +152,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 *"We introduce a comprehensive geolocation framework with three key components: GeoComp, a large-scale dataset; GeoCoT, a novel reasoning method; and GeoEval, an evaluation metric, collectively designed to address critical challenges and drive advancements in geolocation research. At the core of this framework is GeoComp (Geolocation Competition Dataset), a large-scale dataset collected from a geolocation game platform involving 740K users over two years. It comprises 25 million entries of metadata and 3 million geo-tagged locations spanning much of the globe"* 
 
 </div>
-</div>
+</div> -->
 
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/InjectionSurvey.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -190,7 +190,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/PedDet.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-  [**PedDet: Adaptive Spectral Optimization for Multimodal Pedestrian Detection**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/IJCAI2025-submission-green)
+  [**PedDet: Adaptive Spectral Optimization for Multimodal Pedestrian Detection**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/ECAI2026-red)
 
 
  Rui Zhao\*, Zeyu Zhang\*, Yi Xu, Yi Yao, Yan Huang, Wenxin Zhang, **Zirui Song**, Xiuying Chen, Yang Zhao
@@ -207,12 +207,6 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 
 
 
-
-
-
-
-
-
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/MobileAgent.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -222,9 +216,8 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
  Biao Wu\*, Yanda Li\*, Meng Fang, **Zirui Song**, Zhiwei Zhang, Yunchao Wei, Ling Chen
 (\*: first co-authors)
 
-*"Mobile agents are essential for automating tasks in complex and dynamic mobile environments. As foundation models evolve, the demands for agents that can adapt in real-time and process multimodal data have grown. This survey provides a comprehensive review of mobile agent technologies, focusing on recent advancements that enhance real-time adaptability and multimodal interaction."* 
-
 Note: The first author Biao Wu canceled my co-authorship during the second submission to ARR2025. And I have not received any explanation from him. But I think I still have credit for this work, and disagree with his decision.
+
 
 </div>
 </div>
