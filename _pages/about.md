@@ -143,7 +143,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/geolocation.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-  [**Geolocation with Real Human Gameplay Data: A Large-Scale Dataset and Human-Like Reasoning Framework**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/SIGIR2025-submission-green)
+  [**Geolocation with Real Human Gameplay Data: A Large-Scale Dataset and Human-Like Reasoning Framework**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/AAAI2026_submission-red)
 
 
  **Zirui Song\***, Jingpu Yang\*, Yuan Huang\*, Jonathan Tonglet, Zeyu Zhang, Tao Cheng, Meng Fang, Iryna Gurevych, Xiuying Chen
@@ -157,7 +157,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/InjectionSurvey.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-  [**Injecting Domain-Specific Knowledge into Large Language Models: A Comprehensive Survey**](https://arxiv.org/abs/2502.10708) ![Static Badge](https://img.shields.io/badge/IJCAI2025-submission-green)
+  [**Injecting Domain-Specific Knowledge into Large Language Models: A Comprehensive Survey**](https://arxiv.org/abs/2502.10708) ![Static Badge](https://img.shields.io/badge/EMNLP2025-red)
 
 
  **Zirui Song\***, Bin Yan\*, Yuhan Liu, Miao Fang, Mingzhe Li, Rui Yan, Xiuying Chen
@@ -173,7 +173,7 @@ Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **
 <div class='paper-box'><div class='paper-box-image'><div><img src='files/FUSE.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-  [**From a Tiny Slip to a Giant Leap: An LLM-Based Simulation for Fake News Evolution**](https://arxiv.org/abs/2410.19064) ![Static Badge](https://img.shields.io/badge/ARR2025-Submission-green)
+  [**From a Tiny Slip to a Giant Leap: An LLM-Based Simulation for Fake News Evolution**](https://arxiv.org/abs/2410.19064) ![Static Badge](https://img.shields.io/badge/EMNLP2025-red)
 
 
  Yuhan Liu,**Zirui Song**, Xiaoqing Zhang, Xiuying Chen, Rui Yan
