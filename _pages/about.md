@@ -31,7 +31,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
  <p style="color: red; font-weight: bold;">
 2025-09-19: <a href="">One paper</a>  was accepted by NeurIPS 2026.</p>
  <p style="color: red; font-weight: bold;">
-2025-08-21: <a href="">3 papers</a> were accepted by EMNLP 2025. One is oral.</p>
+2025-08-21: <a href="">3 papers (1 oral)</a> were accepted by EMNLP 2025.</p>
  <p>
 2025-07-25: I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours<br></p>
  <p style="color: black; font-weight: bold;">
