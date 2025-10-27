@@ -19,7 +19,8 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first-year PhD student in the NLP department at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>, supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and  <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/"> Prof. Xiaojun Chang </a>. I received my Bachelor of Engineering (Honours) in Software Engineering with first-class honours from the University of Technology Sydney (UTS). Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I was fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first-year PhD student in the NLP department at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>, supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and  <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/"> Prof. Xiaojun Chang </a>. I received my Bachelor of Engineering (Honours) in Software Engineering with first-class honours from the University of Technology Sydney (UTS). 
+ Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I was fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
 
@@ -65,7 +66,8 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # Academic Service
 
-- **Reviewer**:  AAAI 2026, EMNLP 2025, COLM 2025, ACM MM 2025, NeurIPS 2025, ACL 2025, NAACL 2025, ICME 2025,IJCAI 2025, EMNLP 2024, 
+- **Conference Reviewer**:  EACL 2026,AAAI 2026, EMNLP 2025, COLM 2025, ACM MM 2025, NeurIPS 2025, ACL 2025, NAACL 2025, ICME 2025,IJCAI 2025, EMNLP 2024, 
+- **Journal Reviewer**:  IEEE Transactions on Artificial Intelligence (TAI)
 # 💡 Research Interest
 - **Multimodal AI**: My current research goal is to **integrate** multimodal information to improve the performance of large language models, at the same time, I am also seek for applications of multimodal models in **Geolocation** and **Embodied AI** domains.
 - **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
