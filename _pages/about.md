@@ -30,6 +30,8 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 💻 News
  <p style="color: red; font-weight: bold;">
+2025-11-08: <a href="">One paper</a>  was accepted by AAAI 2026.</p>
+ <p style="color: red; font-weight: bold;">
 2025-09-19: <a href="">One paper</a>  was accepted by NeurIPS 2026.</p>
  <p style="color: red; font-weight: bold;">
 2025-08-21: <a href="">3 papers (1 oral)</a> were accepted by EMNLP 2025.</p>
