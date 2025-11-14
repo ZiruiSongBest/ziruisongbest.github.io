@@ -19,7 +19,7 @@ redirect_from:
 
 [//]: # ()
 [//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first-year PhD student in the NLP department at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>, supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and  <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/"> Prof. Xiaojun Chang </a>. I received my Bachelor of Engineering (Honours) in Software Engineering with first-class honours from the University of Technology Sydney (UTS). 
+Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first-year PhD student in the NLP department at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>, supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and  <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/"> Prof. Xiaojun Chang </a>. I received my Bachelor of Engineering (Honours) in Software Engineering with first-class honours from the University of Technology Sydney (UTS). Also I got the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize(Top 2% of students)</a> from UTS.
  Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I was fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
 I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
 
