@@ -30,7 +30,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 💻 News
  <p style="color: red; font-weight: bold;">
-2026-04-07: <a href="">6 papers (1 oral)</a>  were accepted by ACL 2026. </p>
+2026-04-07: <a href="">6 papers (1 oral)</a> were accepted by ACL 2026. </p>
  <p style="color: red; font-weight: bold;">
 2025-11-08: <a href="">One paper</a> was accepted by AAAI 2026.</p>
  <p style="color: red; font-weight: bold;">
