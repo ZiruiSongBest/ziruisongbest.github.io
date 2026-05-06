@@ -29,6 +29,9 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
  
 
 # 💻 News
+
+ <p style="color: red; font-weight: bold;">
+2026-04-29: <a href="">2 papers </a> were accepted by ICML 2026. </p>
  <p style="color: red; font-weight: bold;">
 2026-04-07: <a href="">6 papers (1 oral)</a> were accepted by ACL 2026. </p>
  <p style="color: red; font-weight: bold;">
@@ -78,7 +81,7 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 - **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
 
 # 📖 Educations
-  <!-- * 2021.09->2023.06 : B.E.,<img src='files/NEU.png' style='width: 1.2em;'> Northeastern University(NEU) -->
+
   * 2025.08->2029.05 (Expected) :PhD, <img src='files/mbzuai.png' style='width: 1.2em;'><a href="https://www.mbzuai.ac.ae/">Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)</a>
   
   * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'><a href="https://www.uts.edu.au/">University of Technology Sydney(UTS)</a>  QS Ranking: 88, U.S. News Ranking: 85. **GPA: 3.90/4.00**
@@ -87,149 +90,48 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 
 
-# 📝 Publications 
+# Now
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/AnomalyGen.jpg' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+First year of the PhD. The desert keeps its own hours, and so do I.
 
- [**Hazards in Daily Life? Enabling Robots to Proactively Detect and Resolve Anomalies**](https://arxiv.org/abs/2411.00781) ![Static Badge](https://img.shields.io/badge/NAACL'2025-red)
+Lately I have been circling one question: what does it mean for a model to
+*understand* the world it has been shown. Not the act of prediction (we have
+plenty of that), but the quieter thing underneath. Whether it knows where it
+stands. Whether it can tell when it is wrong. Whether, given a photograph of a
+street it has never seen, it can reason its way home.
 
+Most of what I work on lives near this question. Multimodal reasoning.
+Geolocation. Embodied agents that must act in places they have never been. The
+trust we extend, or refuse, to what a model claims it sees. I keep walking into
+the same room through different doors.
 
-**Zirui Song\***, Guangxian Ouyang\*, Meng Fang, Hongbin Na, Zijing Shi, Zhenhao Chen, Yujie Fu, Zeyu Zhang, Shiyu Jiang, Miao Fang, Ling Chen, Xiuying Chen
-(\*: first co-authors)
+I read more than I write. I rewrite more than I publish. Some of the papers
+listed under my name belong to a younger version of me, and I am still learning
+how to be honest about that.
 
+I have never loved being alive this much. New cities. New languages overheard
+on the bus. New collaborators who became friends before they became coauthors.
+I owe the courage of this season to the UAE Government Scholarship, which let
+me walk through doors I had only read about. I do not take that lightly.
 
-*"AnomalyGen : A framework of anomaly vitrual scene data generation without human annotation, to enhance the robustness of robots."*
-</div>
-</div>
+What I am holding this season:
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/BenchLMM.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+- a draft I do not yet know how to finish
+- a suspicion that our benchmarks have been answering the wrong question
+- a quiet thank-you to the people who wrote back to me when I was an
+  undergraduate and unsure of everything
 
+The plan, if it can be called one, is to stay here long enough to plant
+something. The desert is not empty; it is patient. I would like to grow a small
+oasis on it, the slow kind, one paper, one student, one honest conversation at
+a time.
 
- [**BenchLMM: Benchmarking Cross-style Visual Capability of Large Multimodal Models**](https://link.springer.com/chapter/10.1007/978-3-031-72973-7_20)![Static Badge](https://img.shields.io/badge/ECCV'2024-red)
+If you are working on something you cannot let go of, I would like to hear
+about it. My inbox is mostly quiet after midnight.
 
-Rizhao Cai\*, **Zirui Song\***, Dayan Guan, Zhenhao Chen, Yaohang Li, Xing Luo, Chenyu Yi & Alex Kot
-(\*: first co-authors)
+*Last updated: May 2026.*
 
-*"BenchLMM: A novel, comprehensive benchmark, specifically designed to investigate the cross-style capability of Large Multimodal Models (LMMs)."*
 
-[**Toolkit & Code**](https://github.com/AIFEG/BenchLMM) [![](https://img.shields.io/github/stars/AIFEG/BenchLMM)](https://github.com/AIFEG/BenchLMM)
-</div>
-</div>
-
-
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/MedINST.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**MedINST: Meta Dataset of Biomedical Instructions**](https://arxiv.org/abs/2410.13458) ![Static Badge](https://img.shields.io/badge/EMNLP'2024-red)
-
-
-  Wenhan Han, Meng Fang, Zihan Zhang, Yu Yin, **Zirui Song**, Ling Chen, Mykola Pechenizkiy, Qingyu Chen
-
-*"MedINST, the Meta Dataset of Biomedical Instructions, a novel multi-domain, multi-task instructional meta-dataset. MedINST comprises 133 biomedical NLP tasks and over 7 million training samples."* 
-
-</div>
-</div>
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/scholarQA.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[**Unveiling the power of language models in chemical research question answering**](https://www.nature.com/articles/s42004-024-01394-x) ![Static Badge](https://img.shields.io/badge/Communications_Chemistry-red)
-
-  
-Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, **Zirui Song**, Xin Gao & Xiangliang Zhang 
-
-*"ScholarChemQA, a large-scale QA dataset constructed from chemical papers."*
-[**Code**](https://github.com/iriscxy/chemmatch)
-</div>
-</div>
-
-
-
-
-<!-- <div class='paper-box'><div class='paper-box-image'><div><img src='files/geolocation.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**Geolocation with Real Human Gameplay Data: A Large-Scale Dataset and Human-Like Reasoning Framework**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/AAAI2026_submission-red)
-
-
- **Zirui Song\***, Jingpu Yang\*, Yuan Huang\*, Jonathan Tonglet, Zeyu Zhang, Tao Cheng, Meng Fang, Iryna Gurevych, Xiuying Chen
-(\*: first co-authors)
-
-*"We introduce a comprehensive geolocation framework with three key components: GeoComp, a large-scale dataset; GeoCoT, a novel reasoning method; and GeoEval, an evaluation metric, collectively designed to address critical challenges and drive advancements in geolocation research. At the core of this framework is GeoComp (Geolocation Competition Dataset), a large-scale dataset collected from a geolocation game platform involving 740K users over two years. It comprises 25 million entries of metadata and 3 million geo-tagged locations spanning much of the globe"* 
-
-</div>
-</div> -->
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/InjectionSurvey.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**Injecting Domain-Specific Knowledge into Large Language Models: A Comprehensive Survey**](https://arxiv.org/abs/2502.10708) ![Static Badge](https://img.shields.io/badge/EMNLP2025-red)
-
-
- **Zirui Song\***, Bin Yan\*, Yuhan Liu, Miao Fang, Mingzhe Li, Rui Yan, Xiuying Chen
-(\*: first co-authors)
-
-*"LLMs general-purpose nature often limits their effectiveness in domain-specific applications that require specialized knowledge, such as healthcare, chemistry, or legal analysis. To address this, researchers have explored diverse methods to enhance LLMs by integrating domain-specific knowledge. In this survey, we provide a comprehensive overview of these methods, which we categorize into four key approaches: dynamic knowledge injection, static knowledge embedding, modular adapters, and prompt optimization."* 
-
-</div>
-</div>
-
-
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/FUSE.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**From a Tiny Slip to a Giant Leap: An LLM-Based Simulation for Fake News Evolution**](https://arxiv.org/abs/2410.19064) ![Static Badge](https://img.shields.io/badge/EMNLP2025-red)
-
-
- Yuhan Liu,**Zirui Song**, Xiaoqing Zhang, Xiuying Chen, Rui Yan
-
-*"We take the first step toward simulating and revealing this evolution, proposing a Fake News evolUtion Simulation framEwork (FUSE) based on LLMs"* 
-
-</div>
-</div>
-
-
-
-
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/PedDet.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**PedDet: Adaptive Spectral Optimization for Multimodal Pedestrian Detection**](https://arxiv.org/abs/2502.13759) ![Static Badge](https://img.shields.io/badge/ECAI2026-red)
-
-
- Rui Zhao\*, Zeyu Zhang\*, Yi Xu, Yi Yao, Yan Huang, Wenxin Zhang, **Zirui Song**, Xiuying Chen, Yang Zhao
-(\*: first co-authors)
-
-*"PedDet, an adaptive spectral optimization complementarity framework specifically enhanced and optimized for multispectral pedestrian detection"* 
-
-</div>
-</div>
-
-
-
-
-
-
-
-<div class='paper-box'><div class='paper-box-image'><div><img src='files/MobileAgent.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-  [**Foundations and recent trends in multimodal mobile agents: A survey**](https://arxiv.org/abs/2411.02006) ![Static Badge](https://img.shields.io/badge/ARR2025-submission-green)
-
-
- Biao Wu\*, Yanda Li\*, Meng Fang, **Zirui Song**, Zhiwei Zhang, Yunchao Wei, Ling Chen
-(\*: first co-authors)
-
-Note: The first author Biao Wu canceled my co-authorship during the second submission to ARR2025. And I have not received any explanation from him. But I think I still have credit for this work, and disagree with his decision.
-
-
-</div>
-</div>
 
 
 
