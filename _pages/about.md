@@ -77,6 +77,10 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
   <div class="service-row">
     <div class="service-title">Conference Reviewer</div>
     <div class="service-tags" aria-label="Conference reviewer venues">
+      <span class="service-tag">NeurIPS 2027</span>
+      <span class="service-tag">ICML 2026</span>
+      <span class="service-tag">ACL 2026</span>
+      <span class="service-tag">ECCV 2026</span>
       <span class="service-tag">EACL 2026</span>
       <span class="service-tag">ICLR 2026</span>
       <span class="service-tag">AAAI 2026</span>
