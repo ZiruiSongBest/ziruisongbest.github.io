@@ -349,6 +349,78 @@ h1:before, .anchor:before {
     line-height: 1.45;
 }
 
+.now-section {
+    margin: 0.75em 0 1.6em;
+    padding: 0.2em 0 0.25em;
+}
+
+.now-lead {
+    margin: 0 0 0.9em;
+    padding: 0.75em 0.95em;
+    border-left: 3px solid rgba($info-color, 0.72);
+    border-radius: 0 6px 6px 0;
+    background: rgba($info-color, 0.055);
+    color: mix(#000, $text-color, 12%);
+    font-size: 1.02em;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.now-prose p {
+    margin-bottom: 0.85em;
+    color: mix(#000, $text-color, 5%);
+    font-size: 0.98em;
+    line-height: 1.72;
+}
+
+.now-focus {
+    margin: 1em 0 1.1em;
+    padding: 0.85em 1em;
+    border: 1px solid rgba($warning-color, 0.18);
+    border-left: 3px solid rgba($warning-color, 0.72);
+    border-radius: 0 7px 7px 0;
+    background: rgba($warning-color, 0.055);
+}
+
+.now-focus-title {
+    margin-bottom: 0.45em;
+    color: mix(#000, $warning-color, 45%);
+    font-family: $helvetica;
+    font-size: 0.82em;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.now-focus ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+.now-focus li {
+    margin-bottom: 0.35em;
+    line-height: 1.55;
+}
+
+.now-focus li:last-child {
+    margin-bottom: 0;
+}
+
+.now-updated {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.9em;
+    margin-top: 0.15em;
+    padding: 0.16em 0.65em;
+    border: 1px solid rgba($gray, 0.18);
+    border-radius: 999px;
+    background: rgba($gray, 0.06);
+    color: mix(#000, $gray, 16%);
+    font-family: $helvetica;
+    font-size: 0.74em;
+    font-weight: 700;
+}
+
 .award-list {
     display: grid;
     gap: 0.55em;
@@ -409,5 +481,10 @@ h1:before, .anchor:before {
 
     .timeline-title {
         align-items: flex-start;
+    }
+
+    .now-lead,
+    .now-focus {
+        padding: 0.75em 0.85em;
     }
 }

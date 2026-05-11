@@ -194,44 +194,36 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # Now
 
-First year of the PhD. The desert keeps its own hours, and so do I.
+<div class="now-section">
+  <p class="now-lead">First year of the PhD. The desert keeps its own hours, and so do I.</p>
 
-Lately I have been circling one question: what does it mean for a model to
-*understand* the world it has been shown. Not the act of prediction (we have
-plenty of that), but the quieter thing underneath. Whether it knows where it
-stands. Whether it can tell when it is wrong. Whether, given a photograph of a
-street it has never seen, it can reason its way home.
+  <div class="now-prose">
+    <p>Lately I have been circling one question: what does it mean for a model to <em>understand</em> the world it has been shown. Not the act of prediction (we have plenty of that), but the quieter thing underneath. Whether it knows where it stands. Whether it can tell when it is wrong. Whether, given a photograph of a street it has never seen, it can reason its way home.</p>
 
-Most of what I work on lives near this question. Multimodal reasoning.
-Geolocation. Embodied agents that must act in places they have never been. The
-trust we extend, or refuse, to what a model claims it sees. I keep walking into
-the same room through different doors.
+    <p>Most of what I work on lives near this question. Multimodal reasoning. Geolocation. Embodied agents that must act in places they have never been. The trust we extend, or refuse, to what a model claims it sees. I keep walking into the same room through different doors.</p>
 
-I read more than I write. I rewrite more than I publish. Some of the papers
-listed under my name belong to a younger version of me, and I am still learning
-how to be honest about that.
+    <p>I read more than I write. I rewrite more than I publish. Some of the papers listed under my name belong to a younger version of me, and I am still learning how to be honest about that.</p>
 
-I have never loved being alive this much. New cities. New languages overheard
-on the bus. New collaborators who became friends before they became coauthors.
-I owe the courage of this season to the UAE Government Scholarship, which let
-me walk through doors I had only read about. I do not take that lightly.
+    <p>I have never loved being alive this much. New cities. New languages overheard on the bus. New collaborators who became friends before they became coauthors. I owe the courage of this season to the UAE Government Scholarship, which let me walk through doors I had only read about. I do not take that lightly.</p>
+  </div>
 
-What I am holding this season:
+  <div class="now-focus">
+    <div class="now-focus-title">What I am holding this season</div>
+    <ul>
+      <li>a draft I do not yet know how to finish</li>
+      <li>a suspicion that our benchmarks have been answering the wrong question</li>
+      <li>a quiet thank-you to the people who wrote back to me when I was an undergraduate and unsure of everything</li>
+    </ul>
+  </div>
 
-- a draft I do not yet know how to finish
-- a suspicion that our benchmarks have been answering the wrong question
-- a quiet thank-you to the people who wrote back to me when I was an
-  undergraduate and unsure of everything
+  <div class="now-prose">
+    <p>The plan, if it can be called one, is to stay here long enough to plant something. The desert is not empty; it is patient. I would like to grow a small oasis on it, the slow kind, one paper, one student, one honest conversation at a time.</p>
 
-The plan, if it can be called one, is to stay here long enough to plant
-something. The desert is not empty; it is patient. I would like to grow a small
-oasis on it, the slow kind, one paper, one student, one honest conversation at
-a time.
+    <p>If you are working on something you cannot let go of, I would like to hear about it. My inbox is mostly quiet after midnight.</p>
+  </div>
 
-If you are working on something you cannot let go of, I would like to hear
-about it. My inbox is mostly quiet after midnight.
-
-*Last updated: May 2026.*
+  <div class="now-updated">Last updated: May 2026</div>
+</div>
 
 
 
