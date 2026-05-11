@@ -30,45 +30,89 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 
 # 💻 News
 
- <p style="color: red; font-weight: bold;">
-2026-04-29: <a href="">2 papers </a> were accepted by ICML 2026. </p>
- <p style="color: red; font-weight: bold;">
-2026-04-07: <a href="">6 papers (1 oral)</a> were accepted by ACL 2026. </p>
- <p style="color: red; font-weight: bold;">
-2025-11-08: <a href="">One paper</a> was accepted by AAAI 2026.</p>
- <p style="color: red; font-weight: bold;">
-2025-09-19: <a href="">One paper</a> was accepted by NeurIPS 2026.</p>
- <p style="color: red; font-weight: bold;">
-2025-08-21: <a href="">3 papers (1 oral)</a> were accepted by EMNLP 2025.</p>
- <p>
-2025-07-25: I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours<br></p>
- <p style="color: black; font-weight: bold;">
-2025-07-06: I won the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize(Top 2% of students)</a> from UTS<br></p>
- <p style="color: red; font-weight: bold;">
-2025-07-02: <a href="">One paper</a>  was accepted by ECAI 2026.</p>
- <p style="color: red; font-weight: bold;">
-2025-05-16: <a href="">One paper</a>  was accepted by ACL 2025.</p>
-<p style="color: red; font-weight: bold;">
- 2025-04-20: <a href="">One paper</a>  was accepted by Nature Computational Science.</p>
-<p>2025-03-01: “<a href="https://www.mbzuai.ac.ae"> MBZUAI</a>, where I will commence my PhD studies in August 2025 here.”</p>
-<p style="color: red; font-weight: bold;">
-2025-01-23: <a href="">One paper</a>  was accepted by NAACL 2025. </p>
-<p style="color: red; font-weight: bold;">
-2025-01-02: <a href="">One paper</a>  was accepted by Communications Chemistry. </p>
-<p>2024-09-25: First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen. <br></p>
-<p style="color: red; font-weight: bold;">
-2024-09-20: <a href="">One paper</a>  was accepted by EMNLP 2024. </p>
-<p style="color: red; font-weight: bold;">
-2024-07-01: <a href="">One paper</a>  was accepted by ECCV 2024. </p>
+<div class="news-timeline">
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2026-04-29</div>
+    <div class="news-text"><a href="">2 papers</a> were accepted by <span class="news-venue">ICML 2026</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2026-04-07</div>
+    <div class="news-text"><a href="">6 papers (1 oral)</a> were accepted by <span class="news-venue">ACL 2026</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-11-08</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">AAAI 2026</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-09-19</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">NeurIPS 2026</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-08-21</div>
+    <div class="news-text"><a href="">3 papers (1 oral)</a> were accepted by <span class="news-venue">EMNLP 2025</span>.</div>
+  </div>
+  <div class="news-item">
+    <div class="news-date">2025-07-25</div>
+    <div class="news-text">I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours.</div>
+  </div>
+  <div class="news-item news-item--award">
+    <div class="news-date">2025-07-06</div>
+    <div class="news-text">I won the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize (Top 2% of students)</a> from UTS.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-07-02</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">ECAI 2026</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-05-16</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">ACL 2025</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-04-20</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">Nature Computational Science</span>.</div>
+  </div>
+  <div class="news-item">
+    <div class="news-date">2025-03-01</div>
+    <div class="news-text"><a href="https://www.mbzuai.ac.ae">MBZUAI</a>, where I will commence my PhD studies in August 2025.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-01-23</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">NAACL 2025</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2025-01-02</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">Communications Chemistry</span>.</div>
+  </div>
+  <div class="news-item">
+    <div class="news-date">2024-09-25</div>
+    <div class="news-text">First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2024-09-20</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">EMNLP 2024</span>.</div>
+  </div>
+  <div class="news-item news-item--highlight">
+    <div class="news-date">2024-07-01</div>
+    <div class="news-text"><a href="">One paper</a> was accepted by <span class="news-venue">ECCV 2024</span>.</div>
+  </div>
+</div>
 
 <details>
-    <summary style="font-weight: bold; cursor: pointer; margin-bottom: 10px;"> Click to expand </summary>
-    <div>
-
-        <p>2023-11-29: Prof. Ling Chen had accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute(AAII). <br></p>
-        <p>2023-07-01: I am honored to be selected as an international exchange student majoring in Softawre Engineering at UTS. <br></p>
-        <p>2023-05-18: Prof. Dayan Guan had accepted me as a remote undergraduate research assistant at ROSE Lab. <br></p>
+  <summary class="archive-summary">Earlier news</summary>
+  <div class="news-timeline news-timeline--archive">
+    <div class="news-item">
+      <div class="news-date">2023-11-29</div>
+      <div class="news-text">Prof. Ling Chen accepted me as an undergraduate research assistant at Australia Artificial Intelligence Institute (AAII).</div>
     </div>
+    <div class="news-item">
+      <div class="news-date">2023-07-01</div>
+      <div class="news-text">I was selected as an international exchange student majoring in Software Engineering at UTS.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2023-05-18</div>
+      <div class="news-text">Prof. Dayan Guan accepted me as a remote undergraduate research assistant at ROSE Lab.</div>
+    </div>
+  </div>
 </details>
 
 # 🤝 Academic Service
@@ -105,18 +149,48 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
 </div>
   
 # 💡 Research Interest
-- **Multimodal AI**: My current research goal is to **integrate** multimodal information to improve the performance of large language models, at the same time, I am also seek for applications of multimodal models in **Geolocation** and **Embodied AI** domains.
-- **Trustworthy AI**: I am also highly interested and experienced in exploring the *Jailbreak* and *attack* issues of Multimodal Language Models, particularly in the **Vision and Audio** modalities.
+
+<div class="interest-grid">
+  <div class="interest-card">
+    <div class="interest-title">Multimodal AI</div>
+    <p>My current research goal is to integrate multimodal information to improve the performance of large language models, with applications in geolocation and embodied AI.</p>
+    <div class="interest-tags">
+      <span>MLLMs</span>
+      <span>Geolocation</span>
+      <span>Embodied AI</span>
+      <span>World Understanding</span>
+    </div>
+  </div>
+  <div class="interest-card">
+    <div class="interest-title">Trustworthy AI</div>
+    <p>I am also interested in jailbreak and attack issues of multimodal language models, particularly in vision and audio modalities.</p>
+    <div class="interest-tags">
+      <span>Jailbreak</span>
+      <span>Vision Safety</span>
+      <span>Audio Safety</span>
+      <span>Robustness</span>
+    </div>
+  </div>
+</div>
 
 # 📖 Educations
 
-  * 2025.08->2029.05 (Expected) :PhD, <img src='files/mbzuai.png' style='width: 1.2em;'><a href="https://www.mbzuai.ac.ae/">Mohamed Bin Zayed University of Artificial Intelligence(MBZUAI)</a>
-  
-  * 2021.06->2025.05: B.E.,<img src='files/UTS.png' style='width: 1.2em;'><a href="https://www.uts.edu.au/">University of Technology Sydney(UTS)</a>  QS Ranking: 88, U.S. News Ranking: 85. **GPA: 3.90/4.00**
-
-
-
-
+<div class="profile-timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2025.08 - 2029.05</div>
+    <div class="timeline-body">
+      <div class="timeline-title"><img src='files/mbzuai.png' alt='MBZUAI' /> PhD, Mohamed Bin Zayed University of Artificial Intelligence</div>
+      <div class="timeline-meta">Expected · NLP Department</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2021.06 - 2025.05</div>
+    <div class="timeline-body">
+      <div class="timeline-title"><img src='files/UTS.png' alt='UTS' /> B.E. (Honours), University of Technology Sydney</div>
+      <div class="timeline-meta">Software Engineering · GPA: 3.90/4.00 · QS Ranking: 88 · U.S. News Ranking: 85</div>
+    </div>
+  </div>
+</div>
 
 # Now
 
@@ -178,14 +252,44 @@ about it. My inbox is mostly quiet after midnight.
 
 
 # 💼 Experiences
-- \[2024.09 - now\] <img src='files/mbzuai.png' style='width: 1.2em;'> MBZUAI (Supervisor: [Prof.Xiuying Chen](https://mbzuai.ac.ae/study/faculty/xiuying-chen/),topic:Trustworthy MLLMs)
-- \[2023.10 - 2025.02\] <img src='files/UTS.png' style='width: 1.2em;'> University of Technology Sydney, Research Intern (Supervisor: [Prof.Ling Chen](https://profiles.uts.edu.au/Ling.Chen) and [Prof.Meng Fang](https://mengfn.github.io/),topic: Multimodal Agents)
-- \[2023.03 - 2024.01\] <img src='files/ntu.png' style='width: 2.8em;'> Nanyang Technological University, Research Intern (Supervisor: [Prof.Dayan Guan](https://dayan-guan.github.io/),topic: Multimodal LLMs)
+
+<div class="profile-timeline">
+  <div class="timeline-item">
+    <div class="timeline-date">2024.09 - now</div>
+    <div class="timeline-body">
+      <div class="timeline-title"><img src='files/mbzuai.png' alt='MBZUAI' /> MBZUAI</div>
+      <div class="timeline-meta">Supervisor: <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> · Topic: Trustworthy MLLMs</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2023.10 - 2025.02</div>
+    <div class="timeline-body">
+      <div class="timeline-title"><img src='files/UTS.png' alt='UTS' /> University of Technology Sydney</div>
+      <div class="timeline-meta">Research Intern · Supervisors: <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and <a href="https://mengfn.github.io/">Prof. Meng Fang</a> · Topic: Multimodal Agents</div>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-date">2023.03 - 2024.01</div>
+    <div class="timeline-body">
+      <div class="timeline-title"><img src='files/ntu.png' alt='NTU' /> Nanyang Technological University</div>
+      <div class="timeline-meta">Research Intern · Supervisor: <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a> · Topic: Multimodal LLMs</div>
+    </div>
+  </div>
+</div>
 
 
 # 🏆 Honors and Awards
-- 🥈 **Silver Medal**, Kaggle - LLM Science Exam [51/2664], 2024
-- 🥇 **School Second Class Scholarship**，2022
+
+<div class="award-list">
+  <div class="award-item">
+    <span class="award-medal">🥈</span>
+    <span><strong>Silver Medal</strong>, Kaggle - LLM Science Exam [51/2664], 2024</span>
+  </div>
+  <div class="award-item">
+    <span class="award-medal">🥇</span>
+    <span><strong>School Second Class Scholarship</strong>, 2022</span>
+  </div>
+</div>
 
 
 # 📚 Resources
