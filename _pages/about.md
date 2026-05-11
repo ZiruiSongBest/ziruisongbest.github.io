@@ -18,7 +18,9 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 <div class="intro-panel">
-  <p class="intro-lead">Hi 👋, I'm <strong>Zirui Song</strong> <span class="intro-pronunciation">/ˈziːˌruː.i/ /sɔːŋ/</span>, a first-year PhD student in NLP at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>.</p>
+  <div class="intro-kicker">NLP · Multimodal AI · MBZUAI</div>
+  <h1 class="intro-name">Zirui Song</h1>
+  <p class="intro-lead">First-year PhD student in NLP at <a href="https://www.mbzuai.ac.ae">Mohamed Bin Zayed University of Artificial Intelligence</a> <span class="intro-pronunciation">/ˈziːˌruː.i/ /sɔːŋ/</span></p>
 
   <div class="intro-tags">
     <span>PhD @ MBZUAI</span>
@@ -28,9 +30,18 @@ redirect_from:
     <span>Trustworthy MLLMs</span>
   </div>
 
-  <p>I am supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/">Prof. Xiaojun Chang</a>. I received my Bachelor of Engineering (Honours) in Software Engineering with First Class Honours from the University of Technology Sydney (UTS), where I also received the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize (Top 2% of students)</a>.</p>
+  <div class="intro-actions" aria-label="Primary profile links">
+    <a href="files/CV_zirui.pdf">CV</a>
+    <a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&hl=en">Google Scholar</a>
+    <a href="https://github.com/ZiruiSongBest">GitHub</a>
+    <a href="mailto:ziruisong2003@gmail.com">Email</a>
+  </div>
 
-  <p>Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023, where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>. I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.</p>
+  <div class="intro-copy">
+    <p>I am supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/">Prof. Xiaojun Chang</a>. I received my Bachelor of Engineering (Honours) in Software Engineering with First Class Honours from the University of Technology Sydney (UTS), where I also received the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize (Top 2% of students)</a>.</p>
+
+    <p>Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023, where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>. I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.</p>
+  </div>
 
   <div class="intro-current">Currently working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.</div>
 </div>
