@@ -107,3 +107,85 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.academic-service {
+    margin: 0.75em 0 1.5em;
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.28fr) 1fr;
+    gap: 0.6em 1.2em;
+    align-items: start;
+    padding: 0.85em 0;
+    border-bottom: 1px solid $border-color;
+}
+
+.service-row:first-child {
+    padding-top: 0.25em;
+}
+
+.service-row:last-child {
+    border-bottom: 0;
+}
+
+.service-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: mix(#000, $info-color, 15%);
+    font-family: $sans-serif;
+    font-size: 0.95em;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.service-title::before {
+    content: "";
+    display: inline-block;
+    width: 0.65em;
+    height: 0.65em;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: $info-color;
+    box-shadow: 0 0 0 4px rgba($info-color, 0.08);
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45em 0.5em;
+}
+
+.service-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2em;
+    padding: 0.24em 0.72em;
+    border: 1px solid rgba($info-color, 0.2);
+    border-radius: 999px;
+    background: rgba($info-color, 0.07);
+    color: mix(#000, $info-color, 18%);
+    font-family: $sans-serif;
+    font-size: 0.78em;
+    font-weight: 700;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.service-tag--journal {
+    border-color: rgba($success-color, 0.28);
+    background: rgba($success-color, 0.12);
+    color: mix(#000, $success-color, 42%);
+}
+
+@include breakpoint(max-width $small) {
+    .service-row {
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+    }
+
+    .service-tag {
+        white-space: normal;
+    }
+}

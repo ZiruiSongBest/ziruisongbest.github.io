@@ -71,10 +71,34 @@ I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">P
     </div>
 </details>
 
-# Academic Service
+# 🤝 Academic Service
 
-- **Conference Reviewer**:  EACL 2026, ICLR 2026, AAAI 2026, EMNLP 2025, COLM 2025, ACM MM 2025, NeurIPS 2025, ACL 2025, NAACL 2025, ICME 2025,IJCAI 2025, EMNLP 2024, 
-- **Journal Reviewer**:  IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI),IEEE Transactions on Artificial Intelligence (TAI)
+<div class="academic-service">
+  <div class="service-row">
+    <div class="service-title">Conference Reviewer</div>
+    <div class="service-tags" aria-label="Conference reviewer venues">
+      <span class="service-tag">EACL 2026</span>
+      <span class="service-tag">ICLR 2026</span>
+      <span class="service-tag">AAAI 2026</span>
+      <span class="service-tag">EMNLP 2025</span>
+      <span class="service-tag">COLM 2025</span>
+      <span class="service-tag">ACM MM 2025</span>
+      <span class="service-tag">NeurIPS 2025</span>
+      <span class="service-tag">ACL 2025</span>
+      <span class="service-tag">NAACL 2025</span>
+      <span class="service-tag">ICME 2025</span>
+      <span class="service-tag">IJCAI 2025</span>
+      <span class="service-tag">EMNLP 2024</span>
+    </div>
+  </div>
+  <div class="service-row">
+    <div class="service-title">Journal Reviewer</div>
+    <div class="service-tags" aria-label="Journal reviewer venues">
+      <span class="service-tag service-tag--journal" title="IEEE Transactions on Pattern Analysis and Machine Intelligence">IEEE TPAMI</span>
+      <span class="service-tag service-tag--journal" title="IEEE Transactions on Artificial Intelligence">IEEE TAI</span>
+    </div>
+  </div>
+</div>
   
 # 💡 Research Interest
 - **Multimodal AI**: My current research goal is to **integrate** multimodal information to improve the performance of large language models, at the same time, I am also seek for applications of multimodal models in **Geolocation** and **Embodied AI** domains.
