@@ -108,6 +108,70 @@ h1:before, .anchor:before {
     font-size: .8em;
 }
 
+.intro-panel {
+    margin: 0.2em 0 1.5em;
+    padding: 0.95em 1em 1em;
+    border-left: 3px solid rgba($info-color, 0.72);
+    border-radius: 0 8px 8px 0;
+    background: rgba($info-color, 0.045);
+}
+
+.intro-lead {
+    margin: 0 0 0.65em;
+    color: mix(#000, $text-color, 14%);
+    font-size: 1.08em;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.intro-pronunciation {
+    color: $gray;
+    font-size: 0.82em;
+    font-weight: 600;
+}
+
+.intro-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45em;
+    margin: 0 0 0.75em;
+}
+
+.intro-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.9em;
+    padding: 0.18em 0.62em;
+    border: 1px solid rgba($info-color, 0.18);
+    border-radius: 999px;
+    background: rgba($background-color, 0.74);
+    color: mix(#000, $info-color, 18%);
+    font-family: $helvetica;
+    font-size: 0.72em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.intro-panel p:not(.intro-lead) {
+    margin: 0.55em 0 0;
+    color: mix(#000, $text-color, 5%);
+    font-size: 0.96em;
+    line-height: 1.62;
+}
+
+.intro-current {
+    margin-top: 0.85em;
+    padding: 0.52em 0.68em;
+    border-left: 3px solid rgba($success-color, 0.6);
+    border-radius: 0 6px 6px 0;
+    background: rgba($success-color, 0.09);
+    color: mix(#000, $success-color, 44%);
+    font-family: $helvetica;
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
 .news-timeline {
     margin: 0.6em 0 1.1em;
     border-left: 2px solid rgba($info-color, 0.18);
@@ -455,6 +519,10 @@ h1:before, .anchor:before {
 
     .news-date {
         line-height: 1.35;
+    }
+
+    .intro-panel {
+        padding: 0.85em 0.85em 0.9em;
     }
 
     .service-row {

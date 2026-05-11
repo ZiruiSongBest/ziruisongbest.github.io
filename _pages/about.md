@@ -17,16 +17,23 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-[//]: # ()
-[//]: # ()
-Hi 👋, I'm Zirui Song(/ˈziːˌruː.i/ /sɔːŋ/), I am a first-year PhD student in the NLP department at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>, supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and  <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/"> Prof. Xiaojun Chang </a>. I received my Bachelor of Engineering (Honours) in Software Engineering with first-class honours from the University of Technology Sydney (UTS). Also I got the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize(Top 2% of students)</a> from UTS.
- Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023 where I was fortuante to be advised by  <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a>, and be mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>.
-I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.
+<div class="intro-panel">
+  <p class="intro-lead">Hi 👋, I'm <strong>Zirui Song</strong> <span class="intro-pronunciation">/ˈziːˌruː.i/ /sɔːŋ/</span>, a first-year PhD student in NLP at <a href="https://www.mbzuai.ac.ae">MBZUAI</a>.</p>
 
+  <div class="intro-tags">
+    <span>PhD @ MBZUAI</span>
+    <span>NLP</span>
+    <span>Multimodal AI</span>
+    <span>Geolocation</span>
+    <span>Trustworthy MLLMs</span>
+  </div>
 
+  <p>I am supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/">Prof. Xiaojun Chang</a>. I received my Bachelor of Engineering (Honours) in Software Engineering with First Class Honours from the University of Technology Sydney (UTS), where I also received the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize (Top 2% of students)</a>.</p>
 
+  <p>Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023, where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>. I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.</p>
 
- 
+  <div class="intro-current">Currently working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.</div>
+</div>
 
 # 💻 News
 
