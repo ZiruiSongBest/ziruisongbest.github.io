@@ -40,7 +40,7 @@ redirect_from:
   <div class="intro-copy">
     <p>I am supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/">Prof. Xiuying Chen</a> and <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/">Prof. Xiaojun Chang</a>. I received my Bachelor of Engineering (Honours) in Software Engineering with First Class Honours from the University of Technology Sydney (UTS), where I also received the <a href="files/24902417_ZiruiSong.pdf">Dean's List 2025 prize (Top 2% of students)</a>.</p>
 
-    <p>Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023, where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a>. I am deeply appreciative of my mentor, <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a>, who guided me into scientific research.</p>
+    <p>Before that, I was a member of <a href="https://utsnlp.github.io/">UTS-NLP</a> since Oct 2023, where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen">Prof. Ling Chen</a> and mentored by <a href="https://mengfn.github.io/">Prof. Meng Fang</a></p>
   </div>
 
   <div class="intro-current">Currently working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.</div>
@@ -125,10 +125,6 @@ redirect_from:
     <div class="news-item">
       <div class="news-date">2023-07-01</div>
       <div class="news-text">I was selected as an international exchange student majoring in Software Engineering at UTS.</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2023-05-18</div>
-      <div class="news-text">Prof. Dayan Guan accepted me as a remote undergraduate research assistant at ROSE Lab.</div>
     </div>
   </div>
 </details>
@@ -296,7 +292,7 @@ redirect_from:
     <div class="timeline-date">2023.03 - 2024.01</div>
     <div class="timeline-body">
       <div class="timeline-title"><img src='files/ntu.png' alt='NTU' /> Nanyang Technological University</div>
-      <div class="timeline-meta">Research Intern · Supervisor: <a href="https://dayan-guan.github.io/">Prof. Dayan Guan</a> · Topic: Multimodal LLMs</div>
+      <div class="timeline-meta">Research Intern · Supervisor: Prof. Alex Kot</a> · Topic: Multimodal </div>
     </div>
   </div>
 </div>
