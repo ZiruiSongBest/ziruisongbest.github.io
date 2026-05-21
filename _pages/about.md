@@ -274,13 +274,7 @@ redirect_from:
       <div class="timeline-meta">Algorithm Engineer (Research Intern) · Supervised by Xiang Wang</div>
     </div>
   </div>
-  <div class="timeline-item">
-    <div class="timeline-date">2025.11 - 2026.03</div>
-    <div class="timeline-body">
-      <div class="timeline-title"><img src='files/xiaomi-logo.svg' alt='Xiaomi' /> Xiaomi EV, Advanced Research Group</div>
-      <div class="timeline-meta">Algorithm Engineer (Research Intern) · Supervised by Xiaoshuai Hao</div>
-    </div>
-  </div>
+
   <div class="timeline-item">
     <div class="timeline-date">2023.10 - 2025.02</div>
     <div class="timeline-body">
