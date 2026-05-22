@@ -31,7 +31,6 @@ redirect_from:
   </div>
 
   <div class="intro-actions" aria-label="Primary profile links">
-    <a href="files/CV_zirui.pdf">CV</a>
     <a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&hl=en">Google Scholar</a>
     <a href="https://github.com/ZiruiSongBest">GitHub</a>
     <a href="mailto:ziruisong2003@gmail.com">Email</a>
@@ -334,8 +333,6 @@ I learned the importance of balancing coding proficiency with broader research a
 
 
 # 📜 References
-
-You can find my [full CV](https://github.com/ZiruiSongBest/ziruisongbest.github.io/blob/main/files/CV_zirui.pdf) here (Latest update: **Oct 14th, 2024**).
 
 
 <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk'></script>
