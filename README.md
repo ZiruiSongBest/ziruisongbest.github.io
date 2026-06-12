@@ -10,10 +10,10 @@ object in the room opens one chapter of the CV:
 | 📚 Bookshelf | Publications |
 | 🌍 Globe | Research Interests |
 | 🎓 Framed diplomas + cap | Education |
-| 💼 Briefcase | Experience |
+| 💼 Briefcase | Blog & Resources |
 | 🏆 Trophy pedestal | Honors & Awards |
 | 🗄️ Filing cabinet | Academic Service |
-| 📓 Notebook on the coffee table | Blog & Resources |
+| 📓 Notebook on the coffee table | Experience |
 | 🪟 Window (desert view) | Now |
 | ☎️ Red telephone | Contact |
 

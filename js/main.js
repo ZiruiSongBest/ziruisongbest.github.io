@@ -682,10 +682,10 @@ const stations = [
   { id: 'publications', label: 'Publications',    hit: [-9.3, 3.3, -2.6, 1.4, 6.7, 4.7], anchor: [-8.6, 6.9, -2.6], cam: [-4.4, 4.3, -2.6], tgt: [-9.5, 3.7, -2.6] },
   { id: 'research',     label: 'Research · Globe', hit: [-5.6, 1.9, -6.4, 2.4, 4.0, 2.4], anchor: [-5.6, 4.1, -6.4], cam: [-3.0, 3.9, -3.6], tgt: [-5.8, 2.7, -6.6] },
   { id: 'education',    label: 'Education',       hit: [-9.8, 4.7, 2.9, 0.9, 3.3, 2.8], anchor: [-9.5, 6.5, 2.9],  cam: [-5.0, 4.8, 2.9],  tgt: [-9.9, 4.4, 2.9] },
-  { id: 'experience',   label: 'Experience',      hit: [5.15, 0.7, -6.9, 1.9, 1.6, 1.1], anchor: [5.15, 1.7, -6.9], cam: [4.7, 2.7, -3.2],  tgt: [5.15, 0.9, -7.0] },
+  { id: 'blog',         label: 'Blog & Notes',    hit: [5.15, 0.7, -6.9, 1.9, 1.6, 1.1], anchor: [5.15, 1.7, -6.9], cam: [4.7, 2.7, -3.2],  tgt: [5.15, 0.9, -7.0] },
   { id: 'awards',       label: 'Honors & Awards', hit: [-8.3, 1.7, -8.3, 1.9, 3.6, 1.9], anchor: [-8.3, 3.9, -8.3], cam: [-4.6, 3.9, -4.6], tgt: [-8.4, 2.6, -8.4] },
   { id: 'service',      label: 'Academic Service', hit: [8.95, 1.6, -8.6, 1.7, 3.4, 1.5], anchor: [8.95, 3.5, -8.6], cam: [6.8, 3.9, -4.4],  tgt: [9.0, 2.2, -8.7] },
-  { id: 'blog',         label: 'Blog & Notes',    hit: [-1.3, 0.7, -1.6, 3.2, 1.5, 3.2], anchor: [-1.3, 1.8, -1.6], cam: [-1.3, 4.9, 1.9],  tgt: [-1.4, 0.9, -1.8] },
+  { id: 'experience',   label: 'Experience',      hit: [-1.3, 0.7, -1.6, 3.2, 1.5, 3.2], anchor: [-1.3, 1.8, -1.6], cam: [-1.3, 4.9, 1.9],  tgt: [-1.4, 0.9, -1.8] },
   { id: 'now',          label: 'Now · the window', hit: [6.5, 5.1, -9.85, 3.7, 3.0, 0.5], anchor: [6.5, 7.0, -9.8],  cam: [6.5, 5.2, -4.6],  tgt: [6.5, 5.1, -9.9] },
   { id: 'contact',      label: 'Contact',         hit: [6.6, 1.2, -4.4, 1.7, 2.6, 1.7], anchor: [6.6, 2.6, -4.4],  cam: [6.0, 3.3, -0.7],  tgt: [6.7, 1.5, -4.5] },
 ];
