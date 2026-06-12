@@ -129,77 +129,30 @@ const glowTex = canvasTexture(128, 256, (g, w, h) => {
   g.fillStyle = grad; g.fillRect(0, 0, w, h);
 });
 
-/* the view past the arches: dusk, dunes, Masdar wind tower, MBZUAI campus block */
-const skylineTex = canvasTexture(1024, 512, (g, w, h) => {
-  const sky = g.createLinearGradient(0, 0, 0, h);
-  sky.addColorStop(0, '#232a5c'); sky.addColorStop(.45, '#7c4a78');
-  sky.addColorStop(.7, '#e07a4f'); sky.addColorStop(1, '#f6c66d');
-  g.fillStyle = sky; g.fillRect(0, 0, w, h);
-  g.fillStyle = '#fff';
-  for (let i = 0; i < 60; i++) { g.globalAlpha = .2 + (i % 5) / 7; g.fillRect((i * 137) % w, (i * 53) % (h * .35), 2, 2); }
-  g.globalAlpha = 1;
-  const sun = g.createRadialGradient(620, 300, 10, 620, 300, 130);
-  sun.addColorStop(0, '#fff3c4'); sun.addColorStop(.35, '#ffd98a'); sun.addColorStop(1, 'rgba(255,217,138,0)');
-  g.fillStyle = sun; g.beginPath(); g.arc(620, 300, 130, 0, 7); g.fill();
-  g.fillStyle = '#ffe9ad'; g.beginPath(); g.arc(620, 300, 42, 0, 7); g.fill();
-
-  // far dunes
-  g.fillStyle = '#53294a';
-  g.beginPath(); g.moveTo(0, 372); g.quadraticCurveTo(220, 322, 470, 372); g.quadraticCurveTo(760, 416, 1024, 364); g.lineTo(1024, 512); g.lineTo(0, 512); g.fill();
-
-  // ——— silhouettes on the ridge ———
-  // (plane spans world x −11…19; the doorway arch frames world x 4.7…8.3
-  //  ⇒ texture x ≈ 536…660, so the campus block sits there, backlit by the sun)
-  const ink = '#3a1d36';
-  // MBZUAI campus block, silhouetted in front of the sun, glowing sign on top
-  g.fillStyle = ink; g.fillRect(536, 268, 190, 102);
-  g.fillRect(556, 244, 150, 26);                                 // upper storey
-  g.fillStyle = 'rgba(246,198,109,.75)';                         // lit lattice windows
-  for (let i = 0; i < 10; i++) for (let j = 0; j < 4; j++) {
+/* lit facade for the distant MBZUAI block */
+const facadeTex = canvasTexture(512, 256, (g, w, h) => {
+  g.fillStyle = '#2c1a36'; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(246,198,109,.8)';
+  for (let i = 0; i < 12; i++) for (let j = 0; j < 5; j++) {
     if ((i * 7 + j * 5) % 4 === 0) continue;
-    g.fillRect(548 + i * 17, 280 + j * 20, 9, 11);
+    g.fillRect(20 + i * 40, 36 + j * 42, 18, 24);
   }
-  g.font = '700 26px "Arial"'; g.textAlign = 'center';
-  g.shadowColor = '#5fe6c3'; g.shadowBlur = 16; g.fillStyle = '#bdfcec';
-  g.fillText('M B Z U A I', 631, 264);                           // the sign
-  g.shadowBlur = 0;
+});
 
-  // Masdar wind tower — visible to the right of the courtyard wall
-  g.fillStyle = ink; g.strokeStyle = ink;
-  g.beginPath(); g.moveTo(768, 368); g.lineTo(786, 196); g.lineTo(842, 196); g.lineTo(860, 368); g.closePath(); g.fill();
-  g.fillRect(776, 178, 76, 22);                                  // crown
-  g.lineWidth = 4;
-  g.beginPath(); g.moveTo(786, 200); g.lineTo(856, 360); g.stroke();   // bracing
-  g.beginPath(); g.moveTo(842, 200); g.lineTo(772, 360); g.stroke();
-  for (let i = 0; i < 4; i++) g.fillRect(782 + i * 17, 156, 9, 22);    // top slats
+/* glowing MBZUAI lettering for the rooftop sign */
+const campusSignTex = canvasTexture(512, 96, (g, w, h) => {
+  g.clearRect(0, 0, w, h);
+  g.font = '700 56px "Arial"'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.shadowColor = '#5fe6c3'; g.shadowBlur = 22; g.fillStyle = '#bdfcec';
+  g.fillText('M B Z U A I', w / 2, h / 2);
+  g.shadowBlur = 8; g.fillText('M B Z U A I', w / 2, h / 2);
+});
 
-  // a dome on the horizon (knowledge centre nod)
-  g.fillStyle = ink;
-  g.beginPath(); g.arc(940, 368, 42, Math.PI, 0); g.fill();
-
-  // near dunes
-  g.fillStyle = '#2e1430';
-  g.beginPath(); g.moveTo(0, 428); g.quadraticCurveTo(300, 380, 580, 432); g.quadraticCurveTo(820, 470, 1024, 436); g.lineTo(1024, 512); g.lineTo(0, 512); g.fill();
-
-  // palms
-  const palm = (px, py, k) => {
-    g.strokeStyle = '#1f0e22'; g.fillStyle = '#1f0e22'; g.lineWidth = 6 * k;
-    g.beginPath(); g.moveTo(px + 6 * k, py); g.quadraticCurveTo(px + 12 * k, py - 52 * k, px, py - 84 * k); g.stroke();
-    g.lineWidth = 3.4 * k;
-    for (const a of [-2.6, -2.1, -1.4, -.6, .1, .7]) {
-      g.beginPath(); g.moveTo(px, py - 84 * k);
-      g.quadraticCurveTo(px + Math.cos(a) * 30 * k, py - 84 * k + Math.sin(a) * 18 * k - 12 * k, px + Math.cos(a) * 52 * k, py - 84 * k + Math.sin(a) * 30 * k - 6 * k);
-      g.stroke();
-    }
-  };
-  palm(500, 448, 1.15); palm(706, 452, 0.95); palm(986, 446, 1.0);
-
-  // birds
-  g.strokeStyle = 'rgba(30,16,28,.85)'; g.lineWidth = 2.4;
-  for (const [bx, by] of [[420, 140], [452, 122], [486, 148], [760, 110]]) {
-    g.beginPath(); g.moveTo(bx - 9, by); g.quadraticCurveTo(bx - 3, by - 7, bx, by);
-    g.quadraticCurveTo(bx + 3, by - 7, bx + 9, by); g.stroke();
-  }
+/* soft radial glow for the setting sun */
+const sunGlowTex = canvasTexture(256, 256, (g, w, h) => {
+  const r = g.createRadialGradient(128, 128, 10, 128, 128, 126);
+  r.addColorStop(0, 'rgba(255,233,173,.9)'); r.addColorStop(.4, 'rgba(255,217,138,.4)'); r.addColorStop(1, 'rgba(255,217,138,0)');
+  g.clearRect(0, 0, w, h); g.fillStyle = r; g.fillRect(0, 0, w, h);
 });
 
 const screenTex = canvasTexture(512, 330, (g, w, h) => {
@@ -311,6 +264,7 @@ controls.target.copy(HOME_TGT);
 controls.enableDamping = true;
 controls.dampingFactor = 0.06;
 controls.enablePan = false;
+controls.zoomToCursor = true;            // dolly toward the pointer, not the centre
 controls.minDistance = 5;
 controls.maxDistance = 26;
 controls.minPolarAngle = 0.32;
@@ -420,10 +374,44 @@ const dome = new THREE.Mesh(
   new THREE.SphereGeometry(46, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.53),
   new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide, fog: false, toneMapped: false }));
 scene.add(dome);
-const skyline = new THREE.Mesh(new THREE.PlaneGeometry(30, 10),
-  new THREE.MeshBasicMaterial({ map: skylineTex, fog: false, toneMapped: false }));
-skyline.position.set(4, 4.0, -14);
-scene.add(skyline);
+/* 3-D desert backdrop past the doorway — landmarks stand free, sky shows through */
+const backdrop = new THREE.Group();
+{
+  const ink = 0x32203e;
+  for (const [x, z, sx, sy, sz] of [[3, -19, 9, 1.1, 4], [14, -23, 12, 1.4, 5], [-7, -19, 8, 1.0, 4]]) {
+    const dune = sph(1, 0xc9a76e, { rough: 1 }, 24);
+    dune.scale.set(sx, sy, sz); dune.position.set(x, -0.15, z);
+    backdrop.add(dune);
+  }
+  // MBZUAI campus block with lit facade + rooftop sign
+  const blockA = box(5.2, 3.2, 1.8, ink); blockA.position.set(6.5, 1.6, -16.6);
+  const blockB = box(3.6, 0.9, 1.6, ink); blockB.position.set(6.5, 3.65, -16.7);
+  const facade = new THREE.Mesh(new THREE.PlaneGeometry(4.9, 2.9),
+    new THREE.MeshBasicMaterial({ map: facadeTex, toneMapped: false }));
+  facade.position.set(6.5, 1.6, -15.69);
+  const campusSign = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 0.6),
+    new THREE.MeshBasicMaterial({ map: campusSignTex, transparent: true, toneMapped: false }));
+  campusSign.position.set(6.5, 3.67, -15.88);
+  backdrop.add(blockA, blockB, facade, campusSign);
+  // Masdar wind tower
+  const tower = cyl(0.9, 1.5, 6.2, ink, 4);
+  tower.rotation.y = Math.PI / 4; tower.position.set(12.6, 3.1, -18.5);
+  const crown = box(2.5, 0.5, 2.5, ink); crown.position.set(12.6, 6.5, -18.5);
+  backdrop.add(tower, crown);
+  // knowledge-centre dome on the horizon
+  const farDome = new THREE.Mesh(new THREE.SphereGeometry(2.1, 18, 12, 0, Math.PI * 2, 0, Math.PI / 2), mat(ink, { rough: 1 }));
+  farDome.position.set(17, 0, -20);
+  backdrop.add(farDome);
+  // the setting sun
+  const sunDisc = new THREE.Mesh(new THREE.CircleGeometry(2.1, 40),
+    new THREE.MeshBasicMaterial({ color: 0xffe9ad, fog: false, toneMapped: false }));
+  sunDisc.position.set(9.5, 3.6, -38);
+  const sunGlow = new THREE.Mesh(new THREE.PlaneGeometry(13, 13),
+    new THREE.MeshBasicMaterial({ map: sunGlowTex, transparent: true, depthWrite: false, fog: false, toneMapped: false }));
+  sunGlow.position.set(9.5, 3.8, -38.05);
+  backdrop.add(sunDisc, sunGlow);
+}
+scene.add(backdrop);
 
 /* rug */
 const rug = new THREE.Group();
@@ -822,6 +810,10 @@ room.add(plant);
 const outdoorPalm = buildPalm(1.6, false);
 outdoorPalm.position.set(5.9, -0.02, -12.8);
 scene.add(outdoorPalm);
+const outdoorPalm2 = buildPalm(1.0, false);
+outdoorPalm2.position.set(9.6, -0.02, -13.8);
+outdoorPalm2.rotation.y = 2.1;
+scene.add(outdoorPalm2);
 
 /* ---- standing lantern (decor) ---- */
 function buildLantern() {
