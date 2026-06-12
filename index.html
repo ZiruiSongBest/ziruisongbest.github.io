@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zirui Song — PhD @ MBZUAI · NLP & Multimodal AI</title>
+<meta name="description" content="Zirui Song is a PhD student in NLP at MBZUAI working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs. Explore his interactive 3D study.">
+<meta name="author" content="Zirui Song">
+<meta property="og:title" content="Zirui Song — Interactive 3D Homepage">
+<meta property="og:description" content="Step into Zirui's study: click the laptop, globe, bookshelf and more to explore his research, papers and news.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/profile.jpg">
+<link rel="icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ======================= LOADING ======================= -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-name">ZIRUI&nbsp;SONG</div>
+    <div class="loader-sub">building the study…</div>
+    <div class="loader-bar"><span id="loader-fill"></span></div>
+  </div>
+</div>
+
+<!-- ======================= 3D CANVAS ======================= -->
+<canvas id="scene"></canvas>
+<div id="hotspots" aria-hidden="true"></div>
+<div id="tooltip" role="status"></div>
+
+<!-- ======================= HUD ======================= -->
+<header id="hud-top">
+  <div class="hud-id">
+    <div class="hud-name">Zirui Song</div>
+    <div class="hud-role">PhD @ MBZUAI · NLP · Multimodal AI</div>
+  </div>
+  <nav id="hud-nav" aria-label="Sections">
+    <button data-target="about">About</button>
+    <button data-target="news">News</button>
+    <button data-target="publications">Papers</button>
+    <button data-target="research">Research</button>
+    <button data-target="education">Education</button>
+    <button data-target="experience">Experience</button>
+    <button data-target="awards">Awards</button>
+    <button data-target="service">Service</button>
+    <button data-target="blog">Blog</button>
+    <button data-target="now">Now</button>
+    <button data-target="contact">Contact</button>
+    <button id="mode-toggle" title="Switch between 3D scene and plain page">2D</button>
+  </nav>
+</header>
+
+<div id="hud-hint">Drag to look around · Click a glowing object to open it</div>
+
+<!-- ======================= CONTENT PANELS ======================= -->
+<!-- All personal content lives below as real HTML so it is crawlable and
+     readable without WebGL. The 3D scene only shows/hides these sections. -->
+<main id="panel" aria-live="polite">
+  <div class="panel-chrome">
+    <span id="panel-icon"></span>
+    <h2 id="panel-title"></h2>
+    <button id="panel-close" aria-label="Close panel">✕</button>
+  </div>
+  <div id="panel-body">
+
+    <!-- ABOUT -->
+    <section class="content" id="content-about" data-icon="💻" data-title="About Me">
+      <div class="about-head">
+        <img class="about-photo" src="images/profile.jpg" alt="Portrait of Zirui Song">
+        <div>
+          <h3>Zirui Song <span class="pron">/ˈziːˌruː.i/ /sɔːŋ/</span></h3>
+          <p class="about-line">First-year PhD student in NLP at
+            <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">Mohamed bin Zayed University of Artificial Intelligence</a>, Abu Dhabi.</p>
+          <div class="chip-row">
+            <span class="chip">PhD @ MBZUAI</span><span class="chip">NLP</span><span class="chip">Multimodal AI</span><span class="chip">Geolocation</span><span class="chip">Trustworthy MLLMs</span>
+          </div>
+        </div>
+      </div>
+      <p>I am supervised by <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> and
+         <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/" target="_blank" rel="noopener">Prof. Xiaojun Chang</a>.
+         I received my Bachelor of Engineering (Honours) in Software Engineering with First Class Honours from the University of Technology Sydney,
+         where I also received the <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">Dean's List 2025 prize (Top&nbsp;2% of students)</a>.</p>
+      <p>Before that, I was a member of <a href="https://utsnlp.github.io/" target="_blank" rel="noopener">UTS-NLP</a> since Oct 2023,
+         where I was fortunate to be advised by <a href="https://profiles.uts.edu.au/Ling.Chen" target="_blank" rel="noopener">Prof. Ling Chen</a>
+         and mentored by <a href="https://mengfn.github.io/" target="_blank" rel="noopener">Prof. Meng Fang</a>.</p>
+      <p class="about-current">Currently working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://github.com/ZiruiSongBest" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="mailto:ziruisong2003@gmail.com">Email</a>
+        <a class="btn btn-ghost" href="files/CV_zirui.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="content" id="content-news" data-icon="📰" data-title="News">
+      <ul class="news">
+        <li class="hot"><time>2026-04-29</time><span>2 papers were accepted by <b>ICML 2026</b>.</span></li>
+        <li class="hot"><time>2026-04-07</time><span>6 papers (1 oral) were accepted by <b>ACL 2026</b>.</span></li>
+        <li class="hot"><time>2025-11-08</time><span>One paper was accepted by <b>AAAI 2026</b>.</span></li>
+        <li class="hot"><time>2025-09-19</time><span>One paper was accepted by <b>NeurIPS 2026</b>.</span></li>
+        <li class="hot"><time>2025-08-21</time><span>3 papers (1 oral) were accepted by <b>EMNLP 2025</b>.</span></li>
+        <li><time>2025-07-25</time><span>I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours.</span></li>
+        <li class="award"><time>2025-07-06</time><span>I won the <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">Dean's List 2025 prize (Top 2% of students)</a> from UTS.</span></li>
+        <li class="hot"><time>2025-07-02</time><span>One paper was accepted by <b>ECAI 2026</b>.</span></li>
+        <li class="hot"><time>2025-05-16</time><span>One paper was accepted by <b>ACL 2025</b>.</span></li>
+        <li class="hot"><time>2025-04-20</time><span>One paper was accepted by <b>Nature Computational Science</b>.</span></li>
+        <li><time>2025-03-01</time><span>Admitted to <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">MBZUAI</a>, where I commenced my PhD studies in August 2025.</span></li>
+        <li class="hot"><time>2025-01-23</time><span>One paper was accepted by <b>NAACL 2025</b>.</span></li>
+        <li class="hot"><time>2025-01-02</time><span>One paper was accepted by <b>Communications Chemistry</b>.</span></li>
+        <li><time>2024-09-25</time><span>First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen.</span></li>
+        <li class="hot"><time>2024-09-20</time><span>One paper was accepted by <b>EMNLP 2024</b>.</span></li>
+        <li class="hot"><time>2024-07-01</time><span>One paper was accepted by <b>ECCV 2024</b>.</span></li>
+      </ul>
+      <details class="news-archive">
+        <summary>Earlier news</summary>
+        <ul class="news">
+          <li><time>2023-11-29</time><span>Prof. Ling Chen accepted me as an undergraduate research assistant at the Australian Artificial Intelligence Institute (AAII).</span></li>
+          <li><time>2023-07-01</time><span>I was selected as an international exchange student majoring in Software Engineering at UTS.</span></li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="content" id="content-publications" data-icon="📚" data-title="Publications">
+      <p class="pub-note">Selected works · the freshest acceptances
+        (<b>ICML 2026 ×2</b>, <b>ACL 2026 ×6 · 1 oral</b>, <b>AAAI 2026</b>, <b>NeurIPS</b>, <b>Nature Computational Science</b>)
+        are listed on <a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+
+      <article class="pub">
+        <img src="files/geolocation.png" alt="GeoComp figure" loading="lazy">
+        <div>
+          <span class="badge">ACL 2025</span>
+          <h4><a href="https://arxiv.org/abs/2502.13759" target="_blank" rel="noopener">Geolocation with Real Human Gameplay Data: A Large-Scale Dataset and Human-Like Reasoning Framework</a></h4>
+          <p class="authors"><b>Zirui Song*</b>, Jingpu Yang*, Yuan Huang*, Jonathan Tonglet, Zeyu Zhang, Tao Cheng, Meng Fang, Iryna Gurevych, Xiuying Chen</p>
+          <p class="tldr">GeoComp: 25M metadata entries and 3M geo-tagged locations from 740K players, plus GeoCoT reasoning and GeoEval.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/InjectionSurvey.png" alt="Knowledge injection survey figure" loading="lazy">
+        <div>
+          <span class="badge">EMNLP 2025</span>
+          <h4><a href="https://arxiv.org/abs/2502.10708" target="_blank" rel="noopener">Injecting Domain-Specific Knowledge into Large Language Models: A Comprehensive Survey</a></h4>
+          <p class="authors"><b>Zirui Song*</b>, Bin Yan*, Yuhan Liu, Miao Fang, Mingzhe Li, Rui Yan, Xiuying Chen</p>
+          <p class="tldr">A taxonomy of domain knowledge injection: dynamic injection, static embedding, modular adapters, and prompt optimization.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/FUSE.png" alt="FUSE figure" loading="lazy">
+        <div>
+          <span class="badge">EMNLP 2025</span>
+          <h4><a href="https://arxiv.org/abs/2410.19064" target="_blank" rel="noopener">From a Tiny Slip to a Giant Leap: An LLM-Based Simulation for Fake News Evolution</a></h4>
+          <p class="authors">Yuhan Liu, <b>Zirui Song</b>, Xiaoqing Zhang, Xiuying Chen, Rui Yan</p>
+          <p class="tldr">FUSE simulates how a tiny slip of misinformation evolves into full-blown fake news inside LLM agent societies.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/AnomalyGen.jpg" alt="AnomalyGen figure" loading="lazy">
+        <div>
+          <span class="badge">NAACL 2025</span>
+          <h4><a href="https://arxiv.org/abs/2411.00781" target="_blank" rel="noopener">Hazards in Daily Life? Enabling Robots to Proactively Detect and Resolve Anomalies</a></h4>
+          <p class="authors"><b>Zirui Song*</b>, Guangxian Ouyang*, Meng Fang, Hongbin Na, Zijing Shi, Zhenhao Chen, Yujie Fu, Zeyu Zhang, Shiyu Jiang, Miao Fang, Ling Chen, Xiuying Chen</p>
+          <p class="tldr">AnomalyGen builds virtual anomaly scenes without human annotation to make household robots more robust.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/scholarQA.png" alt="ScholarChemQA figure" loading="lazy">
+        <div>
+          <span class="badge">Communications Chemistry</span>
+          <h4><a href="https://www.nature.com/articles/s42004-024-01394-x" target="_blank" rel="noopener">Unveiling the Power of Language Models in Chemical Research Question Answering</a></h4>
+          <p class="authors">Xiuying Chen, Tairan Wang, Taicheng Guo, Kehan Guo, Juexiao Zhou, Haoyang Li, <b>Zirui Song</b>, Xin Gao, Xiangliang Zhang</p>
+          <p class="tldr">ScholarChemQA: a large-scale QA dataset constructed from chemical papers. <a href="https://github.com/iriscxy/chemmatch" target="_blank" rel="noopener">Code</a></p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/PedDet.png" alt="PedDet figure" loading="lazy">
+        <div>
+          <span class="badge">ECAI 2026</span>
+          <h4><a href="https://arxiv.org/abs/2502.13759" target="_blank" rel="noopener">PedDet: Adaptive Spectral Optimization for Multimodal Pedestrian Detection</a></h4>
+          <p class="authors">Rui Zhao*, Zeyu Zhang*, Yi Xu, Yi Yao, Yan Huang, Wenxin Zhang, <b>Zirui Song</b>, Xiuying Chen, Yang Zhao</p>
+          <p class="tldr">An adaptive spectral optimization framework for multispectral pedestrian detection.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/MedINST.png" alt="MedINST figure" loading="lazy">
+        <div>
+          <span class="badge">EMNLP 2024</span>
+          <h4><a href="https://arxiv.org/abs/2410.13458" target="_blank" rel="noopener">MedINST: Meta Dataset of Biomedical Instructions</a></h4>
+          <p class="authors">Wenhan Han, Meng Fang, Zihan Zhang, Yu Yin, <b>Zirui Song</b>, Ling Chen, Mykola Pechenizkiy, Qingyu Chen</p>
+          <p class="tldr">133 biomedical NLP tasks and 7M+ training samples in one instructional meta-dataset.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/BenchLMM.png" alt="BenchLMM figure" loading="lazy">
+        <div>
+          <span class="badge">ECCV 2024</span>
+          <h4><a href="https://link.springer.com/chapter/10.1007/978-3-031-72973-7_20" target="_blank" rel="noopener">BenchLMM: Benchmarking Cross-style Visual Capability of Large Multimodal Models</a></h4>
+          <p class="authors">Rizhao Cai*, <b>Zirui Song*</b>, Dayan Guan, Zhenhao Chen, Yaohang Li, Xing Luo, Chenyu Yi, Alex Kot</p>
+          <p class="tldr">A comprehensive benchmark for the cross-style visual capability of LMMs.
+            <a href="https://github.com/AIFEG/BenchLMM" target="_blank" rel="noopener">Toolkit &amp; Code</a></p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <img src="files/MobileAgent.png" alt="Mobile agents survey figure" loading="lazy">
+        <div>
+          <span class="badge badge-grey">ARR 2025</span>
+          <h4><a href="https://arxiv.org/abs/2411.02006" target="_blank" rel="noopener">Foundations and Recent Trends in Multimodal Mobile Agents: A Survey</a></h4>
+          <p class="authors">Biao Wu*, Yanda Li*, Meng Fang, <b>Zirui Song</b>, Zhiwei Zhang, Yunchao Wei, Ling Chen</p>
+          <p class="tldr">Note: the first author removed my co-authorship during the second submission without explanation. I believe I still have credit for this work and disagree with that decision.</p>
+        </div>
+      </article>
+      <p class="pub-note">* equal contribution</p>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="content" id="content-research" data-icon="🌍" data-title="Research Interests">
+      <div class="card">
+        <h4>Multimodal AI</h4>
+        <p>My current research goal is to integrate multimodal information to improve the performance of large language models, with applications in geolocation and embodied AI.</p>
+        <div class="chip-row"><span class="chip">MLLMs</span><span class="chip">Geolocation</span><span class="chip">Embodied AI</span><span class="chip">World Understanding</span></div>
+      </div>
+      <div class="card">
+        <h4>Trustworthy AI</h4>
+        <p>I am also interested in jailbreak and attack issues of multimodal language models, particularly in vision and audio modalities.</p>
+        <div class="chip-row"><span class="chip">Jailbreak</span><span class="chip">Vision Safety</span><span class="chip">Audio Safety</span><span class="chip">Robustness</span></div>
+      </div>
+      <p class="card-foot">One question keeps pulling me back: given a photograph of a street it has never seen, can a model reason its way home?</p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="content" id="content-education" data-icon="🎓" data-title="Education">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-date">2025.08 – 2029.05</div>
+          <div class="tl-body">
+            <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> PhD, Mohamed bin Zayed University of Artificial Intelligence</h4>
+            <p>Expected · NLP Department · UAE Government Scholarship</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2021.06 – 2025.05</div>
+          <div class="tl-body">
+            <h4><img src="files/UTS.png" alt="UTS logo"> B.E. (Honours), University of Technology Sydney</h4>
+            <p>Software Engineering · First Class Honours · GPA 3.90/4.00 · Dean's List 2025 (Top 2%)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="content" id="content-experience" data-icon="💼" data-title="Experience">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-date">2026.03 – now</div>
+          <div class="tl-body">
+            <h4><img class="logo-wide" src="files/alibaba-logo.svg" alt="Alibaba logo"> Alibaba Group</h4>
+            <p>Algorithm Engineer (Research Intern) · Supervised by Xiang Wang</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2024.09 – now</div>
+          <div class="tl-body">
+            <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> MBZUAI</h4>
+            <p>Visiting student → PhD · Supervisor: <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> · Trustworthy MLLMs</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2023.10 – 2025.02</div>
+          <div class="tl-body">
+            <h4><img src="files/UTS.png" alt="UTS logo"> University of Technology Sydney</h4>
+            <p>Research Intern · <a href="https://profiles.uts.edu.au/Ling.Chen" target="_blank" rel="noopener">Prof. Ling Chen</a> &amp; <a href="https://mengfn.github.io/" target="_blank" rel="noopener">Prof. Meng Fang</a> · Multimodal Agents</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">2023.03 – 2024.01</div>
+          <div class="tl-body">
+            <h4><img src="files/ntu.png" alt="NTU logo"> Nanyang Technological University</h4>
+            <p>Research Intern · Supervisor: Prof. Alex Kot · Multimodal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="content" id="content-awards" data-icon="🏆" data-title="Honors & Awards">
+      <ul class="awards">
+        <li><span class="medal">🎖️</span><div><b>Dean's List 2025 (Top 2% of students)</b>, University of Technology Sydney · <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">certificate</a></div></li>
+        <li><span class="medal">🥈</span><div><b>Silver Medal</b>, Kaggle — LLM Science Exam [51 / 2664], 2024</div></li>
+        <li><span class="medal">🥇</span><div><b>School Second Class Scholarship</b>, 2022</div></li>
+      </ul>
+    </section>
+
+    <!-- SERVICE -->
+    <section class="content" id="content-service" data-icon="📋" data-title="Academic Service">
+      <h4>Conference Reviewer</h4>
+      <div class="chip-row">
+        <span class="chip">NeurIPS 2027</span><span class="chip">ICML 2026</span><span class="chip">ACL 2026</span><span class="chip">ECCV 2026</span>
+        <span class="chip">EACL 2026</span><span class="chip">ICLR 2026</span><span class="chip">AAAI 2026</span><span class="chip">EMNLP 2025</span>
+        <span class="chip">COLM 2025</span><span class="chip">ACM MM 2025</span><span class="chip">NeurIPS 2025</span><span class="chip">ACL 2025</span>
+        <span class="chip">NAACL 2025</span><span class="chip">ICME 2025</span><span class="chip">IJCAI 2025</span><span class="chip">EMNLP 2024</span>
+      </div>
+      <h4>Journal Reviewer</h4>
+      <div class="chip-row">
+        <span class="chip chip-alt" title="IEEE Transactions on Pattern Analysis and Machine Intelligence">IEEE TPAMI</span>
+        <span class="chip chip-alt" title="IEEE Transactions on Artificial Intelligence">IEEE TAI</span>
+      </div>
+    </section>
+
+    <!-- BLOG / RESOURCES -->
+    <section class="content" id="content-blog" data-icon="📓" data-title="Blog & Resources">
+      <ul class="blog-list">
+        <li><time>05/24</time><a href="files/grammargpt-rp.pdf" target="_blank" rel="noopener">National Undergraduate Innovation Project Documentation</a> <span class="lang">中文</span></li>
+        <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh" target="_blank" rel="noopener">Negative Transfer</a> <span class="lang">中文</span></li>
+        <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/MjBFwFm9giBTg3kQ9v6cJ7uQnFb" target="_blank" rel="noopener">Mixture of Experts Explained</a> <span class="lang">中文</span></li>
+        <li><time>01/24</time><a href="https://k034sybliz3.feishu.cn/wiki/Mo2xwR6B4iDV7nk4CZ5clwymnze" target="_blank" rel="noopener">EMNLP 2020 Tutorial Notes — Explainable AI</a> <span class="lang">中文</span></li>
+      </ul>
+    </section>
+
+    <!-- NOW -->
+    <section class="content" id="content-now" data-icon="🪟" data-title="Now">
+      <p class="now-lead">First year of the PhD. The desert keeps its own hours, and so do I.</p>
+      <p>Lately I have been circling one question: what does it mean for a model to <em>understand</em> the world it has been shown. Not the act of prediction (we have plenty of that), but the quieter thing underneath. Whether it knows where it stands. Whether it can tell when it is wrong. Whether, given a photograph of a street it has never seen, it can reason its way home.</p>
+      <p>Most of what I work on lives near this question. Multimodal reasoning. Geolocation. Embodied agents that must act in places they have never been. The trust we extend, or refuse, to what a model claims it sees. I keep walking into the same room through different doors.</p>
+      <p>I read more than I write. I rewrite more than I publish. Some of the papers listed under my name belong to a younger version of me, and I am still learning how to be honest about that.</p>
+      <p>I have never loved being alive this much. New cities. New languages overheard on the bus. New collaborators who became friends before they became coauthors. I owe the courage of this season to the UAE Government Scholarship, which let me walk through doors I had only read about. I do not take that lightly.</p>
+      <div class="now-focus">
+        <h4>What I am holding this season</h4>
+        <ul>
+          <li>a draft I do not yet know how to finish</li>
+          <li>a suspicion that our benchmarks have been answering the wrong question</li>
+          <li>a quiet thank-you to the people who wrote back to me when I was an undergraduate and unsure of everything</li>
+        </ul>
+      </div>
+      <p>The plan, if it can be called one, is to stay here long enough to plant something. The desert is not empty; it is patient. I would like to grow a small oasis on it, the slow kind, one paper, one student, one honest conversation at a time.</p>
+      <p>If you are working on something you cannot let go of, I would like to hear about it. My inbox is mostly quiet after midnight.</p>
+      <p class="now-updated">Last updated: May 2026</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content" id="content-contact" data-icon="☎️" data-title="Contact">
+      <p>The fastest way to reach me is email. My inbox is mostly quiet after midnight — that is when I read carefully.</p>
+      <ul class="contact-list">
+        <li><span>✉️</span><a href="mailto:ziruisong2003@gmail.com">ziruisong2003@gmail.com</a></li>
+        <li><span>🎓</span><a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><span>🐙</span><a href="https://github.com/ZiruiSongBest" target="_blank" rel="noopener">github.com/ZiruiSongBest</a></li>
+        <li><span>📍</span>MBZUAI, Abu Dhabi, United Arab Emirates</li>
+        <li><span>📄</span><a href="files/CV_zirui.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<div id="scrim"></div>
+
+<footer id="hud-foot">© 2026 Zirui Song · built as a little room you can walk around in</footer>
+
+<noscript>
+  <style>#loader,#scene,#hud-hint{display:none!important}#panel{position:static;transform:none;visibility:visible;width:auto;max-width:860px;margin:0 auto}.content{display:block!important;border-bottom:1px solid #333;padding:24px 0}</style>
+  <p style="text-align:center;padding:12px">JavaScript is off — here is the plain version of everything.</p>
+</noscript>
+
+<!-- visitor map kept from the previous site (hidden, counting only) -->
+<div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0">
+  <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk"></script>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
