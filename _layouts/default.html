@@ -12,6 +12,7 @@ layout: compress
   <body>
 
     {% include browser-upgrade.html %}
+    {% if page.url == "/" %}{% include hero-3d.html %}{% endif %}
     {% include masthead.html %}
 
     <div id="main" role="main">
