@@ -1,7 +1,9 @@
 # ziruisongbest.github.io — Zirui Song's 3D homepage
 
-An interactive 3D study built with [Three.js](https://threejs.org/). Every glowing
-object in the room opens one chapter of the CV:
+An interactive 3D courtyard study built with [Three.js](https://threejs.org/) —
+sandstone walls with arched mashrabiya screens, a dusk sky, and an MBZUAI skyline
+past the doorway (a nod to Masdar City's architecture). Every glowing object
+opens one chapter of the CV:
 
 | Object | Section |
 |---|---|
@@ -14,7 +16,7 @@ object in the room opens one chapter of the CV:
 | 🏆 Trophy pedestal | Honors & Awards |
 | 🗄️ Filing cabinet | Academic Service |
 | 📓 Notebook on the coffee table | Experience |
-| 🪟 Window (desert view) | Now |
+| 🌅 Doorway arch (desert view) | Now |
 | ☎️ Red telephone | Contact |
 
 ## Structure

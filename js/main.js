@@ -61,53 +61,144 @@ function canvasTexture(w, h, draw) {
   return t;
 }
 
-const floorTex = canvasTexture(512, 512, (g, w, h) => {
-  g.fillStyle = '#7c5434'; g.fillRect(0, 0, w, h);
-  for (let y = 0; y < 8; y++) {
-    g.fillStyle = y % 2 ? '#7a5232' : '#815837';
-    g.fillRect(0, y * 64, w, 64);
-    g.strokeStyle = 'rgba(40,22,10,.55)'; g.lineWidth = 3;
-    g.beginPath(); g.moveTo(0, y * 64); g.lineTo(w, y * 64); g.stroke();
-    const off = (y * 173) % w;                       // staggered plank ends
-    g.beginPath(); g.moveTo(off, y * 64); g.lineTo(off, y * 64 + 64); g.stroke();
+/* sandstone tiles with small teal inlays — Masdar courtyard floor */
+const floorTex = canvasTexture(1024, 1024, (g, w, h) => {
+  g.fillStyle = '#d3b487'; g.fillRect(0, 0, w, h);
+  const N = 8, s = w / N;
+  let seed = 11;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+    const tones = ['#d8bb8e', '#cfae7e', '#dcc097', '#d2b283'];
+    g.fillStyle = tones[Math.floor(rand() * tones.length)];
+    g.fillRect(i * s + 3, j * s + 3, s - 6, s - 6);
+    g.strokeStyle = 'rgba(120,90,55,.16)';
+    for (let k = 0; k < 4; k++) {
+      const x = i * s + rand() * s, y = j * s + rand() * s;
+      g.beginPath(); g.moveTo(x, y); g.lineTo(x + rand() * 26 - 13, y + rand() * 26 - 13); g.stroke();
+    }
   }
-  g.strokeStyle = 'rgba(60,35,16,.25)';
-  for (let i = 0; i < 90; i++) {
-    const x = (i * 67) % w, y = (i * 131) % h;
-    g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + 18, y + 2, x + 26, y - 2, x + 44, y + 1); g.stroke();
+  g.strokeStyle = 'rgba(110,80,48,.5)'; g.lineWidth = 4;
+  for (let i = 0; i <= N; i++) {
+    g.beginPath(); g.moveTo(i * s, 0); g.lineTo(i * s, h); g.stroke();
+    g.beginPath(); g.moveTo(0, i * s); g.lineTo(w, i * s); g.stroke();
+  }
+  g.fillStyle = '#2e6b5e';                            // teal diamond inlays
+  for (let i = 1; i < N; i++) for (let j = 1; j < N; j++) {
+    g.save(); g.translate(i * s, j * s); g.rotate(Math.PI / 4); g.fillRect(-7, -7, 14, 14); g.restore();
   }
 });
 floorTex.wrapS = floorTex.wrapT = THREE.RepeatWrapping;
-floorTex.repeat.set(3, 3);
+floorTex.repeat.set(2, 2);
 
-const windowTex = canvasTexture(512, 400, (g, w, h) => {
+/* dusk sky dome */
+const skyTex = canvasTexture(512, 512, (g, w, h) => {
+  const grad = g.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, '#1c2150'); grad.addColorStop(.5, '#5c3a64');
+  grad.addColorStop(.8, '#c96a48'); grad.addColorStop(1, '#f2bd6e');
+  g.fillStyle = grad; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 90; i++) {
+    g.globalAlpha = .25 + (i % 6) / 8;
+    g.fillStyle = '#fff';
+    g.fillRect((i * 131) % w, (i * 59) % (h * .5), 1.6, 1.6);
+  }
+  g.globalAlpha = 1;
+});
+
+/* mashrabiya lattice — drawn as opaque struts on transparent canvas */
+const latticeTex = canvasTexture(512, 512, (g, w, h) => {
+  g.clearRect(0, 0, w, h);
+  g.strokeStyle = '#4a2f1d'; g.fillStyle = '#4a2f1d';
+  const s = 64;
+  g.lineWidth = 9;
+  for (let x = 0; x <= w; x += s) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); }
+  for (let y = 0; y <= h; y += s) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); }
+  g.lineWidth = 6;
+  for (let d = -h; d < w + h; d += s) {
+    g.beginPath(); g.moveTo(d, 0); g.lineTo(d + h, h); g.stroke();
+    g.beginPath(); g.moveTo(d + h, 0); g.lineTo(d, h); g.stroke();
+  }
+  for (let x = 0; x <= w; x += s) for (let y = 0; y <= h; y += s) {
+    g.beginPath(); g.arc(x, y, 11, 0, 7); g.fill();
+  }
+});
+
+/* warm glow behind the lattice screens */
+const glowTex = canvasTexture(128, 256, (g, w, h) => {
+  const grad = g.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, '#6d3c5e'); grad.addColorStop(.55, '#e07a4f'); grad.addColorStop(1, '#f6c66d');
+  g.fillStyle = grad; g.fillRect(0, 0, w, h);
+});
+
+/* the view past the arches: dusk, dunes, Masdar wind tower, MBZUAI campus block */
+const skylineTex = canvasTexture(1024, 512, (g, w, h) => {
   const sky = g.createLinearGradient(0, 0, 0, h);
   sky.addColorStop(0, '#232a5c'); sky.addColorStop(.45, '#7c4a78');
-  sky.addColorStop(.72, '#e07a4f'); sky.addColorStop(1, '#f6c66d');
+  sky.addColorStop(.7, '#e07a4f'); sky.addColorStop(1, '#f6c66d');
   g.fillStyle = sky; g.fillRect(0, 0, w, h);
-  g.fillStyle = 'rgba(255,255,255,.8)';
-  for (let i = 0; i < 40; i++) { g.globalAlpha = .2 + (i % 5) / 7; g.fillRect((i * 137) % w, (i * 53) % (h * .4), 2, 2); }
+  g.fillStyle = '#fff';
+  for (let i = 0; i < 60; i++) { g.globalAlpha = .2 + (i % 5) / 7; g.fillRect((i * 137) % w, (i * 53) % (h * .35), 2, 2); }
   g.globalAlpha = 1;
-  const sun = g.createRadialGradient(330, 252, 8, 330, 252, 90);
+  const sun = g.createRadialGradient(620, 300, 10, 620, 300, 130);
   sun.addColorStop(0, '#fff3c4'); sun.addColorStop(.35, '#ffd98a'); sun.addColorStop(1, 'rgba(255,217,138,0)');
-  g.fillStyle = sun; g.beginPath(); g.arc(330, 252, 90, 0, 7); g.fill();
-  g.fillStyle = '#ffe9ad'; g.beginPath(); g.arc(330, 252, 34, 0, 7); g.fill();
-  g.fillStyle = '#46243c';                                       // far dunes
-  g.beginPath(); g.moveTo(0, 300); g.quadraticCurveTo(120, 252, 260, 300); g.quadraticCurveTo(390, 344, 512, 296); g.lineTo(512, 400); g.lineTo(0, 400); g.fill();
-  g.fillStyle = '#331a30';                                       // near dunes
-  g.beginPath(); g.moveTo(0, 348); g.quadraticCurveTo(170, 308, 320, 352); g.quadraticCurveTo(430, 384, 512, 356); g.lineTo(512, 400); g.lineTo(0, 400); g.fill();
-  g.strokeStyle = '#241224'; g.fillStyle = '#241224'; g.lineWidth = 7;  // palm
-  g.beginPath(); g.moveTo(118, 352); g.quadraticCurveTo(124, 300, 112, 268); g.stroke();
-  g.lineWidth = 4;
-  for (const a of [-2.6, -2.1, -1.4, -.6, .1, .7]) {
-    g.beginPath(); g.moveTo(112, 268);
-    g.quadraticCurveTo(112 + Math.cos(a) * 30, 268 + Math.sin(a) * 18 - 12, 112 + Math.cos(a) * 52, 268 + Math.sin(a) * 30 - 6);
-    g.stroke();
+  g.fillStyle = sun; g.beginPath(); g.arc(620, 300, 130, 0, 7); g.fill();
+  g.fillStyle = '#ffe9ad'; g.beginPath(); g.arc(620, 300, 42, 0, 7); g.fill();
+
+  // far dunes
+  g.fillStyle = '#53294a';
+  g.beginPath(); g.moveTo(0, 372); g.quadraticCurveTo(220, 322, 470, 372); g.quadraticCurveTo(760, 416, 1024, 364); g.lineTo(1024, 512); g.lineTo(0, 512); g.fill();
+
+  // ——— silhouettes on the ridge ———
+  // (plane spans world x −11…19; the doorway arch frames world x 4.7…8.3
+  //  ⇒ texture x ≈ 536…660, so the campus block sits there, backlit by the sun)
+  const ink = '#3a1d36';
+  // MBZUAI campus block, silhouetted in front of the sun, glowing sign on top
+  g.fillStyle = ink; g.fillRect(536, 268, 190, 102);
+  g.fillRect(556, 244, 150, 26);                                 // upper storey
+  g.fillStyle = 'rgba(246,198,109,.75)';                         // lit lattice windows
+  for (let i = 0; i < 10; i++) for (let j = 0; j < 4; j++) {
+    if ((i * 7 + j * 5) % 4 === 0) continue;
+    g.fillRect(548 + i * 17, 280 + j * 20, 9, 11);
   }
-  g.strokeStyle = 'rgba(30,16,28,.85)'; g.lineWidth = 2;          // birds
-  for (const [bx, by] of [[210, 120], [240, 104], [266, 126]]) {
-    g.beginPath(); g.moveTo(bx - 8, by); g.quadraticCurveTo(bx - 3, by - 6, bx, by);
-    g.quadraticCurveTo(bx + 3, by - 6, bx + 8, by); g.stroke();
+  g.font = '700 26px "Arial"'; g.textAlign = 'center';
+  g.shadowColor = '#5fe6c3'; g.shadowBlur = 16; g.fillStyle = '#bdfcec';
+  g.fillText('M B Z U A I', 631, 264);                           // the sign
+  g.shadowBlur = 0;
+
+  // Masdar wind tower — visible to the right of the courtyard wall
+  g.fillStyle = ink; g.strokeStyle = ink;
+  g.beginPath(); g.moveTo(768, 368); g.lineTo(786, 196); g.lineTo(842, 196); g.lineTo(860, 368); g.closePath(); g.fill();
+  g.fillRect(776, 178, 76, 22);                                  // crown
+  g.lineWidth = 4;
+  g.beginPath(); g.moveTo(786, 200); g.lineTo(856, 360); g.stroke();   // bracing
+  g.beginPath(); g.moveTo(842, 200); g.lineTo(772, 360); g.stroke();
+  for (let i = 0; i < 4; i++) g.fillRect(782 + i * 17, 156, 9, 22);    // top slats
+
+  // a dome on the horizon (knowledge centre nod)
+  g.fillStyle = ink;
+  g.beginPath(); g.arc(940, 368, 42, Math.PI, 0); g.fill();
+
+  // near dunes
+  g.fillStyle = '#2e1430';
+  g.beginPath(); g.moveTo(0, 428); g.quadraticCurveTo(300, 380, 580, 432); g.quadraticCurveTo(820, 470, 1024, 436); g.lineTo(1024, 512); g.lineTo(0, 512); g.fill();
+
+  // palms
+  const palm = (px, py, k) => {
+    g.strokeStyle = '#1f0e22'; g.fillStyle = '#1f0e22'; g.lineWidth = 6 * k;
+    g.beginPath(); g.moveTo(px + 6 * k, py); g.quadraticCurveTo(px + 12 * k, py - 52 * k, px, py - 84 * k); g.stroke();
+    g.lineWidth = 3.4 * k;
+    for (const a of [-2.6, -2.1, -1.4, -.6, .1, .7]) {
+      g.beginPath(); g.moveTo(px, py - 84 * k);
+      g.quadraticCurveTo(px + Math.cos(a) * 30 * k, py - 84 * k + Math.sin(a) * 18 * k - 12 * k, px + Math.cos(a) * 52 * k, py - 84 * k + Math.sin(a) * 30 * k - 6 * k);
+      g.stroke();
+    }
+  };
+  palm(500, 448, 1.15); palm(706, 452, 0.95); palm(986, 446, 1.0);
+
+  // birds
+  g.strokeStyle = 'rgba(30,16,28,.85)'; g.lineWidth = 2.4;
+  for (const [bx, by] of [[420, 140], [452, 122], [486, 148], [760, 110]]) {
+    g.beginPath(); g.moveTo(bx - 9, by); g.quadraticCurveTo(bx - 3, by - 7, bx, by);
+    g.quadraticCurveTo(bx + 3, by - 7, bx + 9, by); g.stroke();
   }
 });
 
@@ -132,23 +223,30 @@ const screenTex = canvasTexture(512, 330, (g, w, h) => {
   lines.forEach(([t, c], i) => { g.fillStyle = c; g.fillText(t, 16, 58 + i * 30); });
 });
 
-const signTex = canvasTexture(1024, 220, (g, w, h) => {
+/* backlit name plaque above the desk */
+function drawPlaque(g, w, h) {
   g.clearRect(0, 0, w, h);
-  g.font = '700 104px "Space Grotesk", "Arial", sans-serif';
+  g.fillStyle = '#171c26'; g.fillRect(0, 0, w, h);
+  const edge = g.createLinearGradient(0, 0, 0, h);                // soft vignette
+  edge.addColorStop(0, 'rgba(255,255,255,.07)'); edge.addColorStop(.5, 'rgba(255,255,255,0)'); edge.addColorStop(1, 'rgba(0,0,0,.25)');
+  g.fillStyle = edge; g.fillRect(0, 0, w, h);
   g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.shadowColor = '#46d4b1'; g.shadowBlur = 34;
-  g.fillStyle = '#bdfcec';
-  g.fillText('ZIRUI SONG', w / 2, h / 2 + 6);
-  g.shadowBlur = 12; g.fillText('ZIRUI SONG', w / 2, h / 2 + 6);
-});
+  g.font = '700 118px "Space Grotesk", "Arial", sans-serif';
+  g.shadowColor = '#46d4b1'; g.shadowBlur = 30; g.fillStyle = '#d9f7ec';
+  g.fillText('ZIRUI SONG', w / 2, 122);
+  g.shadowBlur = 10; g.fillText('ZIRUI SONG', w / 2, 122);
+  g.shadowBlur = 0;
+  g.strokeStyle = 'rgba(244,184,96,.55)'; g.lineWidth = 3;        // rule with diamond
+  g.beginPath(); g.moveTo(w * .26, 208); g.lineTo(w * .46, 208); g.stroke();
+  g.beginPath(); g.moveTo(w * .54, 208); g.lineTo(w * .74, 208); g.stroke();
+  g.save(); g.translate(w / 2, 208); g.rotate(Math.PI / 4); g.fillStyle = '#f4b860'; g.fillRect(-7, -7, 14, 14); g.restore();
+  g.font = '500 44px "Space Grotesk", "Arial", sans-serif';
+  g.fillStyle = '#caa86b';
+  g.fillText('N L P   ·   M B Z U A I', w / 2, 268);
+}
+const signTex = canvasTexture(1024, 320, drawPlaque);
 document.fonts?.ready.then(() => {
-  const c = signTex.image, g = c.getContext('2d');
-  g.clearRect(0, 0, c.width, c.height);
-  g.font = '700 104px "Space Grotesk", "Arial", sans-serif';
-  g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.shadowColor = '#46d4b1'; g.shadowBlur = 34; g.fillStyle = '#bdfcec';
-  g.fillText('ZIRUI SONG', c.width / 2, c.height / 2 + 6);
-  g.shadowBlur = 12; g.fillText('ZIRUI SONG', c.width / 2, c.height / 2 + 6);
+  drawPlaque(signTex.image.getContext('2d'), signTex.image.width, signTex.image.height);
   signTex.needsUpdate = true;
 });
 
@@ -196,8 +294,8 @@ renderer.toneMappingExposure = 1.32;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x16111f);
-scene.fog = new THREE.Fog(0x16111f, 26, 46);
+scene.background = new THREE.Color(0x2b1c33);
+scene.fog = new THREE.Fog(0x2b1c33, 34, 85);
 
 const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 120);
 const HOME_TGT = new THREE.Vector3(-0.6, 2.6, -2.6);
@@ -222,15 +320,15 @@ controls.maxAzimuthAngle = 1.35;
 controls.enabled = false;
 
 /* lights */
-scene.add(new THREE.AmbientLight(0xffffff, 0.3));
-scene.add(new THREE.HemisphereLight(0x9aa7d8, 0x4a3527, 0.85));
+scene.add(new THREE.AmbientLight(0xffffff, 0.38));
+scene.add(new THREE.HemisphereLight(0xb3a0d8, 0x5a4030, 1.05));
 
 const fill = new THREE.DirectionalLight(0x9db4e0, 0.5);   // cool fill from the open side
 fill.position.set(10, 9, 12);
 scene.add(fill);
 
-const sun = new THREE.DirectionalLight(0xffb978, 2.0);
-sun.position.set(8, 9.5, -16);
+const sun = new THREE.DirectionalLight(0xffb978, 2.2);
+sun.position.set(8, 9.0, -15.5);
 sun.target.position.set(1, 0, 3);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048);
@@ -244,16 +342,18 @@ const lampLight = new THREE.PointLight(0xffc87a, 18, 11, 1.8);
 lampLight.position.set(1.0, 3.3, -8.0);
 scene.add(lampLight);
 
-const signLight = new THREE.PointLight(ACCENT, 7, 8, 1.8);
-signLight.position.set(2.5, 6.8, -9.0);
+const signLight = new THREE.PointLight(ACCENT, 5, 7, 1.8);
+signLight.position.set(2.5, 5.5, -8.8);
 scene.add(signLight);
 
 /* ------------------------------------------------------------- room */
 const room = new THREE.Group();
 scene.add(room);
 
-const under = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), mat(0x0d0a13, { rough: 1 }));
+/* desert ground beyond the courtyard */
+const under = new THREE.Mesh(new THREE.PlaneGeometry(120, 120), mat(0xbf9c66, { rough: 1 }));
 under.rotation.x = -Math.PI / 2; under.position.y = -0.02;
+under.receiveShadow = true;
 room.add(under);
 
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), mat(0xffffff, { map: floorTex, rough: .9 }));
@@ -261,16 +361,69 @@ floor.rotation.x = -Math.PI / 2;
 floor.receiveShadow = true;
 room.add(floor);
 
-const wallMat = () => mat(0xb08a66, { rough: .95 });
-const backWall = new THREE.Mesh(new THREE.PlaneGeometry(20, 10), wallMat());
-backWall.position.set(0, 5, -10); backWall.receiveShadow = true;
-const leftWall = new THREE.Mesh(new THREE.PlaneGeometry(20, 10), wallMat());
-leftWall.rotation.y = Math.PI / 2; leftWall.position.set(-10, 5, 0); leftWall.receiveShadow = true;
+/* sandstone walls with real arched openings (Masdar style) */
+function archedWall(width, height, thickness, color, arches) {
+  const shape = new THREE.Shape();
+  shape.moveTo(-width / 2, 0); shape.lineTo(width / 2, 0);
+  shape.lineTo(width / 2, height); shape.lineTo(-width / 2, height); shape.closePath();
+  for (const a of arches) {
+    const r = a.w / 2, top = a.h - r;
+    const hole = new THREE.Path();
+    hole.moveTo(a.x - r, 0); hole.lineTo(a.x - r, top);
+    hole.absarc(a.x, top, r, Math.PI, 0, true);
+    hole.lineTo(a.x + r, 0); hole.closePath();
+    shape.holes.push(hole);
+  }
+  const geo = new THREE.ExtrudeGeometry(shape, { depth: thickness, bevelEnabled: false });
+  const m = new THREE.Mesh(geo, mat(color, { rough: .95 }));
+  m.castShadow = true; m.receiveShadow = true;
+  return m;
+}
+// back wall: a doorway arch to the desert (NOW) + a lattice arch behind the trophy
+const backWall = archedWall(20, 10, 0.35, 0xc9a374, [{ x: 6.5, w: 3.6, h: 6.0 }, { x: -7.6, w: 2.4, h: 5.0 }]);
+backWall.position.set(0, 0, -10.1);
+// left wall: one lattice arch on the open stretch
+const leftWall = archedWall(20, 10, 0.35, 0xc9a374, [{ x: -7.0, w: 2.6, h: 5.5 }]);
+leftWall.rotation.y = Math.PI / 2;
+leftWall.position.set(-10.1, 0, 0);
 room.add(backWall, leftWall);
 
-const base1 = box(20, 0.5, 0.18, 0x6e4a2c); base1.position.set(0, 0.25, -9.92);
-const base2 = box(0.18, 0.5, 20, 0x6e4a2c); base2.position.set(-9.92, 0.25, 0);
-room.add(base1, base2);
+/* mashrabiya screens inside the lattice arches */
+function latticeScreen(wd, ht) {
+  const t = latticeTex.clone();
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.repeat.set(1, 2);
+  t.needsUpdate = true;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(wd, ht),
+    new THREE.MeshStandardMaterial({ map: t, transparent: true, alphaTest: 0.45, side: THREE.DoubleSide, roughness: .8 }));
+  m.castShadow = true;
+  m.userData.noGlow = true;
+  return m;
+}
+const screenBack = latticeScreen(2.5, 5.1); screenBack.position.set(-7.6, 2.5, -9.93);
+const screenLeft = latticeScreen(2.7, 5.6); screenLeft.rotation.y = Math.PI / 2; screenLeft.position.set(-9.93, 2.75, 7);
+room.add(screenBack, screenLeft);
+
+/* warm dusk glowing through the screens */
+function archGlow(wd, ht) {
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(wd, ht),
+    new THREE.MeshBasicMaterial({ map: glowTex, fog: false, side: THREE.DoubleSide }));
+  m.userData.noGlow = true;
+  return m;
+}
+const glowBack = archGlow(3.0, 5.5); glowBack.position.set(-7.6, 2.6, -10.4);
+const glowLeft = archGlow(3.2, 6.0); glowLeft.rotation.y = Math.PI / 2; glowLeft.position.set(-10.42, 2.9, 7);
+scene.add(glowBack, glowLeft);
+
+/* dusk sky dome + skyline backdrop past the doorway */
+const dome = new THREE.Mesh(
+  new THREE.SphereGeometry(46, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.53),
+  new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide, fog: false, toneMapped: false }));
+scene.add(dome);
+const skyline = new THREE.Mesh(new THREE.PlaneGeometry(30, 10),
+  new THREE.MeshBasicMaterial({ map: skylineTex, fog: false, toneMapped: false }));
+skyline.position.set(4, 4.0, -14);
+scene.add(skyline);
 
 /* rug */
 const rug = new THREE.Group();
@@ -354,11 +507,17 @@ function buildChair() {
 }
 room.add(buildChair());
 
-/* ---- neon sign (decor) ---- */
-const sign = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 1.1),
+/* ---- backlit name plaque above the desk (decor) ---- */
+const plaqueFrame = box(3.94, 1.5, 0.16, 0x8a6248);
+plaqueFrame.position.set(2.5, 5.62, -9.72);
+plaqueFrame.castShadow = true;
+const sign = new THREE.Mesh(new THREE.PlaneGeometry(3.66, 1.16),
   new THREE.MeshBasicMaterial({ map: signTex, transparent: true, toneMapped: false }));
-sign.position.set(2.5, 7.1, -9.94);
-room.add(sign);
+sign.position.set(2.5, 5.62, -9.63);
+const underglow = box(3.66, 0.05, 0.08, 0x46d4b1, { emissive: 0x46d4b1, emissiveIntensity: 2.2 });
+underglow.position.set(2.5, 4.83, -9.66);
+underglow.userData.noGlow = true;
+room.add(plaqueFrame, sign, underglow);
 
 /* ---- corkboard (NEWS) ---- */
 function buildBoard() {
@@ -376,32 +535,26 @@ function buildBoard() {
   });
   const head = box(1.15, 0.3, 0.025, 0xd64545); head.position.set(-1.0, 0.7, 0.105); head.rotation.z = 0.06;
   g.add(head);
-  g.position.set(-3.5, 4.7, -9.88);
+  g.position.set(-3.5, 4.7, -9.66);
   return g;
 }
 room.add(buildBoard());
 
-/* ---- window (NOW) ---- */
-function buildWindow() {
+/* ---- doorway arch dressing (NOW) ---- */
+function buildArchDressing() {
   const g = new THREE.Group();
-  const frame = box(3.6, 2.9, 0.18, 0x5b3d24); g.add(frame);
-  const view = new THREE.Mesh(new THREE.PlaneGeometry(3.3, 2.6),
-    new THREE.MeshBasicMaterial({ map: windowTex, toneMapped: false }));
-  view.position.z = 0.1; g.add(view);
-  const mh = box(3.3, 0.07, 0.06, 0x5b3d24); mh.position.z = 0.13;
-  const mv = box(0.07, 2.6, 0.06, 0x5b3d24); mv.position.z = 0.13;
-  g.add(mh, mv);
-  const sill = box(3.9, 0.12, 0.5, 0x6e4a2c); sill.position.set(0, -1.55, 0.18); g.add(sill);
-  const cactus = new THREE.Group();
-  const pot = cyl(0.14, 0.11, 0.2, 0xc96f4a); pot.position.y = 0.1;
-  const body = sph(0.12, 0x3f8f5f); body.scale.y = 1.6; body.position.y = 0.32;
-  const arm = sph(0.06, 0x3f8f5f); arm.scale.y = 1.5; arm.position.set(0.11, 0.36, 0);
-  cactus.add(pot, body, arm); cactus.position.set(-1.45, -1.49, 0.18);
-  g.add(cactus);
-  g.position.set(6.5, 5.1, -9.91);
-  return g;
+  const stone = 0xb5905e;
+  for (const sgn of [-1, 1]) {
+    const pil = box(0.46, 4.2, 0.46, stone); pil.position.set(sgn * 2.04, 2.1, 0); g.add(pil);
+    const cap = box(0.66, 0.2, 0.66, 0x8a6248); cap.position.set(sgn * 2.04, 4.3, 0); g.add(cap);
+  }
+  const key = box(0.46, 0.62, 0.28, 0x8a6248);
+  key.position.set(0, 6.08, 0); key.rotation.z = Math.PI / 4; g.add(key);
+  const thresh = box(4.3, 0.07, 0.85, stone); thresh.position.set(0, 0.035, 0.05); g.add(thresh);
+  g.position.set(6.5, 0, -9.72);
+  return shadowed(g);
 }
-room.add(buildWindow());
+room.add(buildArchDressing());
 
 /* ---- bookshelf (PUBLICATIONS) ---- */
 function buildShelf() {
@@ -433,7 +586,7 @@ function buildShelf() {
       g.add(st, st2);
     }
   }
-  g.position.set(-9.35, 0, -2.6);
+  g.position.set(-9.2, 0, -2.6);
   return shadowed(g);
 }
 room.add(buildShelf());
@@ -489,7 +642,7 @@ function buildEducation() {
   cap.add(tassel, tEnd);
   cap.position.set(0.3, -0.9, -0.1);
   g.add(cap);
-  g.position.set(-9.9, 4.9, 2.9);
+  g.position.set(-9.7, 4.9, 2.9);
   return g;
 }
 room.add(buildEducation());
@@ -509,7 +662,7 @@ function buildClock() {
   hourHand = box(0.02, 0.34, 0.035, 0x23262e); hourHand.geometry.translate(0, 0.17, 0); hourHand.position.x = 0.1;
   minHand = box(0.02, 0.5, 0.025, 0x9e4a4a); minHand.geometry.translate(0, 0.25, 0); minHand.position.x = 0.12;
   g.add(hourHand, minHand);
-  g.position.set(-9.88, 7.3, -5.6);
+  g.position.set(-9.68, 7.3, -5.6);
   return g;
 }
 room.add(buildClock());
@@ -633,31 +786,61 @@ function buildBlogTable() {
 }
 room.add(buildBlogTable());
 
-/* ---- plant (decor) ---- */
-function buildPlant() {
+/* ---- palms (decor) ---- */
+function buildPalm(k = 1, potted = true) {
   const g = new THREE.Group();
-  const pot = cyl(0.5, 0.38, 0.85, 0xc96f4a); pot.position.y = 0.42; g.add(pot);
-  const soil = cyl(0.45, 0.45, 0.06, 0x3a2a20); soil.position.y = 0.83; g.add(soil);
-  let seed = 3;
-  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  for (let i = 0; i < 7; i++) {
-    const a = i / 7 * Math.PI * 2 + rand();
-    const stem = cyl(0.025, 0.035, 1.1 + rand() * 0.7, 0x2e6b3e);
-    const lh = stem.geometry.parameters.height;
-    stem.position.set(Math.cos(a) * 0.18, 0.8 + lh / 2, Math.sin(a) * 0.18);
-    stem.rotation.z = Math.cos(a) * 0.35; stem.rotation.x = -Math.sin(a) * 0.35;
-    const leaf = sph(0.3, 0x3f8f5f, { rough: .8 });
-    leaf.scale.set(1, 0.45, 0.55);
-    leaf.position.set(Math.cos(a) * (0.18 + Math.sin(0.35) * lh), 0.8 + lh, Math.sin(a) * (0.18 + Math.sin(0.35) * lh));
-    leaf.rotation.y = -a;
-    g.add(stem, leaf);
+  let y0 = 0;
+  if (potted) {
+    const pot = cyl(0.5 * k, 0.38 * k, 0.85 * k, 0xc96f4a); pot.position.y = 0.42 * k; g.add(pot);
+    const soil = cyl(0.45 * k, 0.45 * k, 0.06 * k, 0x3a2a20); soil.position.y = 0.83 * k; g.add(soil);
+    y0 = 0.85 * k;
   }
-  g.position.set(8.7, 0, -2.0);
-  g.userData.sway = true;
+  for (let i = 0; i < 5; i++) {
+    const seg = cyl(0.1 * k * (1 - i * 0.08), 0.13 * k * (1 - i * 0.08), 0.52 * k, 0x8a6248);
+    seg.position.set(Math.sin(i * 0.22) * 0.12 * k, y0 + (i + 0.5) * 0.48 * k, 0);
+    seg.rotation.z = 0.05 * i;
+    g.add(seg);
+  }
+  const topY = y0 + 5 * 0.48 * k, topX = Math.sin(4 * 0.22) * 0.12 * k;
+  for (let i = 0; i < 8; i++) {
+    const a = i / 8 * Math.PI * 2;
+    const frond = sph(0.95 * k, i % 2 ? 0x3f8f5f : 0x2e7b4e, { rough: .85 });
+    frond.scale.set(1, 0.07, 0.2);
+    frond.position.set(topX + Math.cos(a) * 0.78 * k, topY + 0.16 * k, Math.sin(a) * 0.78 * k);
+    frond.rotation.y = -a;
+    frond.rotation.z = -0.3 - (i % 3) * 0.13;
+    g.add(frond);
+  }
+  for (const [dx, dz] of [[0.14, 0.06], [-0.1, 0.12]]) {
+    const coco = sph(0.09 * k, 0x6e4a2c); coco.position.set(topX + dx * k, topY - 0.06 * k, dz * k); g.add(coco);
+  }
   return shadowed(g);
 }
-const plant = buildPlant();
+const plant = buildPalm(0.9, true);
+plant.position.set(8.7, 0, -2.0);
 room.add(plant);
+const outdoorPalm = buildPalm(1.6, false);
+outdoorPalm.position.set(5.9, -0.02, -12.8);
+scene.add(outdoorPalm);
+
+/* ---- standing lantern (decor) ---- */
+function buildLantern() {
+  const g = new THREE.Group();
+  const base = cyl(0.3, 0.36, 0.1, 0x3c3526); base.position.y = 0.05; g.add(base);
+  const body = cyl(0.26, 0.34, 0.78, 0xc9a23c, 6, { metal: .7, rough: .35 }); body.position.y = 0.55; g.add(body);
+  const core = cyl(0.18, 0.24, 0.66, 0xffd98a, 6, { emissive: 0xffc34d, emissiveIntensity: 1.6 });
+  core.position.y = 0.55; core.userData.noGlow = true; g.add(core);
+  const cap = cyl(0.06, 0.3, 0.3, 0xc9a23c, 6, { metal: .7, rough: .35 }); cap.position.y = 1.08; g.add(cap);
+  const knob = sph(0.06, 0xc9a23c, { metal: .7, rough: .3 }); knob.position.y = 1.28; g.add(knob);
+  g.position.set(8.55, 0, -6.1);
+  shadowed(g);
+  g.traverse(m => { if (m.isMesh) m.userData.noGlow = true; });
+  return g;
+}
+room.add(buildLantern());
+const lanternLight = new THREE.PointLight(0xffc34d, 4, 6, 1.9);
+lanternLight.position.set(8.55, 1.0, -6.1);
+scene.add(lanternLight);
 
 /* ---------------------------------------------------------- dust ---- */
 const dustGeo = new THREE.BufferGeometry();
@@ -678,7 +861,7 @@ scene.add(dust);
 /* Each station: an invisible hit volume + an HTML hotspot + camera framing. */
 const stations = [
   { id: 'about',        label: 'About Me',        hit: [2.4, 2.6, -8.2, 2.4, 1.8, 1.6], anchor: [2.4, 3.6, -8.2],  cam: [2.4, 3.8, -4.2],  tgt: [2.4, 2.5, -8.3] },
-  { id: 'news',         label: 'News',            hit: [-3.5, 4.7, -9.85, 3.5, 2.7, 0.5], anchor: [-3.5, 6.3, -9.8], cam: [-3.5, 4.9, -5.4], tgt: [-3.5, 4.7, -9.9] },
+  { id: 'news',         label: 'News',            hit: [-3.5, 4.7, -9.7, 3.5, 2.7, 0.5], anchor: [-3.5, 6.3, -9.55], cam: [-3.5, 4.9, -5.4], tgt: [-3.5, 4.7, -9.7] },
   { id: 'publications', label: 'Publications',    hit: [-9.3, 3.3, -2.6, 1.4, 6.7, 4.7], anchor: [-8.6, 6.9, -2.6], cam: [-4.4, 4.3, -2.6], tgt: [-9.5, 3.7, -2.6] },
   { id: 'research',     label: 'Research · Globe', hit: [-5.6, 1.9, -6.4, 2.4, 4.0, 2.4], anchor: [-5.6, 4.1, -6.4], cam: [-3.0, 3.9, -3.6], tgt: [-5.8, 2.7, -6.6] },
   { id: 'education',    label: 'Education',       hit: [-9.8, 4.7, 2.9, 0.9, 3.3, 2.8], anchor: [-9.5, 6.5, 2.9],  cam: [-5.0, 4.8, 2.9],  tgt: [-9.9, 4.4, 2.9] },
@@ -686,7 +869,7 @@ const stations = [
   { id: 'awards',       label: 'Honors & Awards', hit: [-8.3, 1.7, -8.3, 1.9, 3.6, 1.9], anchor: [-8.3, 3.9, -8.3], cam: [-4.6, 3.9, -4.6], tgt: [-8.4, 2.6, -8.4] },
   { id: 'service',      label: 'Academic Service', hit: [8.95, 1.6, -8.6, 1.7, 3.4, 1.5], anchor: [8.95, 3.5, -8.6], cam: [6.8, 3.9, -4.4],  tgt: [9.0, 2.2, -8.7] },
   { id: 'experience',   label: 'Experience',      hit: [-1.3, 0.7, -1.6, 3.2, 1.5, 3.2], anchor: [-1.3, 1.8, -1.6], cam: [-1.3, 4.9, 1.9],  tgt: [-1.4, 0.9, -1.8] },
-  { id: 'now',          label: 'Now · the window', hit: [6.5, 5.1, -9.85, 3.7, 3.0, 0.5], anchor: [6.5, 7.0, -9.8],  cam: [6.5, 5.2, -4.6],  tgt: [6.5, 5.1, -9.9] },
+  { id: 'now',          label: 'Now · the doorway', hit: [6.5, 3.1, -9.85, 4.0, 6.2, 0.9], anchor: [6.5, 6.7, -9.5],  cam: [6.5, 4.4, -3.4],  tgt: [6.5, 3.7, -9.9] },
   { id: 'contact',      label: 'Contact',         hit: [6.6, 1.2, -4.4, 1.7, 2.6, 1.7], anchor: [6.6, 2.6, -4.4],  cam: [6.0, 3.3, -0.7],  tgt: [6.7, 1.5, -4.5] },
 ];
 
@@ -852,7 +1035,9 @@ function openStation(id, pushHash = true) {
     return;
   }
 
+  introDone = true;                       // an early click simply ends the intro
   if (!panelStation && !tween) freeCam = { p: camera.position.clone(), t: controls.target.clone() };
+  if (!freeCam) freeCam = { p: homePos(), t: HOME_TGT.clone() };
   panelStation = st;
   document.body.classList.add('panel-open');
   panel.classList.add('open');
@@ -944,8 +1129,12 @@ function beginIntro() {
 const clock = new THREE.Clock();
 function tick() {
   requestAnimationFrame(tick);
+  step();
+}
+/* dtForce lets tests pump frames while the tab is backgrounded (rAF paused) */
+function step(dtForce) {
   if (document.body.classList.contains('flat')) return;
-  const dt = Math.min(clock.getDelta(), 0.05);
+  const dt = dtForce !== undefined ? dtForce : Math.min(clock.getDelta(), 0.05);
   const t = clock.elapsedTime;
 
   updateTween(dt);
@@ -987,8 +1176,10 @@ function tick() {
 
   updateHotspots();
   renderer.render(scene, camera);
+  window.__dbg = { introDone, tween: !!tween, cam: camera.position.toArray().map(n => +n.toFixed(2)), t: +clock.elapsedTime.toFixed(1) };
 }
 tick();
+window.__step = step;
 
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
