@@ -5,10 +5,12 @@
    ===================================================================== */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 
 const ACCENT = 0x46d4b1;
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
+const FP = !isMobile();         // desktop explores in first person; mobile keeps orbit
 
 /* ---------------------------------------------------------------- dom */
 const canvas   = document.getElementById('scene');
@@ -24,6 +26,10 @@ const scrim    = document.getElementById('scrim');
 const hint     = document.getElementById('hud-hint');
 const nav      = document.getElementById('hud-nav');
 const modeBtn  = document.getElementById('mode-toggle');
+const fpStart       = document.getElementById('fp-start');
+const fpStartLabel  = document.getElementById('fp-start-label');
+const fpPrompt      = document.getElementById('fp-prompt');
+const fpPromptLabel = document.getElementById('fp-prompt-label');
 
 /* ------------------------------------------------------- webgl guard */
 function webglOK() {
@@ -250,7 +256,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x2b1c33);
 scene.fog = new THREE.Fog(0x2b1c33, 34, 85);
 
-const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 120);
+const camera = new THREE.PerspectiveCamera(FP ? 68 : 45, innerWidth / innerHeight, 0.1, 120);
 const HOME_TGT = new THREE.Vector3(-0.6, 2.6, -2.6);
 function homePos() {
   // pull back further on narrow screens so the room still fits
@@ -258,20 +264,30 @@ function homePos() {
   return new THREE.Vector3(11.6 * k, 7.6 * k, 12.4 * k);
 }
 camera.position.set(22, 15, 25);
+if (FP) camera.lookAt(HOME_TGT);         // orientation the intro glide starts from
 
-const controls = new OrbitControls(camera, canvas);
-controls.target.copy(HOME_TGT);
-controls.enableDamping = true;
-controls.dampingFactor = 0.06;
-controls.enablePan = false;
-controls.zoomToCursor = true;            // dolly toward the pointer, not the centre
-controls.minDistance = 5;
-controls.maxDistance = 26;
-controls.minPolarAngle = 0.32;
-controls.maxPolarAngle = 1.46;
-controls.minAzimuthAngle = -0.30;
-controls.maxAzimuthAngle = 1.35;
-controls.enabled = false;
+/* desktop: Pointer Lock first-person · mobile: orbit camera */
+let controls = null, fpControls = null;
+if (FP) {
+  fpControls = new PointerLockControls(camera, canvas);
+  fpControls.minPolarAngle = 0.30;       // keep the horizon sane
+  fpControls.maxPolarAngle = Math.PI - 0.35;
+  fpControls.pointerSpeed = 0.9;
+} else {
+  controls = new OrbitControls(camera, canvas);
+  controls.target.copy(HOME_TGT);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.enablePan = false;
+  controls.zoomToCursor = true;          // dolly toward the pointer, not the centre
+  controls.minDistance = 5;
+  controls.maxDistance = 26;
+  controls.minPolarAngle = 0.32;
+  controls.maxPolarAngle = 1.46;
+  controls.minAzimuthAngle = -0.30;
+  controls.maxAzimuthAngle = 1.35;
+  controls.enabled = false;
+}
 
 /* lights */
 scene.add(new THREE.AmbientLight(0xffffff, 0.38));
@@ -849,6 +865,48 @@ const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
 }));
 scene.add(dust);
 
+/* ====================================================== avatar ===== */
+/* the little visitor you can steer around the room with WASD           */
+const SKIN = 0xdca877, CAP_C = 0xf2ecdd, BAND_C = 0x2c2116, BAG_C = 0xc9a23c;
+
+function buildAvatar() {
+  const root = new THREE.Group();          // world position + facing (rotation.y)
+  const body = new THREE.Group();          // local bob / sway while walking
+  root.add(body);
+
+  const robe = cyl(0.5, 0.68, 3.3, ACCENT, 16, { rough: .82 });
+  robe.position.y = 1.65; body.add(robe);
+
+  const belt = cyl(0.62, 0.62, 0.1, BAG_C, 16, { metal: .35, rough: .5 });
+  belt.position.y = 2.05; body.add(belt);
+
+  function arm() {
+    const m = cyl(0.08, 0.07, 1.3, ACCENT, 8, { rough: .82 });
+    m.geometry.translate(0, -0.65, 0);      // pivot at the shoulder
+    return m;
+  }
+  const armL = arm(); armL.position.set(-0.58, 2.95, 0);
+  const armR = arm(); armR.position.set(0.58, 2.95, 0);
+  body.add(armL, armR);
+
+  const head = sph(0.5, SKIN, { rough: .7 }); head.position.y = 3.75; body.add(head);
+  const cap = sph(0.53, CAP_C, { rough: .9 }); cap.scale.set(1, 0.7, 1); cap.position.y = 3.95; body.add(cap);
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.045, 8, 20), mat(BAND_C, { rough: .6 }));
+  band.rotation.x = Math.PI / 2; band.position.y = 3.75; body.add(band);
+
+  const bag = box(0.4, 0.5, 0.22, BAG_C, { rough: .8 });   // satchel — also marks "back"
+  bag.position.set(0, 2.05, -0.68); body.add(bag);
+
+  root.userData.body = body;
+  root.userData.limbs = { armL, armR };
+  return shadowed(root);
+}
+
+const avatar = buildAvatar();
+avatar.position.set(1.4, 0, -0.6);      // open floor near the rug, clear of the coffee table
+scene.add(avatar);
+if (FP) avatar.visible = false;         // in first person, YOU are the visitor
+
 /* ====================================================== stations ==== */
 /* Each station: an invisible hit volume + an HTML hotspot + camera framing. */
 const stations = [
@@ -884,6 +942,7 @@ for (const st of stations) {
   dot.addEventListener('pointerleave', () => setHover(st, false));
   hotspotLayer.appendChild(dot);
   st.dot = dot;
+  if (FP) dot.style.display = 'none';   // first person uses proximity + E instead
   st.anchorV = new THREE.Vector3(...st.anchor);
 
   // collect glowable meshes near the station for hover highlight
@@ -943,6 +1002,7 @@ function showTooltip(st) {
 }
 
 canvas.addEventListener('pointermove', e => {
+  if (FP) return;                        // first person: proximity + E, no hover picking
   pointer.x = (e.clientX / innerWidth) * 2 - 1;
   pointer.y = -(e.clientY / innerHeight) * 2 + 1;
   if (panelStation || !introDone) return;
@@ -955,6 +1015,7 @@ canvas.addEventListener('pointermove', e => {
 let downAt = null;
 canvas.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; });
 canvas.addEventListener('pointerup', e => {
+  if (FP) return;
   if (!downAt) return;
   const moved = Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]);
   downAt = null;
@@ -966,17 +1027,30 @@ canvas.addEventListener('pointerup', e => {
   if (hit) openStation(hit.object.userData.station.id);
 });
 
+/* first person: clicking the scene grabs the mouse */
+if (FP) {
+  canvas.addEventListener('click', () => {
+    if (!introDone || panelStation || tween) return;
+    if (document.body.classList.contains('flat')) return;
+    if (!fpControls.isLocked) fpControls.lock();
+  });
+}
+
 /* --------------------------------------------------------- camera -- */
 function easeInOut(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
 
+const _tweenLook = new THREE.Vector3();
+function currentLook() {
+  return camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(9).add(camera.position);
+}
 function flyTo(pos, tgt, dur = 1.25, onDone) {
   if (reduceMotion) dur = 0.001;
   tween = {
     p0: camera.position.clone(), p1: new THREE.Vector3(...pos),
-    t0: controls.target.clone(), t1: new THREE.Vector3(...tgt),
+    t0: FP ? currentLook() : controls.target.clone(), t1: new THREE.Vector3(...tgt),
     t: 0, dur, onDone,
   };
-  controls.enabled = false;
+  if (controls) controls.enabled = false;
 }
 
 function updateTween(dt) {
@@ -984,7 +1058,9 @@ function updateTween(dt) {
   tween.t += dt / tween.dur;
   const k = easeInOut(Math.min(tween.t, 1));
   camera.position.lerpVectors(tween.p0, tween.p1, k);
-  controls.target.lerpVectors(tween.t0, tween.t1, k);
+  _tweenLook.lerpVectors(tween.t0, tween.t1, k);
+  if (controls) controls.target.copy(_tweenLook);
+  camera.lookAt(_tweenLook);
   if (tween.t >= 1) {
     const done = tween.onDone; tween = null;
     if (done) done();
@@ -1007,7 +1083,7 @@ function framedFor(st) {
 }
 
 /* ----------------------------------------------------------- panel -- */
-function openStation(id, pushHash = true) {
+function openStation(id, pushHash = true, teleport = false) {
   const st = stations.find(s => s.id === id);
   const sec = document.getElementById('content-' + id);
   if (!sec) return;
@@ -1028,14 +1104,22 @@ function openStation(id, pushHash = true) {
   }
 
   introDone = true;                       // an early click simply ends the intro
-  if (!panelStation && !tween) freeCam = { p: camera.position.clone(), t: controls.target.clone() };
-  if (!freeCam) freeCam = { p: homePos(), t: HOME_TGT.clone() };
+  if (FP) {
+    tween = null;                         // cancel any camera flight
+    if (fpControls.isLocked) fpControls.unlock();
+    if (teleport && st) teleportTo(st);
+    fpStart.classList.remove('show');
+    hidePrompt();
+  } else {
+    if (!panelStation && !tween) freeCam = { p: camera.position.clone(), t: controls.target.clone() };
+    if (!freeCam) freeCam = { p: homePos(), t: HOME_TGT.clone() };
+  }
   panelStation = st;
   document.body.classList.add('panel-open');
   panel.classList.add('open');
   scrim.classList.add('show');
   hint.classList.add('faded');
-  if (st) {
+  if (!FP && st) {
     const [pos, tgt] = framedFor(st);
     flyTo(pos, tgt, 1.25);
   }
@@ -1050,8 +1134,11 @@ function closePanel() {
   document.body.classList.remove('panel-open');
   nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
   history.replaceState(null, '', location.pathname);
-  if (freeCam) flyTo(freeCam.p.toArray(), freeCam.t.toArray(), 1.0, () => { controls.enabled = true; });
-  else controls.enabled = true;
+  if (FP) {
+    if (introDone && !document.body.classList.contains('flat')) showStart('Click to keep exploring');
+  } else if (freeCam) {
+    flyTo(freeCam.p.toArray(), freeCam.t.toArray(), 1.0, () => { controls.enabled = true; });
+  } else controls.enabled = true;
 }
 
 document.getElementById('panel-close').addEventListener('click', closePanel);
@@ -1060,20 +1147,27 @@ addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
 nav.addEventListener('click', e => {
   const b = e.target.closest('button[data-target]');
-  if (b) openStation(b.dataset.target);
+  if (b) openStation(b.dataset.target, true, true);   // nav walks you to that spot
 });
 
 modeBtn.addEventListener('click', () => {
   const flat = document.body.classList.toggle('flat');
   modeBtn.textContent = flat ? '3D' : '2D';
-  if (flat) { panel.classList.remove('open'); scrim.classList.remove('show'); panelStation = null; document.body.classList.remove('panel-open'); }
-  else { document.querySelectorAll('.content').forEach(c => c.classList.remove('active')); closePanel(); }
+  if (flat) {
+    if (FP && fpControls.isLocked) fpControls.unlock();
+    panel.classList.remove('open'); scrim.classList.remove('show'); panelStation = null; document.body.classList.remove('panel-open');
+  } else {
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    closePanel();
+    if (FP && introDone) showStart('Click to explore');
+  }
 });
 
 /* -------------------------------------------------------- hotspots -- */
 const occRay = new THREE.Raycaster();
 let occFrame = 0;
 function updateHotspots() {
+  if (FP) return;
   occFrame++;
   for (const st of stations) {
     const v = st.anchorV.clone().project(camera);
@@ -1108,14 +1202,196 @@ const loadTimer = setInterval(() => {
 function beginIntro() {
   loader.classList.add('done');
   if (document.body.classList.contains('flat')) { introDone = true; return; }
-  flyTo(homePos().toArray(), HOME_TGT.toArray(), reduceMotion ? 0.001 : 2.4, () => {
-    controls.enabled = true;
-    introDone = true;
-    const id = location.hash.slice(1);
-    if (id && stations.some(s => s.id === id)) openStation(id, false);
-    setTimeout(() => hint.classList.add('faded'), 9000);
+  if (FP) {
+    // glide down from the aerial view into the visitor's own eyes
+    flyTo([SPAWN.x, EYE_Y, SPAWN.z], [2.5, 4.2, -9.7], reduceMotion ? 0.001 : 2.8, () => {
+      introDone = true;
+      const id = location.hash.slice(1);
+      if (id && stations.some(s => s.id === id)) openStation(id, false, true);
+      else showStart('Click to explore');
+    });
+  } else {
+    flyTo(homePos().toArray(), HOME_TGT.toArray(), reduceMotion ? 0.001 : 2.4, () => {
+      controls.enabled = true;
+      introDone = true;
+      const id = location.hash.slice(1);
+      if (id && stations.some(s => s.id === id)) openStation(id, false);
+      setTimeout(() => hint.classList.add('faded'), 9000);
+    });
+  }
+}
+
+/* ------------------------------------------------- first-person walk */
+/* Desktop: you ARE the visitor. Pointer Lock looks around, WASD walks,  */
+/* and walking up to a glowing station and pressing E opens it.          */
+const WALK_SPEED = 4.6, RUN_MULT = 1.75, PLAYER_RADIUS = 0.5, EYE_Y = 3.3;
+const REACH = 1.9;                       // how close counts as "at" a station
+const SPAWN = new THREE.Vector3(1.4, 0, -0.6);
+const LEFT_LIMIT = -9.55, MAX_X = 10.4, MAX_Z = 10.4, BACK_LIMIT = -9.55;
+const DOOR_MIN_X = 4.95, DOOR_MAX_X = 8.05, DOOR_BACK_LIMIT = -11.6;
+const UP_AXIS = new THREE.Vector3(0, 1, 0);
+
+// footprints to walk around — reuse the station hit-boxes (they already
+// track each furniture group) plus a few small decor pieces that aren't
+// stations of their own.
+const OBSTACLES = stations.filter(s => s.id !== 'now').map(s => ({
+  x: s.hit[0], z: s.hit[2], hx: s.hit[3] / 2, hz: s.hit[5] / 2,
+}));
+OBSTACLES.push(
+  { x: 2.3, z: -6.55, hx: 0.55, hz: 0.55 },   // desk chair
+  { x: 8.55, z: -6.1, hx: 0.4, hz: 0.4 },     // standing lantern
+  { x: 8.7, z: -2.0, hx: 0.55, hz: 0.55 },    // potted palm
+);
+
+function clampToRoom(p) {
+  if (p.x < LEFT_LIMIT) p.x = LEFT_LIMIT;      // left wall — solid, no opening
+  if (p.x > MAX_X) p.x = MAX_X;                // open edge — soft bound
+  if (p.z > MAX_Z) p.z = MAX_Z;                // open edge — soft bound
+  const inDoorway = p.x > DOOR_MIN_X && p.x < DOOR_MAX_X;
+  const backLimit = inDoorway ? DOOR_BACK_LIMIT : BACK_LIMIT;
+  if (p.z < backLimit) p.z = backLimit;        // back wall — open only at the doorway
+}
+
+// push {x,z} out of an axis-aligned rectangle (half-extents hx/hz) if it's
+// within radius r of the rectangle — closest-point / Voronoi-region method.
+function resolveObstacle(p, ob, r) {
+  const dx = p.x - ob.x, dz = p.z - ob.z;
+  const cx = Math.max(-ob.hx, Math.min(ob.hx, dx));
+  const cz = Math.max(-ob.hz, Math.min(ob.hz, dz));
+  const closestX = ob.x + cx, closestZ = ob.z + cz;
+  const distX = p.x - closestX, distZ = p.z - closestZ;
+  const dist = Math.hypot(distX, distZ);
+  if (dist < r) {
+    if (dist < 1e-5) {
+      p.x = ob.x + (dx >= 0 ? ob.hx + r : -(ob.hx + r));
+    } else {
+      const push = r - dist;
+      p.x += (distX / dist) * push;
+      p.z += (distZ / dist) * push;
+    }
+  }
+}
+
+const player = SPAWN.clone();
+
+const keys = new Set();
+const MOVE_KEYS = new Set(['w', 'a', 's', 'd', 'arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'shift']);
+function canWalk() {
+  return FP && introDone && !panelStation && !tween &&
+         !document.body.classList.contains('flat') && fpControls.isLocked;
+}
+addEventListener('keydown', e => {
+  const k = e.key.toLowerCase();
+  if (k === 'e' && FP && introDone && !e.repeat) {
+    if (panelStation) { closePanel(); return; }
+    if (nearStation && canWalk()) openStation(nearStation.id);
+    return;
+  }
+  if (!MOVE_KEYS.has(k)) return;
+  if (!canWalk()) return;
+  e.preventDefault();
+  keys.add(k);
+});
+addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
+addEventListener('blur', () => keys.clear());
+
+/* pointer-lock plumbing + the "click to explore" chip */
+function showStart(msg) {
+  fpStartLabel.textContent = msg;
+  fpStart.classList.add('show');
+}
+function hidePrompt() {
+  nearStation = null;
+  fpPrompt.classList.remove('show');
+}
+if (FP) {
+  fpControls.addEventListener('lock', () => {
+    fpStart.classList.remove('show');
+    clearTimeout(showStart._t);
+    showStart._t = setTimeout(() => hint.classList.add('faded'), 6000);
+  });
+  fpControls.addEventListener('unlock', () => {
+    keys.clear();
+    if (introDone && !panelStation && !document.body.classList.contains('flat')) {
+      showStart('Paused — click to keep exploring');
+    }
+  });
+  fpStart.addEventListener('click', () => {
+    if (!introDone || panelStation || tween) return;
+    fpControls.lock();
+  });
+  document.addEventListener('pointerlockerror', () => {
+    if (introDone && !panelStation) showStart('Click to explore');
   });
 }
+
+/* drop the player in front of a station (nav buttons / #hash deep links) */
+const _lookPt = new THREE.Vector3(), _side = new THREE.Vector3(), _aim = new THREE.Vector3();
+function teleportTo(st) {
+  _aim.set(st.tgt[0] - st.cam[0], 0, st.tgt[2] - st.cam[2]).normalize();
+  _side.crossVectors(_aim, UP_AXIS).normalize();     // step right so the panel doesn't cover the subject
+  player.x = st.cam[0] + _side.x * 1.1;
+  player.z = st.cam[2] + _side.z * 1.1;
+  clampToRoom(player);
+  for (const ob of OBSTACLES) resolveObstacle(player, ob, PLAYER_RADIUS);
+  camera.position.set(player.x, EYE_Y, player.z);
+  _lookPt.set(st.tgt[0], Math.min(Math.max(st.tgt[1], 1.4), 5.4), st.tgt[2]).addScaledVector(_side, 1.1);
+  camera.lookAt(_lookPt);
+}
+
+const _fwd = new THREE.Vector3(), _right = new THREE.Vector3(), _move = new THREE.Vector3();
+let bobT = 0, bobY = 0;
+function movePlayer(dt) {
+  const kz = (keys.has('w') || keys.has('arrowup') ? 1 : 0) - (keys.has('s') || keys.has('arrowdown') ? 1 : 0);
+  const kx = (keys.has('d') || keys.has('arrowright') ? 1 : 0) - (keys.has('a') || keys.has('arrowleft') ? 1 : 0);
+  if (kx === 0 && kz === 0) {
+    bobY *= 0.85;                        // settle the head after walking
+    camera.position.set(player.x, EYE_Y + bobY, player.z);
+    return;
+  }
+  camera.getWorldDirection(_fwd); _fwd.y = 0; _fwd.normalize();
+  _right.crossVectors(_fwd, UP_AXIS).normalize();
+  _move.set(0, 0, 0).addScaledVector(_fwd, kz).addScaledVector(_right, kx);
+  if (_move.lengthSq() < 1e-6) return;
+  _move.normalize();
+
+  const speed = WALK_SPEED * (keys.has('shift') ? RUN_MULT : 1);
+  const next = { x: player.x + _move.x * speed * dt, z: player.z + _move.z * speed * dt };
+  clampToRoom(next);
+  for (const ob of OBSTACLES) resolveObstacle(next, ob, PLAYER_RADIUS);
+  player.x = next.x; player.z = next.z;
+  if (!reduceMotion) { bobT += dt * (keys.has('shift') ? 11.5 : 8.4); bobY = Math.sin(bobT) * 0.05; }
+  camera.position.set(player.x, EYE_Y + bobY, player.z);
+}
+
+/* which station is close enough (and roughly in front) to interact with */
+let nearStation = null;
+const _toSt = new THREE.Vector3();
+function updateNearStation() {
+  let best = null, bd = 1e9;
+  camera.getWorldDirection(_fwd); _fwd.y = 0;
+  if (_fwd.lengthSq() > 1e-6) _fwd.normalize();
+  for (const st of stations) {
+    const dx = player.x - st.hit[0], dz = player.z - st.hit[2];
+    const hx = st.hit[3] / 2, hz = st.hit[5] / 2;
+    const cx = Math.max(-hx, Math.min(hx, dx)), cz = Math.max(-hz, Math.min(hz, dz));
+    const d = Math.hypot(dx - cx, dz - cz);
+    if (d > REACH || d >= bd) continue;
+    _toSt.set(st.hit[0] - player.x, 0, st.hit[2] - player.z);
+    // ignore stations squarely behind your back (standing inside counts as facing)
+    if (_toSt.lengthSq() > 0.16 && _toSt.normalize().dot(_fwd) < -0.15) continue;
+    best = st; bd = d;
+  }
+  if (best !== nearStation) {
+    nearStation = best;
+    if (best) {
+      fpPromptLabel.textContent = best.label;
+      fpPrompt.classList.add('show');
+    } else fpPrompt.classList.remove('show');
+  }
+}
+
+if (FP) hint.textContent = 'Click to step in · WASD to walk · mouse to look · press E at a glowing object · Esc to pause';
 
 /* ---------------------------------------------------------- render -- */
 const clock = new THREE.Clock();
@@ -1130,7 +1406,12 @@ function step(dtForce) {
   const t = clock.elapsedTime;
 
   updateTween(dt);
-  if (controls.enabled) controls.update();
+  if (FP) {
+    if (!tween && !panelStation && fpControls.isLocked) {
+      movePlayer(dt);
+      updateNearStation();
+    } else if (nearStation) hidePrompt();
+  } else if (controls.enabled) controls.update();
 
   if (globeSphere) globeSphere.rotation.y += dt * 0.25;
   sign.material.opacity = 0.92 + Math.sin(t * 2.2) * 0.08;
@@ -1155,12 +1436,13 @@ function step(dtForce) {
   }
   dp.needsUpdate = true;
 
-  // hover glow
+  // glow: hover (orbit) or proximity (first person)
+  const focus = FP ? nearStation : hovered;
   for (const st of stations) {
-    const target = (hovered === st && !panelStation) ? 1 : 0;
+    const target = (focus === st && !panelStation) ? 1 : 0;
     st.glow += (target - st.glow) * Math.min(1, dt * 9);
     if (st.glow > 0.005) {
-      for (const m of st.glowMats) { m.emissive.setHex(ACCENT); m.emissiveIntensity = st.glow * 0.17; }
+      for (const m of st.glowMats) { m.emissive.setHex(ACCENT); m.emissiveIntensity = st.glow * (FP ? 0.3 : 0.17); }
     } else if (st.glow !== 0) {
       for (const m of st.glowMats) m.emissiveIntensity = 0;
     }
@@ -1168,7 +1450,7 @@ function step(dtForce) {
 
   updateHotspots();
   renderer.render(scene, camera);
-  window.__dbg = { introDone, tween: !!tween, cam: camera.position.toArray().map(n => +n.toFixed(2)), t: +clock.elapsedTime.toFixed(1) };
+  window.__dbg = { introDone, tween: !!tween, locked: FP ? fpControls.isLocked : null, near: nearStation?.id ?? null, cam: camera.position.toArray().map(n => +n.toFixed(2)), t: +clock.elapsedTime.toFixed(1) };
 }
 tick();
 window.__step = step;

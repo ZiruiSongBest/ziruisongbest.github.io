@@ -301,3 +301,45 @@ body.flat #scrim { display: none; }
   .hotspot::after { animation: none; }
   * { transition-duration: .01ms !important; }
 }
+
+/* ---------- first-person UI ---------- */
+#fp-start {
+  position: fixed; inset: 0; z-index: 22;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; opacity: 0; transition: opacity .35s ease;
+}
+#fp-start.show { opacity: 1; }
+#fp-start:not(.show) .fp-start-chip { pointer-events: none; }
+.fp-start-chip {
+  pointer-events: auto; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  font-family: var(--font-head); color: var(--ink);
+  background: rgba(14, 16, 24, 0.72); border: 1px solid var(--panel-border);
+  border-radius: 16px; padding: 18px 30px; backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  transition: transform .2s ease, border-color .2s ease;
+}
+#fp-start.show .fp-start-chip:hover { transform: scale(1.04); border-color: var(--accent); }
+#fp-start-label { font-size: 18px; font-weight: 600; letter-spacing: .06em; color: var(--accent); }
+.fp-start-sub { font: 400 12px var(--font-body); color: var(--ink-dim); letter-spacing: .05em; }
+
+#fp-prompt {
+  position: fixed; left: 50%; bottom: 76px; z-index: 23;
+  display: flex; align-items: center; gap: 10px;
+  pointer-events: none; opacity: 0;
+  transform: translate(-50%, 10px);
+  transition: opacity .2s ease, transform .2s ease;
+  background: rgba(14, 16, 24, 0.68); border: 1px solid var(--panel-border);
+  border-radius: 12px; padding: 9px 16px; backdrop-filter: blur(8px);
+  font: 500 13.5px var(--font-body); letter-spacing: .04em; color: var(--ink);
+}
+#fp-prompt.show { opacity: 1; transform: translate(-50%, 0); }
+#fp-prompt kbd {
+  font: 700 13px var(--font-head); color: #0e1410;
+  background: linear-gradient(135deg, #5fe6c3, #46d4b1);
+  border-radius: 6px; padding: 3px 9px;
+  box-shadow: 0 2px 8px rgba(70, 212, 177, 0.4);
+}
+
+body.flat #fp-start, body.flat #fp-prompt { display: none; }
+@media (max-width: 760px) { #fp-start, #fp-prompt { display: none; } }

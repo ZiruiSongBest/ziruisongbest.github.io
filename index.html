@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zirui Song — PhD @ MBZUAI · NLP & Multimodal AI</title>
-<meta name="description" content="Zirui Song is a PhD student in NLP at MBZUAI working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs. Explore his interactive 3D study.">
+<meta name="description" content="Zirui Song is a PhD student in NLP at MBZUAI working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs. Walk through his interactive 3D study in first person.">
 <meta name="author" content="Zirui Song">
 <meta property="og:title" content="Zirui Song — Interactive 3D Homepage">
-<meta property="og:description" content="Step into Zirui's study: click the laptop, globe, bookshelf and more to explore his research, papers and news.">
+<meta property="og:description" content="Step into Zirui's study in first person: walk with WASD, look with the mouse, and press E at the laptop, globe or bookshelf to explore his research.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/profile.jpg">
 <link rel="icon" href="images/favicon.ico">
@@ -41,6 +41,15 @@
 <div id="hotspots" aria-hidden="true"></div>
 <div id="tooltip" role="status"></div>
 
+<!-- first-person UI: interaction prompt + pointer-lock entry chip -->
+<div id="fp-prompt" aria-hidden="true"><kbd>E</kbd><span id="fp-prompt-label"></span></div>
+<div id="fp-start">
+  <button class="fp-start-chip" type="button">
+    <span id="fp-start-label">Click to explore</span>
+    <span class="fp-start-sub">WASD walk · mouse look · E to open · Esc to pause</span>
+  </button>
+</div>
+
 <!-- ======================= HUD ======================= -->
 <header id="hud-top">
   <div class="hud-id">
@@ -63,7 +72,7 @@
   </nav>
 </header>
 
-<div id="hud-hint">Drag to look around · Click a glowing object to open it</div>
+<div id="hud-hint">Drag to look around · Tap a glowing object to open it</div>
 
 <!-- ======================= CONTENT PANELS ======================= -->
 <!-- All personal content lives below as real HTML so it is crawlable and
