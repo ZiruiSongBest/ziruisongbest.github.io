@@ -1,36 +1,23 @@
-# ziruisongbest.github.io — Zirui Song's 3D homepage
+# ziruisongbest.github.io — Zirui Song's homepage
 
-An interactive 3D courtyard study built with [Three.js](https://threejs.org/) —
-sandstone walls with arched mashrabiya screens, a dusk sky, and an MBZUAI skyline
-past the doorway (a nod to Masdar City's architecture). Every glowing object
-opens one chapter of the CV:
-
-| Object | Section |
-|---|---|
-| 💻 Laptop on the desk | About Me |
-| 📰 Corkboard | News |
-| 📚 Bookshelf | Publications |
-| 🌍 Globe | Research Interests |
-| 🎓 Framed diplomas + cap | Education |
-| 💼 Briefcase | Blog & Resources |
-| 🏆 Trophy pedestal | Honors & Awards |
-| 🗄️ Filing cabinet | Academic Service |
-| 📓 Notebook on the coffee table | Experience |
-| 🌅 Doorway arch (desert view) | Now |
-| ☎️ Red telephone | Contact |
+A single-page academic homepage: about, news, publications, research interests,
+education, experience, awards, service, blog, now, and contact. Plain static
+HTML/CSS — no build step, no WebGL, no framework.
 
 ## Structure
 
-- `index.html` — all personal content lives here as plain HTML (crawlable, works without WebGL)
-- `js/main.js` — the Three.js scene, interactions and camera work
-- `css/style.css` — HUD, panels, 2D fallback mode
+- `index.html` — all content, as ordinary HTML sections
+- `css/style.css` — the whole stylesheet
+- `js/main.js` — small script that highlights the nav link for the section in view
 - `files/`, `images/` — PDFs, paper figures, logos, photos
 - `.nojekyll` — GitHub Pages serves this repo as plain static files (no build step)
 
 ## Editing content
 
 Open `index.html` and edit the `<section class="content">` blocks — news items,
-publications, etc. are ordinary HTML lists. No rebuild needed; just commit and push.
+publications, etc. are ordinary HTML lists. Each section's heading comes from its
+`data-icon` / `data-title` attributes, and the header nav links to its `id`.
+No rebuild needed; just commit and push.
 
 ## Run locally
 
@@ -39,4 +26,5 @@ python3 -m http.server 4173
 # open http://localhost:4173
 ```
 
-The previous Jekyll site is preserved in git history (`git log -- _pages/about.md`).
+Earlier versions of this site (a Jekyll build, then an interactive Three.js 3D
+study) are preserved in git history.

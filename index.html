@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zirui Song — PhD @ MBZUAI · NLP & Multimodal AI</title>
-<meta name="description" content="Zirui Song is a PhD student in NLP at MBZUAI working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs. Walk through his interactive 3D study in first person.">
+<title>Zirui Song — PhD @ MBZUAI · NLP &amp; Multimodal AI</title>
+<meta name="description" content="Zirui Song is a PhD student in NLP at MBZUAI working on multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.">
 <meta name="author" content="Zirui Song">
-<meta property="og:title" content="Zirui Song — Interactive 3D Homepage">
-<meta property="og:description" content="Step into Zirui's study in first person: walk with WASD, look with the mouse, and press E at the laptop, globe or bookshelf to explore his research.">
+<meta property="og:title" content="Zirui Song — PhD @ MBZUAI">
+<meta property="og:description" content="PhD student in NLP at MBZUAI. Multimodal reasoning, geolocation, embodied agents, and trustworthy MLLMs.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/profile.jpg">
 <link rel="icon" href="images/favicon.ico">
@@ -16,74 +16,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
-  }
-}
-</script>
 </head>
 <body>
 
-<!-- ======================= LOADING ======================= -->
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-name">ZIRUI&nbsp;SONG</div>
-    <div class="loader-sub">raising the courtyard…</div>
-    <div class="loader-bar"><span id="loader-fill"></span></div>
+<a class="skip-link" href="#content-about">Skip to content</a>
+
+<!-- ======================= HEADER ======================= -->
+<header id="site-head">
+  <div class="head-inner">
+    <a class="head-id" href="#top">
+      <span class="head-name">Zirui Song</span>
+      <span class="head-role">PhD @ MBZUAI · NLP · Multimodal AI</span>
+    </a>
+    <nav id="site-nav" aria-label="Sections">
+      <a href="#content-about">About</a>
+      <a href="#content-news">News</a>
+      <a href="#content-publications">Papers</a>
+      <a href="#content-research">Research</a>
+      <a href="#content-education">Education</a>
+      <a href="#content-experience">Experience</a>
+      <a href="#content-awards">Awards</a>
+      <a href="#content-service">Service</a>
+      <a href="#content-blog">Blog</a>
+      <a href="#content-now">Now</a>
+      <a href="#content-contact">Contact</a>
+    </nav>
   </div>
-</div>
-
-<!-- ======================= 3D CANVAS ======================= -->
-<canvas id="scene"></canvas>
-<div id="hotspots" aria-hidden="true"></div>
-<div id="tooltip" role="status"></div>
-
-<!-- first-person UI: interaction prompt + pointer-lock entry chip -->
-<div id="fp-prompt" aria-hidden="true"><kbd>E</kbd><span id="fp-prompt-label"></span></div>
-<div id="fp-start">
-  <button class="fp-start-chip" type="button">
-    <span id="fp-start-label">Click to explore</span>
-    <span class="fp-start-sub">WASD walk · mouse look · E to open · Esc to pause</span>
-  </button>
-</div>
-
-<!-- ======================= HUD ======================= -->
-<header id="hud-top">
-  <div class="hud-id">
-    <div class="hud-name">Zirui Song</div>
-    <div class="hud-role">PhD @ MBZUAI · NLP · Multimodal AI</div>
-  </div>
-  <nav id="hud-nav" aria-label="Sections">
-    <button data-target="about">About</button>
-    <button data-target="news">News</button>
-    <button data-target="publications">Papers</button>
-    <button data-target="research">Research</button>
-    <button data-target="education">Education</button>
-    <button data-target="experience">Experience</button>
-    <button data-target="awards">Awards</button>
-    <button data-target="service">Service</button>
-    <button data-target="blog">Blog</button>
-    <button data-target="now">Now</button>
-    <button data-target="contact">Contact</button>
-    <button id="mode-toggle" title="Switch between 3D scene and plain page">2D</button>
-  </nav>
 </header>
 
-<div id="hud-hint">Drag to look around · Tap a glowing object to open it</div>
-
-<!-- ======================= CONTENT PANELS ======================= -->
-<!-- All personal content lives below as real HTML so it is crawlable and
-     readable without WebGL. The 3D scene only shows/hides these sections. -->
-<main id="panel" aria-live="polite">
-  <div class="panel-chrome">
-    <span id="panel-icon"></span>
-    <h2 id="panel-title"></h2>
-    <button id="panel-close" aria-label="Close panel">✕</button>
-  </div>
-  <div id="panel-body">
+<main id="top">
 
     <!-- ABOUT -->
     <section class="content" id="content-about" data-icon="💻" data-title="About Me">
@@ -272,7 +233,7 @@
     </section>
 
     <!-- AWARDS -->
-    <section class="content" id="content-awards" data-icon="🏆" data-title="Honors & Awards">
+    <section class="content" id="content-awards" data-icon="🏆" data-title="Honors &amp; Awards">
       <ul class="awards">
         <li><span class="medal">🎖️</span><div><b>Dean's List 2025 (Top 2% of students)</b>, University of Technology Sydney · <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">certificate</a></div></li>
         <li><span class="medal">🥈</span><div><b>Silver Medal</b>, Kaggle — LLM Science Exam [51 / 2664], 2024</div></li>
@@ -297,7 +258,7 @@
     </section>
 
     <!-- BLOG / RESOURCES -->
-    <section class="content" id="content-blog" data-icon="📓" data-title="Blog & Resources">
+    <section class="content" id="content-blog" data-icon="📓" data-title="Blog &amp; Resources">
       <ul class="blog-list">
         <li><time>05/24</time><a href="files/grammargpt-rp.pdf" target="_blank" rel="noopener">National Undergraduate Innovation Project Documentation</a> <span class="lang">中文</span></li>
         <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh" target="_blank" rel="noopener">Negative Transfer</a> <span class="lang">中文</span></li>
@@ -338,23 +299,15 @@
       </ul>
     </section>
 
-  </div>
 </main>
 
-<div id="scrim"></div>
-
-<footer id="hud-foot">© 2026 Zirui Song · built as a little room you can walk around in</footer>
-
-<noscript>
-  <style>#loader,#scene,#hud-hint{display:none!important}#panel{position:static;transform:none;visibility:visible;width:auto;max-width:860px;margin:0 auto}.content{display:block!important;border-bottom:1px solid #333;padding:24px 0}</style>
-  <p style="text-align:center;padding:12px">JavaScript is off — here is the plain version of everything.</p>
-</noscript>
+<footer id="site-foot">© 2026 Zirui Song</footer>
 
 <!-- visitor map kept from the previous site (hidden, counting only) -->
 <div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0">
   <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk"></script>
 </div>
 
-<script type="module" src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
