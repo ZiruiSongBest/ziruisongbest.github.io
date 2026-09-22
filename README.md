@@ -1,23 +1,26 @@
 # ziruisongbest.github.io — Zirui Song's homepage
 
-A single-page academic homepage: about, news, publications, research interests,
-education, experience, awards, service, blog, now, and contact. Plain static
-HTML/CSS — no build step, no WebGL, no framework.
+A personal homepage connecting Zirui's research background with his entrepreneurial
+focus on autonomous chemistry labs and chemical reaction simulation. The page
+opens with a short bio and the two building directions, followed by selected
+research, recent updates, background, and contact. Longer research and career
+archives for updates and career details use native HTML disclosure elements. All
+selected publications are displayed directly. Plain static HTML/CSS, with no
+build step or framework.
 
 ## Structure
 
-- `index.html` — all content, as ordinary HTML sections
-- `css/style.css` — the whole stylesheet
-- `js/main.js` — small script that highlights the nav link for the section in view
-- `files/`, `images/` — PDFs, paper figures, logos, photos
-- `.nojekyll` — GitHub Pages serves this repo as plain static files (no build step)
+`index.html` contains the page content and `css/style.css` defines the responsive
+layout. `js/main.js` highlights the navigation link for the section in view.
+`files/` and `images/` hold PDFs, figures, logos, and photos. `.nojekyll` lets
+GitHub Pages serve the repository as static files.
 
 ## Editing content
 
-Open `index.html` and edit the `<section class="content">` blocks — news items,
-publications, etc. are ordinary HTML lists. Each section's heading comes from its
-`data-icon` / `data-title` attributes, and the header nav links to its `id`.
-No rebuild needed; just commit and push.
+Edit the sections in `index.html`. Headings use normal HTML heading elements,
+and navigation links point to section IDs. `<details>` elements hold earlier
+updates, career details, honors, service, and writing.
+No rebuild is needed. Publishing requires committing and pushing the changes.
 
 ## Run locally
 
