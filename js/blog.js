@@ -173,7 +173,12 @@
     var base = box.getAttribute('data-blog-base') || '';
     var count = parseInt(box.getAttribute('data-latest-posts'), 10) || 3;
     loadIndex(base).then(function (posts) {
-      if (!posts.length) return;
+      if (!posts.length) {
+        /* nothing published yet: leave the whole section out until there is */
+        var section = box.closest && box.closest('section');
+        if (section) section.hidden = true;
+        return;
+      }
       box.textContent = '';
       posts.slice(0, count).forEach(function (post) { box.appendChild(postRow(post, base)); });
     }).catch(function () {});
