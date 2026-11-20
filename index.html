@@ -4,90 +4,245 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zirui Song · Building AI for the Physical World</title>
-<meta name="description" content="Zirui Song, PhD student at MBZUAI, exploring entrepreneurship in autonomous chemistry labs, agentic AI, catalysis foundation models, and chemical reaction simulation.">
+<meta name="description" content="Zirui Song, PhD student at MBZUAI, maintainer of ChemLab-Assets, exploring entrepreneurship in autonomous chemistry labs, agentic AI, catalysis foundation models, and chemical reaction simulation.">
 <meta name="author" content="Zirui Song">
 <meta property="og:title" content="Zirui Song · Building AI for the Physical World">
 <meta property="og:description" content="Building the last mile between AI and the physical world through autonomous chemistry labs and chemical reaction simulation.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/profile.jpg">
+<meta name="theme-color" content="#f5f7f6">
 <link rel="icon" href="images/favicon.ico">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<script>
+  /* set the theme before first paint; light is the default */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try { if (localStorage.getItem('theme') === 'dark') d.setAttribute('data-theme', 'dark'); } catch (e) {}
+    /* never leave scroll-reveal content hidden if main.js fails to load */
+    setTimeout(function () { if (!window.__siteReady) d.classList.remove('js'); }, 4000);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a class="skip-link" href="#content-about">Skip to content</a>
 
+<div class="backdrop" aria-hidden="true">
+  <span class="blob blob-a"></span>
+  <span class="blob blob-b"></span>
+  <span class="blob blob-c"></span>
+  <span class="hexgrid"></span>
+</div>
+
 <header id="site-head">
   <div class="head-inner">
-    <a class="head-id" href="#top">
+    <a class="head-id" href="#top" aria-label="Zirui Song, back to top">
+      <svg class="head-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5 27.7 9.25v13.5L16 29.5 4.3 22.75V9.25z"/><circle cx="16" cy="16" r="4.2"/></svg>
       <span class="head-name">Zirui Song</span>
-      <span class="head-role">AI · Chemistry · Physical World</span>
     </a>
     <nav id="site-nav" aria-label="Sections">
       <a href="#content-about">About</a>
+      <a href="#content-chemlab">ChemLab</a>
       <a href="#content-building">Building</a>
       <a href="#content-publications">Research</a>
+      <a href="#content-news">News</a>
       <a href="#content-contact">Contact</a>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+    </button>
   </div>
 </header>
 
 <main id="top">
-  <section class="content hero" id="content-about" aria-labelledby="about-title">
-    <div class="about-head">
-      <img class="about-photo" src="images/profile.jpg" alt="Portrait of Zirui Song" width="108" height="108">
-      <div>
-        <p class="eyebrow">Research roots. Entrepreneurial focus.</p>
-        <h1 id="about-title">Zirui Song <span class="pron">/ˈziːˌruː.i/ /sɔːŋ/</span></h1>
-        <p class="about-line">PhD at MBZUAI · Abu Dhabi, UAE</p>
+  <!-- ───────── Hero ───────── -->
+  <section class="hero" id="content-about" aria-labelledby="about-title">
+    <div class="hero-copy">
+      <p class="mono-line"><span>PhD · MBZUAI NLP</span><span class="sep">/</span><span>Abu Dhabi, UAE</span></p>
+      <h1 id="about-title">Zirui Song</h1>
+      <p class="pron">/ˈziːˌruː.i/ /sɔːŋ/</p>
+      <p class="claim">Building the last mile between AI and the physical world, <em>starting with chemistry.</em></p>
+      <ul class="chip-row hero-chips" aria-label="Focus areas">
+        <li class="chip chip-teal"><i></i>Autonomous chemistry labs</li>
+        <li class="chip chip-blue"><i></i>Reaction simulation</li>
+        <li class="chip chip-amber"><i></i>Embodied agents</li>
+        <li class="chip chip-rose"><i></i>Trustworthy models</li>
+      </ul>
+      <p class="bio">I’m a PhD student at <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">Mohamed bin Zayed University of Artificial Intelligence</a>, advised by
+        <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> and
+        <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/" target="_blank" rel="noopener">Prof. Xiaojun Chang</a>.
+        My research spans multimodal AI, embodied agents, and trustworthy models. Previously, I earned my bachelor’s degree in Software Engineering with First Class Honours from the University of Technology Sydney.</p>
+      <p class="bio">My focus is shifting toward entrepreneurship. I’m exploring how AI can understand and act in the physical world, starting with chemistry. My two bets are autonomous chemistry labs that turn model decisions into experiments, and simulation models that predict how chemical reactions unfold.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:ziruisong2003@gmail.com">Email</a>
+        <a class="btn btn-blue" href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-dark" href="https://github.com/ZiruiSongBest" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" href="#content-building">What I’m building <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-    <p>I’m a PhD student at <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">Mohamed bin Zayed University of Artificial Intelligence</a>, advised by
-      <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> and
-      <a href="https://mbzuai.ac.ae/study/faculty/xiaojun-chang/" target="_blank" rel="noopener">Prof. Xiaojun Chang</a>.
-      My research spans multimodal AI, embodied agents, and trustworthy models. Previously, I earned my bachelor’s degree in Software Engineering with First Class Honours from the University of Technology Sydney.</p>
-    <p>My focus is shifting toward entrepreneurship. I’m exploring how AI can understand and act in the physical world, starting with chemistry. My two bets are autonomous chemistry labs that turn model decisions into experiments, and simulation models that predict how chemical reactions unfold.</p>
-    <div class="btn-row">
-      <a class="btn" href="#content-building">What I’m building <span aria-hidden="true">↗</span></a>
-      <a class="btn btn-ghost" href="mailto:ziruisong2003@gmail.com">Get in touch</a>
-      <a class="text-link" href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
-    </div>
+
+    <aside class="hero-side" aria-label="Portrait and current status">
+      <figure class="portrait">
+        <img src="images/profile.jpg" alt="Portrait of Zirui Song" width="320" height="320">
+      </figure>
+      <a class="float-card float-repo" href="#content-chemlab">
+        <span class="float-label">maintaining</span>
+        <span class="float-title">ChemLab-Assets</span>
+        <span class="float-meta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg><b data-stars>52</b> · v1.5.0</span>
+      </a>
+      <a class="float-card float-status" href="mailto:ziruisong2003@gmail.com?subject=Building%20AI%20for%20Chemistry">
+        <span class="pulse" aria-hidden="true"></span>Looking for a co-founder
+      </a>
+    </aside>
   </section>
 
-  <section class="content building" id="content-building" aria-labelledby="building-title">
-    <p class="eyebrow">What I’m building</p>
-    <h2 class="building-title" id="building-title">Building the last mile between AI and the physical world.</h2>
-    <p class="section-intro">Chemistry is where I’m placing that bet: connecting what a model predicts with what happens in a real experiment. I’m pursuing two complementary routes toward that goal.</p>
-    <div class="building-routes">
-      <article class="route">
-        <p class="route-kicker">Act in the physical world</p>
+  <p class="now-strip reveal"><span class="pulse" aria-hidden="true"></span><b>Now</b><span class="sep">·</span>maintaining <a href="#content-chemlab">ChemLab-Assets</a><span class="sep">·</span>PhD at MBZUAI<span class="sep">·</span>open to co-founders and collaborators</p>
+
+  <!-- ───────── ChemLab-Assets ───────── -->
+  <section class="section" id="content-chemlab" aria-labelledby="chemlab-title">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Open source · actively maintained</p>
+      <h2 id="chemlab-title">ChemLab-Assets</h2>
+      <p class="section-intro">203 simulation-ready chemistry laboratory instruments, for robots and LLM agents. The open-source project I build and maintain with collaborators at MBZUAI.</p>
+    </header>
+
+    <article class="lab-card reveal">
+      <div class="lab-strip" role="img" aria-label="Twenty-four of the 203 instruments, rendered in the same studio setup"></div>
+
+      <div class="lab-body">
+        <div class="lab-copy">
+          <p class="lab-repo">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            <a href="https://github.com/mbzuai-nlp/ChemLab-Assets" target="_blank" rel="noopener">mbzuai-nlp / <b>ChemLab-Assets</b></a>
+          </p>
+          <p>Agents that work in a chemistry lab need more than meshes. Every instrument here ships its geometry together with working joints, front-panel menus, an executable behaviour model, and a machine-readable contract.</p>
+          <p>A robot can operate an instrument by hand in a 3D simulator, or an LLM agent can run it from a shell, and the instrument behaves the same either way.</p>
+
+          <dl class="stats">
+            <div><dt>instruments</dt><dd data-count="203">203</dd></div>
+            <div><dt>working joints</dt><dd data-count="1330">1,330</dd></div>
+            <div><dt>front panels</dt><dd data-count="106">106</dd></div>
+            <div><dt>agent tasks with checkers</dt><dd data-count="276">276</dd></div>
+          </dl>
+
+          <div class="btn-row">
+            <a class="btn btn-dark" href="https://github.com/mbzuai-nlp/ChemLab-Assets" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+              Star on GitHub <span class="btn-count" data-stars>52</span></a>
+            <a class="btn btn-primary" href="https://mbzuai-nlp.github.io/ChemLab-Assets/" target="_blank" rel="noopener">Project page <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://huggingface.co/datasets/MBZUAI/ChemLab-Assets" target="_blank" rel="noopener">Dataset <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://huggingface.co/spaces/MBZUAI/ChemLab-Assets-Explorer" target="_blank" rel="noopener">3D explorer <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <figure class="terminal" id="lab-terminal">
+          <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>agent@chemlab: sandboxed shell</span></div>
+          <pre class="term-body"><span class="t-line t-cmd"><b>$</b> chemlab run ika_plate_rctdigital set-temp 80C</span>
+<span class="t-line"><b class="t-ok">ok:</b> set point 80.0 °C (was 25.0 °C); now 22.0 °C</span>
+<span class="t-line t-gap t-cmd"><b>$</b> chemlab run ika_plate_rctdigital heat on</span>
+<span class="t-line"><b class="t-ok">ok:</b> ika_plate_rctdigital heating on (set point 80.0 °C, now 22.0 °C)</span>
+<span class="t-line t-gap t-note"># lab time moves only when the agent waits</span>
+<span class="t-line t-cmd"><b>$</b> chemlab wait 600</span>
+<span class="t-line">t = 150.0 s -&gt; 750.0 s (waited 600 s)</span>
+<span class="t-line t-gap t-cmd"><b>$</b> chemlab run ika_plate_rctdigital temp</span>
+<span class="t-line">ika_plate_rctdigital: 80.2 °C (set point 80.0 °C); heating on</span>
+<span class="t-line t-gap t-note"># a mistake: the error says what is wrong and how to fix it</span>
+<span class="t-line t-cmd"><b>$</b> chemlab run ika_plate_rctdigital set-temp 400C</span>
+<span class="t-line"><b class="t-err">error[usage/OUT_OF_RANGE]:</b> set point 400.0 °C is outside the range (0.0 °C to 310.0 °C).</span>
+<span class="t-line"><b class="t-fix">fix:</b> give a set point from 0.0 °C to 310.0 °C.</span>
+<span class="t-line t-dim">instrument changed: no</span><span class="t-caret" aria-hidden="true"></span></pre>
+          <figcaption>An IKA hotplate driven through <code>chemlab</code>, abridged from the tour in the project README.</figcaption>
+        </figure>
+      </div>
+
+      <div class="lab-modes">
+        <section class="mode mode-embodied">
+          <p class="mode-kicker">01 · Embodied mode</p>
+          <h3>Robots operate the instruments</h3>
+          <p>Doors, lids, sashes, keys, and knobs are real joints with grasp points and colliders. All 203 instruments were converted to USD and run in NVIDIA Isaac Sim, where the screen a robot sees is drawn by the instrument’s own menu engine.</p>
+        </section>
+        <section class="mode mode-agentic">
+          <p class="mode-kicker">02 · Agentic mode</p>
+          <h3>LLM agents run the lab from a shell</h3>
+          <p>One command, <code>chemlab</code>, puts the whole lab behind plain verbs with units and range checks. Errors say what is wrong and how to fix it, lab time moves only when the agent waits, and 276 tasks are scored by reading the instrument’s own state.</p>
+        </section>
+      </div>
+
+      <div class="lab-releases">
+        <p class="releases-head"><span>Release log</span><span class="releases-meta">last push <time data-pushed datetime="2026-10-25">Oct 25, 2026</time></span></p>
+        <ol class="releases">
+          <li><b>v1.0</b><time datetime="2026-10-14">Oct 14</time><span>first release, 198 instruments</span></li>
+          <li><b>v1.1</b><time datetime="2026-10-15">Oct 15</time><span>reference data for 17 more instruments</span></li>
+          <li><b>v1.2</b><time datetime="2026-10-16">Oct 16</time><span>103 built-in reactions</span></li>
+          <li><b>v1.3</b><time datetime="2026-10-17">Oct 17</time><span>203 instruments, finer 3D models</span></li>
+          <li><b>v1.4</b><time datetime="2026-10-21">Oct 21</time><span>front-panel menus for 106 instruments</span></li>
+          <li class="latest"><b>v1.5</b><time datetime="2026-10-25">Oct 25</time><span><code>chemlab</code> CLI for agents, labware, reagents</span></li>
+        </ol>
+      </div>
+
+      <p class="lab-credits">Zirui Song · Jiadong Zhang · Jiahao Zhang · Xiaosong Ma · Xiaojun Chang · Xiuying Chen — MBZUAI. Code under MIT, assets under CC BY-NC 4.0.</p>
+    </article>
+  </section>
+
+  <!-- ───────── Building ───────── -->
+  <section class="section" id="content-building" aria-labelledby="building-title">
+    <header class="section-head reveal">
+      <p class="eyebrow">What I’m building</p>
+      <h2 class="display" id="building-title">Building the last mile between AI and the physical world.</h2>
+      <p class="section-intro">Chemistry is where I’m placing that bet: connecting what a model predicts with what happens in a real experiment. I’m pursuing two complementary routes toward that goal.</p>
+    </header>
+
+    <div class="routes">
+      <article class="route route-act reveal">
+        <p class="route-kicker"><span>01</span>Act in the physical world</p>
         <h3>Autonomous chemistry labs</h3>
         <p>I want to build labs where AI can plan experiments, coordinate automated equipment, and learn from the results.</p>
         <p>The <strong>Agentic Model</strong> would be the lab’s decision-making brain, turning scientific goals into experimental steps and adapting to observations. A <strong>catalysis foundation model</strong> would provide specialized knowledge for reasoning about catalysts and reaction conditions. Lab automation would connect those decisions to physical experiments.</p>
       </article>
-      <article class="route">
-        <p class="route-kicker">Predict the physical world</p>
+      <article class="route route-predict reveal">
+        <p class="route-kicker"><span>02</span>Predict the physical world</p>
         <h3>Chemical reaction simulation</h3>
         <p>My second bet is a <strong>Simulation Model</strong> that models chemical reactions and aims to predict their behavior under real experimental conditions.</p>
         <p>The goal is to explore how changes in catalysts and reaction conditions affect outcomes before running an experiment. Predictions would guide what to test in the lab, while experimental observations would help evaluate and improve the model.</p>
       </article>
     </div>
-    <p class="building-connection">Together, these routes aim to connect prediction, experimentation, and learning: use simulation to guide experiments, then use physical evidence to improve the next prediction.</p>
-    <aside class="cofounder-callout" aria-labelledby="cofounder-title">
-      <span class="cofounder-label">Looking for a co-founder</span>
-      <h3 id="cofounder-title">Help build this with me.</h3>
-      <p>I’m looking for a co-founder who shares this ambition. If your work touches chemistry, catalysis, lab automation, robotics, or AI models, I’d love to compare ideas and explore building together.</p>
-      <a href="mailto:ziruisong2003@gmail.com?subject=Building%20AI%20for%20Chemistry">Let’s talk <span aria-hidden="true">↗</span></a>
+
+    <div class="loop reveal">
+      <ol class="loop-steps" aria-label="The loop these routes close">
+        <li class="step-blue">Simulate</li>
+        <li class="step-teal">Experiment</li>
+        <li class="step-amber">Learn</li>
+      </ol>
+      <p>Together, these routes aim to connect prediction, experimentation, and learning: use simulation to guide experiments, then use physical evidence to improve the next prediction.</p>
+    </div>
+
+    <aside class="cofounder reveal" aria-labelledby="cofounder-title">
+      <div>
+        <span class="cofounder-label">Looking for a co-founder</span>
+        <h3 id="cofounder-title">Help build this with me.</h3>
+        <p>I’m looking for a co-founder who shares this ambition. If your work touches chemistry, catalysis, lab automation, robotics, or AI models, I’d love to compare ideas and explore building together.</p>
+      </div>
+      <a class="btn btn-light" href="mailto:ziruisong2003@gmail.com?subject=Building%20AI%20for%20Chemistry">Let’s talk <span aria-hidden="true">↗</span></a>
     </aside>
   </section>
 
-  <section class="content" id="content-publications" aria-labelledby="research-title">
-    <h2 id="research-title">Selected publications</h2>
-    <p class="section-intro">Selected work on embodied reasoning, multimodal AI, trustworthy models, and human-aligned evaluation.</p>
-    <article class="pub">
+  <!-- ───────── Publications ───────── -->
+  <section class="section" id="content-publications" aria-labelledby="research-title">
+    <header class="section-head reveal">
+      <p class="eyebrow">Research</p>
+      <h2 id="research-title">Selected publications</h2>
+      <p class="section-intro">Selected work on embodied reasoning, multimodal AI, trustworthy models, and human-aligned evaluation.</p>
+    </header>
+
+    <div class="pubs">
+      <article class="pub reveal">
         <img src="files/ManipLVM.jpg" alt="ManipLVM-R1 figure" loading="lazy">
         <div>
           <span class="badge">AAAI 2026</span>
@@ -96,7 +251,7 @@
           <p class="tldr">Reinforcement learning for reasoning in embodied manipulation, aligning large vision-language models with affordance and trajectory rewards.</p>
         </div>
       </article>
-    <article class="pub">
+      <article class="pub reveal">
         <img src="files/AnomalyGen.jpg" alt="AnomalyGen figure" loading="lazy">
         <div>
           <span class="badge">NAACL 2025</span>
@@ -105,7 +260,7 @@
           <p class="tldr">AnomalyGen builds virtual anomaly scenes without human annotation to make household robots more robust.</p>
         </div>
       </article>
-    <article class="pub">
+      <article class="pub reveal">
         <img src="files/BenchLMM.png" alt="BenchLMM figure" loading="lazy">
         <div>
           <span class="badge">ECCV 2024</span>
@@ -115,7 +270,7 @@
             <a href="https://github.com/AIFEG/BenchLMM" target="_blank" rel="noopener">Toolkit &amp; Code</a></p>
         </div>
       </article>
-      <article class="pub">
+      <article class="pub reveal">
         <!-- Source: Figure 1, https://arxiv.org/html/2510.11389v1 -->
         <img src="files/BeyondSurvival.png" alt="Beyond Survival Figure 1: comparing prior Werewolf gameplay with WereBench and WereAlign human-aligned evaluation" loading="lazy">
         <div>
@@ -125,7 +280,7 @@
           <p class="tldr">WereBench, a human-verified multimodal Werewolf dataset, and WereAlign, a strategy-alignment framework that scores LLMs against human play instead of survival time.</p>
         </div>
       </article>
-      <article class="pub">
+      <article class="pub reveal">
         <img src="files/AudioJailbreak.jpg" alt="Audio Jailbreak figure" loading="lazy">
         <div>
           <span class="badge">ACL 2026</span>
@@ -134,7 +289,7 @@
           <p class="tldr">An open, comprehensive benchmark exposing how large audio-language models can be jailbroken through the audio channel.</p>
         </div>
       </article>
-      <article class="pub">
+      <article class="pub reveal">
         <img src="files/InjectionSurvey.png" alt="Knowledge injection survey figure" loading="lazy">
         <div>
           <span class="badge">EMNLP 2025 Findings</span>
@@ -143,148 +298,180 @@
           <p class="tldr">A taxonomy of domain knowledge injection: dynamic injection, static embedding, modular adapters, and prompt optimization.</p>
         </div>
       </article>
+    </div>
     <p class="pub-note">* Equal contribution. See <a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> for the full publication list.</p>
   </section>
 
-  <section class="content" id="content-news" aria-labelledby="updates-title">
-    <h2 id="updates-title">Recent updates</h2>
-    <ul class="news">
-      <li class="hot"><time>2026-08-21</time><span>3 papers were accepted by <b>EMNLP 2026</b>.</span></li>
-      <li class="hot"><time>2026-04-29</time><span>2 papers were accepted by <b>ICML 2026</b>.</span></li>
-      <li class="hot"><time>2026-04-07</time><span>6 papers (1 oral) were accepted by <b>ACL 2026</b>.</span></li>
-    </ul>
-    <details class="archive">
-      <summary>Earlier updates</summary>
+  <!-- ───────── News ───────── -->
+  <section class="section" id="content-news" aria-labelledby="updates-title">
+    <header class="section-head reveal">
+      <p class="eyebrow">News</p>
+      <h2 id="updates-title">Recent updates</h2>
+    </header>
+    <div class="panel reveal">
       <ul class="news">
-        <li class="hot"><time>2025-11-08</time><span>One paper was accepted by <b>AAAI 2026</b>.</span></li>
-        <li class="hot"><time>2025-09-19</time><span>One paper was accepted by <b>NeurIPS 2026</b>.</span></li>
-        <li class="hot"><time>2025-08-21</time><span>3 papers (1 oral) were accepted by <b>EMNLP 2025</b>.</span></li>
-        <li><time>2025-07-25</time><span>I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours.</span></li>
-        <li class="award"><time>2025-07-06</time><span>I won the <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">Dean's List 2025 prize (Top 2% of students)</a> from UTS.</span></li>
-        <li class="hot"><time>2025-07-02</time><span>One paper was accepted by <b>ECAI 2026</b>.</span></li>
-        <li class="hot"><time>2025-05-16</time><span>One paper was accepted by <b>ACL 2025</b>.</span></li>
-        <li class="hot"><time>2025-04-20</time><span>One paper was accepted by <b>Nature Computational Science</b>.</span></li>
-        <li><time>2025-03-01</time><span>Admitted to <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">MBZUAI</a>, where I commenced my PhD studies in August 2025.</span></li>
-        <li class="hot"><time>2025-01-23</time><span>One paper was accepted by <b>NAACL 2025</b>.</span></li>
-        <li class="hot"><time>2025-01-02</time><span>One paper was accepted by <b>Communications Chemistry</b>.</span></li>
-        <li><time>2024-09-25</time><span>First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen.</span></li>
-        <li class="hot"><time>2024-09-20</time><span>One paper was accepted by <b>EMNLP 2024</b>.</span></li>
-        <li class="hot"><time>2024-07-01</time><span>One paper was accepted by <b>ECCV 2024</b>.</span></li>
-        <li><time>2023-11-29</time><span>Prof. Ling Chen accepted me as an undergraduate research assistant at the Australian Artificial Intelligence Institute (AAII).</span></li>
-        <li><time>2023-07-01</time><span>I was selected as an international exchange student majoring in Software Engineering at UTS.</span></li>
+        <li class="release"><time>2026-10-25</time><span>Released <a href="https://github.com/mbzuai-nlp/ChemLab-Assets" target="_blank" rel="noopener"><b>ChemLab-Assets v1.5.0</b></a>: <code>chemlab</code>, a command line that lets LLM agents run all 203 instruments.</span></li>
+        <li class="release"><time>2026-10-14</time><span>First release of <a href="#content-chemlab"><b>ChemLab-Assets</b></a>, simulation-ready chemistry laboratory instruments for robots and LLM agents.</span></li>
+        <li class="hot"><time>2026-08-21</time><span>3 papers were accepted by <b>EMNLP 2026</b>.</span></li>
+        <li class="hot"><time>2026-04-29</time><span>2 papers were accepted by <b>ICML 2026</b>.</span></li>
+        <li class="hot"><time>2026-04-07</time><span>6 papers (1 oral) were accepted by <b>ACL 2026</b>.</span></li>
       </ul>
-    </details>
+      <details class="archive">
+        <summary>Earlier updates</summary>
+        <ul class="news">
+          <li class="hot"><time>2025-11-08</time><span>One paper was accepted by <b>AAAI 2026</b>.</span></li>
+          <li class="hot"><time>2025-09-19</time><span>One paper was accepted by <b>NeurIPS 2026</b>.</span></li>
+          <li class="hot"><time>2025-08-21</time><span>3 papers (1 oral) were accepted by <b>EMNLP 2025</b>.</span></li>
+          <li><time>2025-07-25</time><span>I was admitted to the degree of Bachelor of Engineering (Honours) in Software Engineering with First Class Honours.</span></li>
+          <li class="award"><time>2025-07-06</time><span>I won the <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">Dean's List 2025 prize (Top 2% of students)</a> from UTS.</span></li>
+          <li class="hot"><time>2025-07-02</time><span>One paper was accepted by <b>ECAI 2026</b>.</span></li>
+          <li class="hot"><time>2025-05-16</time><span>One paper was accepted by <b>ACL 2025</b>.</span></li>
+          <li class="hot"><time>2025-04-20</time><span>One paper was accepted by <b>Nature Computational Science</b>.</span></li>
+          <li><time>2025-03-01</time><span>Admitted to <a href="https://www.mbzuai.ac.ae" target="_blank" rel="noopener">MBZUAI</a>, where I commenced my PhD studies in August 2025.</span></li>
+          <li class="hot"><time>2025-01-23</time><span>One paper was accepted by <b>NAACL 2025</b>.</span></li>
+          <li class="hot"><time>2025-01-02</time><span>One paper was accepted by <b>Communications Chemistry</b>.</span></li>
+          <li><time>2024-09-25</time><span>First day as a visiting student at MBZUAI under the supervision of Prof. Xiuying Chen.</span></li>
+          <li class="hot"><time>2024-09-20</time><span>One paper was accepted by <b>EMNLP 2024</b>.</span></li>
+          <li class="hot"><time>2024-07-01</time><span>One paper was accepted by <b>ECCV 2024</b>.</span></li>
+          <li><time>2023-11-29</time><span>Prof. Ling Chen accepted me as an undergraduate research assistant at the Australian Artificial Intelligence Institute (AAII).</span></li>
+          <li><time>2023-07-01</time><span>I was selected as an international exchange student majoring in Software Engineering at UTS.</span></li>
+        </ul>
+      </details>
+    </div>
   </section>
 
-  <section class="content" id="content-background" aria-labelledby="background-title">
-    <h2 id="background-title">Background</h2>
+  <!-- ───────── Background ───────── -->
+  <section class="section" id="content-background" aria-labelledby="background-title">
+    <header class="section-head reveal">
+      <p class="eyebrow">Education · Experience</p>
+      <h2 id="background-title">Background</h2>
+    </header>
     <div class="background-overview">
-      <article>
+      <article class="panel reveal">
         <h3>Education</h3>
         <p>PhD student in NLP at MBZUAI, supported by the UAE Government Scholarship. Previously, Software Engineering at UTS with First Class Honours and the Dean’s List 2025 award.</p>
+        <div class="logo-row" aria-hidden="true">
+          <span><img src="files/mbzuai.png" alt="">MBZUAI</span>
+          <span><img src="files/UTS.png" alt="">UTS</span>
+        </div>
       </article>
-      <article>
+      <article class="panel reveal">
         <h3>Experience</h3>
         <p>Research experience at Alibaba, MBZUAI, UTS, and NTU, spanning multimodal AI, embodied agents, and trustworthy models.</p>
+        <div class="logo-row" aria-hidden="true">
+          <span><img class="logo-wide" src="files/alibaba-logo.svg" alt="">Alibaba</span>
+          <span><img src="files/mbzuai.png" alt="">MBZUAI</span>
+          <span><img src="files/UTS.png" alt="">UTS</span>
+          <span><img src="files/ntu.png" alt="">NTU</span>
+        </div>
       </article>
     </div>
-    <details class="archive">
-      <summary>Education and experience in detail</summary>
-      <div class="background-detail" id="content-education">
-        <h3>Education</h3>
-        <div class="tl">
-        <div class="tl-item">
-          <div class="tl-date">2025.08 – 2029.05</div>
-          <div class="tl-body">
-            <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> PhD, Mohamed bin Zayed University of Artificial Intelligence</h4>
-            <p>Expected · NLP Department · UAE Government Scholarship</p>
+
+    <div class="panel panel-flush reveal">
+      <details class="archive">
+        <summary>Education and experience in detail</summary>
+        <div class="background-detail" id="content-education">
+          <h3>Education</h3>
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-date">2025.08 – 2029.05</div>
+              <div class="tl-body">
+                <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> PhD, Mohamed bin Zayed University of Artificial Intelligence</h4>
+                <p>Expected · NLP Department · UAE Government Scholarship</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">2021.06 – 2025.05</div>
+              <div class="tl-body">
+                <h4><img src="files/UTS.png" alt="UTS logo"> B.E. (Honours), University of Technology Sydney</h4>
+                <p>Software Engineering · First Class Honours · GPA 3.90/4.00 · Dean's List 2025 (Top 2%)</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-date">2021.06 – 2025.05</div>
-          <div class="tl-body">
-            <h4><img src="files/UTS.png" alt="UTS logo"> B.E. (Honours), University of Technology Sydney</h4>
-            <p>Software Engineering · First Class Honours · GPA 3.90/4.00 · Dean's List 2025 (Top 2%)</p>
+        <div class="background-detail" id="content-experience">
+          <h3>Experience</h3>
+          <div class="tl">
+            <div class="tl-item">
+              <div class="tl-date">2026.03 – now</div>
+              <div class="tl-body">
+                <h4><img class="logo-wide" src="files/alibaba-logo.svg" alt="Alibaba logo"> Alibaba Group</h4>
+                <p>Algorithm Engineer (Research Intern) · Supervised by Xiang Wang</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">2024.09 – now</div>
+              <div class="tl-body">
+                <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> MBZUAI</h4>
+                <p>Visiting student → PhD · Supervisor: <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> · Trustworthy MLLMs</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">2023.10 – 2025.02</div>
+              <div class="tl-body">
+                <h4><img src="files/UTS.png" alt="UTS logo"> University of Technology Sydney</h4>
+                <p>Research Intern · <a href="https://profiles.uts.edu.au/Ling.Chen" target="_blank" rel="noopener">Prof. Ling Chen</a> &amp; <a href="https://mengfn.github.io/" target="_blank" rel="noopener">Prof. Meng Fang</a> · Multimodal Agents</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">2023.03 – 2024.01</div>
+              <div class="tl-body">
+                <h4><img src="files/ntu.png" alt="NTU logo"> Nanyang Technological University</h4>
+                <p>Research Intern · Supervisor: Prof. Alex Kot · Multimodal</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
-      <div class="background-detail" id="content-experience">
-        <h3>Experience</h3>
-        <div class="tl">
-        <div class="tl-item">
-          <div class="tl-date">2026.03 – now</div>
-          <div class="tl-body">
-            <h4><img class="logo-wide" src="files/alibaba-logo.svg" alt="Alibaba logo"> Alibaba Group</h4>
-            <p>Algorithm Engineer (Research Intern) · Supervised by Xiang Wang</p>
+      </details>
+      <details class="archive">
+        <summary>Honors and academic service</summary>
+        <div class="background-detail" id="content-awards">
+          <h3>Honors &amp; awards</h3>
+          <ul class="awards">
+            <li><span class="medal">🎖️</span><div><b>Dean's List 2025 (Top 2% of students)</b>, University of Technology Sydney · <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">certificate</a></div></li>
+            <li><span class="medal">🥈</span><div><b>Silver Medal</b>, Kaggle — LLM Science Exam [51 / 2664], 2024</div></li>
+            <li><span class="medal">🥇</span><div><b>School Second Class Scholarship</b>, 2022</div></li>
+          </ul>
+        </div>
+        <div class="background-detail" id="content-service">
+          <h3>Academic service</h3>
+          <h4>Conference Reviewer</h4>
+          <div class="chip-row">
+            <span class="chip">NeurIPS 2027</span><span class="chip">ICML 2026</span><span class="chip">ACL 2026</span><span class="chip">ECCV 2026</span>
+            <span class="chip">EACL 2026</span><span class="chip">ICLR 2026</span><span class="chip">AAAI 2026</span><span class="chip">EMNLP 2025</span>
+            <span class="chip">COLM 2025</span><span class="chip">ACM MM 2025</span><span class="chip">NeurIPS 2025</span><span class="chip">ACL 2025</span>
+            <span class="chip">NAACL 2025</span><span class="chip">ICME 2025</span><span class="chip">IJCAI 2025</span><span class="chip">EMNLP 2024</span>
+          </div>
+          <h4>Journal Reviewer</h4>
+          <div class="chip-row">
+            <span class="chip chip-alt" title="IEEE Transactions on Pattern Analysis and Machine Intelligence">IEEE TPAMI</span>
+            <span class="chip chip-alt" title="IEEE Transactions on Artificial Intelligence">IEEE TAI</span>
           </div>
         </div>
-        <div class="tl-item">
-          <div class="tl-date">2024.09 – now</div>
-          <div class="tl-body">
-            <h4><img src="files/mbzuai.png" alt="MBZUAI logo"> MBZUAI</h4>
-            <p>Visiting student → PhD · Supervisor: <a href="https://mbzuai.ac.ae/study/faculty/xiuying-chen/" target="_blank" rel="noopener">Prof. Xiuying Chen</a> · Trustworthy MLLMs</p>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.10 – 2025.02</div>
-          <div class="tl-body">
-            <h4><img src="files/UTS.png" alt="UTS logo"> University of Technology Sydney</h4>
-            <p>Research Intern · <a href="https://profiles.uts.edu.au/Ling.Chen" target="_blank" rel="noopener">Prof. Ling Chen</a> &amp; <a href="https://mengfn.github.io/" target="_blank" rel="noopener">Prof. Meng Fang</a> · Multimodal Agents</p>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.03 – 2024.01</div>
-          <div class="tl-body">
-            <h4><img src="files/ntu.png" alt="NTU logo"> Nanyang Technological University</h4>
-            <p>Research Intern · Supervisor: Prof. Alex Kot · Multimodal</p>
-          </div>
-        </div>
-      </div>
-      </div>
-    </details>
-    <details class="archive">
-      <summary>Honors and academic service</summary>
-      <div class="background-detail" id="content-awards">
-        <h3>Honors &amp; awards</h3>
-        <ul class="awards">
-        <li><span class="medal">🎖️</span><div><b>Dean's List 2025 (Top 2% of students)</b>, University of Technology Sydney · <a href="files/24902417_ZiruiSong.pdf" target="_blank" rel="noopener">certificate</a></div></li>
-        <li><span class="medal">🥈</span><div><b>Silver Medal</b>, Kaggle — LLM Science Exam [51 / 2664], 2024</div></li>
-        <li><span class="medal">🥇</span><div><b>School Second Class Scholarship</b>, 2022</div></li>
-      </ul>
-      </div>
-      <div class="background-detail" id="content-service">
-        <h3>Academic service</h3>
-        <h4>Conference Reviewer</h4>
-      <div class="chip-row">
-        <span class="chip">NeurIPS 2027</span><span class="chip">ICML 2026</span><span class="chip">ACL 2026</span><span class="chip">ECCV 2026</span>
-        <span class="chip">EACL 2026</span><span class="chip">ICLR 2026</span><span class="chip">AAAI 2026</span><span class="chip">EMNLP 2025</span>
-        <span class="chip">COLM 2025</span><span class="chip">ACM MM 2025</span><span class="chip">NeurIPS 2025</span><span class="chip">ACL 2025</span>
-        <span class="chip">NAACL 2025</span><span class="chip">ICME 2025</span><span class="chip">IJCAI 2025</span><span class="chip">EMNLP 2024</span>
-      </div>
-      <h4>Journal Reviewer</h4>
-      <div class="chip-row">
-        <span class="chip chip-alt" title="IEEE Transactions on Pattern Analysis and Machine Intelligence">IEEE TPAMI</span>
-        <span class="chip chip-alt" title="IEEE Transactions on Artificial Intelligence">IEEE TAI</span>
-      </div>
-      </div>
-    </details>
-    <details class="archive" id="content-blog">
-      <summary>Writing and resources</summary>
-      <ul class="blog-list">
-        <li><time>05/24</time><a href="files/grammargpt-rp.pdf" target="_blank" rel="noopener">National Undergraduate Innovation Project Documentation</a> <span class="lang">中文</span></li>
-        <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh" target="_blank" rel="noopener">Negative Transfer</a> <span class="lang">中文</span></li>
-        <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/MjBFwFm9giBTg3kQ9v6cJ7uQnFb" target="_blank" rel="noopener">Mixture of Experts Explained</a> <span class="lang">中文</span></li>
-        <li><time>01/24</time><a href="https://k034sybliz3.feishu.cn/wiki/Mo2xwR6B4iDV7nk4CZ5clwymnze" target="_blank" rel="noopener">EMNLP 2020 Tutorial Notes — Explainable AI</a> <span class="lang">中文</span></li>
-      </ul>
-    </details>
+      </details>
+      <details class="archive" id="content-blog">
+        <summary>Writing and resources</summary>
+        <ul class="blog-list">
+          <li><time>05/24</time><a href="files/grammargpt-rp.pdf" target="_blank" rel="noopener">National Undergraduate Innovation Project Documentation</a> <span class="lang">中文</span></li>
+          <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh" target="_blank" rel="noopener">Negative Transfer</a> <span class="lang">中文</span></li>
+          <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/MjBFwFm9giBTg3kQ9v6cJ7uQnFb" target="_blank" rel="noopener">Mixture of Experts Explained</a> <span class="lang">中文</span></li>
+          <li><time>01/24</time><a href="https://k034sybliz3.feishu.cn/wiki/Mo2xwR6B4iDV7nk4CZ5clwymnze" target="_blank" rel="noopener">EMNLP 2020 Tutorial Notes — Explainable AI</a> <span class="lang">中文</span></li>
+        </ul>
+      </details>
+    </div>
   </section>
 
-  <section class="content contact" id="content-contact" aria-labelledby="contact-title">
+  <!-- ───────── Contact ───────── -->
+  <section class="section contact reveal" id="content-contact" aria-labelledby="contact-title">
     <p class="eyebrow">Let’s connect</p>
-    <h2 id="contact-title">Working on a similar question?</h2>
+    <h2 class="display" id="contact-title">Working on a similar question?</h2>
     <p>I’d love to hear from potential co-founders, researchers, and people working in chemistry labs who see opportunities for AI and automation. Tell me what you’re working on and where our interests might meet.</p>
     <a class="contact-email" href="mailto:ziruisong2003@gmail.com">ziruisong2003@gmail.com <span aria-hidden="true">↗</span></a>
+    <p class="contact-links">
+      <a href="https://scholar.google.com/citations?user=fmKRIPUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/ZiruiSongBest" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/mbzuai-nlp/ChemLab-Assets" target="_blank" rel="noopener">ChemLab-Assets</a>
+    </p>
     <p class="contact-location">Based in Abu Dhabi, United Arab Emirates.</p>
   </section>
 </main>
