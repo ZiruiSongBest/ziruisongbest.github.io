@@ -1,5 +1,6 @@
-/* Zirui Song — homepage behaviour: nav highlight, theme toggle, scroll reveals,
-   stat count-up, terminal playback, and live ChemLab-Assets repo numbers. */
+/* Zirui Song — shared behaviour: nav highlight, theme toggle, scroll reveals,
+   stat count-up, terminal playback, and live ChemLab-Assets repo numbers.
+   The blog pages load this too (theme toggle); the blog itself is js/blog.js. */
 (function () {
   var doc = document.documentElement;
   window.__siteReady = true;
@@ -7,7 +8,7 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ── nav: highlight the link for the section in view ── */
-  var links = Array.prototype.slice.call(document.querySelectorAll('#site-nav a'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('#site-nav a[href^="#"]'));
   if (links.length && hasIO) {
     var byId = {};
     var sections = [];
@@ -28,6 +29,14 @@
       if (current) byId[current.id].classList.add('active');
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(function (s) { navObserver.observe(s); });
+  }
+
+  /* on narrow screens the nav scrolls sideways: keep the current page's link in view */
+  var nav = document.getElementById('site-nav');
+  var currentLink = nav && nav.querySelector('.active');
+  if (currentLink && nav.scrollWidth > nav.clientWidth) {
+    var offset = currentLink.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+    nav.scrollLeft += offset - (nav.clientWidth - currentLink.offsetWidth) / 2;
   }
 
   /* ── theme toggle (light by default, choice remembered) ── */
@@ -123,7 +132,9 @@
   }
   var cached = null;
   try { cached = JSON.parse(sessionStorage.getItem(CACHE_KEY)); } catch (e) {}
-  if (cached) {
+  if (!document.querySelector('[data-stars], [data-pushed]')) {
+    /* pages without the ChemLab card (the blog) have nothing to update */
+  } else if (cached) {
     applyRepo(cached);
   } else if (window.fetch) {
     fetch(REPO_API, { headers: { Accept: 'application/vnd.github+json' } })

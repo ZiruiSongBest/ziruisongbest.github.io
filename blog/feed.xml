@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zirui Song · Blog</title>
+    <link>https://ziruisongbest.github.io/blog/</link>
+    <atom:link href="https://ziruisongbest.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Notes from research and building.</description>
+    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>National Undergraduate Innovation Project Documentation</title>
+      <link>https://ziruisongbest.github.io/files/grammargpt-rp.pdf</link>
+      <guid isPermaLink="false">blog:innovation-project-documentation</guid>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Mixture of Experts Explained</title>
+      <link>https://k034sybliz3.feishu.cn/wiki/MjBFwFm9giBTg3kQ9v6cJ7uQnFb</link>
+      <guid isPermaLink="false">blog:mixture-of-experts-explained</guid>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Negative Transfer</title>
+      <link>https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh</link>
+      <guid isPermaLink="false">blog:negative-transfer</guid>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>EMNLP 2020 Tutorial Notes — Explainable AI</title>
+      <link>https://k034sybliz3.feishu.cn/wiki/Mo2xwR6B4iDV7nk4CZ5clwymnze</link>
+      <guid isPermaLink="false">blog:emnlp-2020-xai-tutorial-notes</guid>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+  </channel>
+</rss>

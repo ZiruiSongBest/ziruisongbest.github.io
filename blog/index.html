@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blog · Zirui Song</title>
+<meta name="description" content="Notes from research and building, by Zirui Song.">
+<meta name="author" content="Zirui Song">
+<meta property="og:title" content="Blog · Zirui Song">
+<meta property="og:description" content="Notes from research and building.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f7f6">
+<link rel="icon" href="../images/favicon.ico">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Zirui Song · Blog" href="feed.xml">
+<script>
+  /* set the theme before first paint; light is the default */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try { if (localStorage.getItem('theme') === 'dark') d.setAttribute('data-theme', 'dark'); } catch (e) {}
+    setTimeout(function () { if (!window.__siteReady) d.classList.remove('js'); }, 4000);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+
+<div class="backdrop" aria-hidden="true">
+  <span class="blob blob-a"></span>
+  <span class="blob blob-b"></span>
+  <span class="blob blob-c"></span>
+  <span class="hexgrid"></span>
+</div>
+
+<header id="site-head">
+  <div class="head-inner">
+    <a class="head-id" href="../" aria-label="Zirui Song, homepage">
+      <svg class="head-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5 27.7 9.25v13.5L16 29.5 4.3 22.75V9.25z"/><circle cx="16" cy="16" r="4.2"/></svg>
+      <span class="head-name">Zirui Song</span>
+    </a>
+    <nav id="site-nav" aria-label="Site">
+      <a href="../">Home</a>
+      <a href="../#content-chemlab">ChemLab</a>
+      <a href="../#content-publications">Research</a>
+      <a href="./" class="active" aria-current="page">Blog</a>
+      <a href="../#content-contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top" class="blog-main">
+  <header class="blog-head">
+    <p class="eyebrow">Blog</p>
+    <h1 class="blog-title">Writing</h1>
+    <p class="section-intro">Notes from research and building, posted as I go.</p>
+    <div class="blog-tools">
+      <ul class="chip-row tag-filter" id="tag-filter" aria-label="Filter posts by tag"></ul>
+      <a class="rss-link" href="feed.xml">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.2"/><path d="M4 10.5a9.5 9.5 0 0 1 9.5 9.5M4 4a16 16 0 0 1 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>RSS
+      </a>
+    </div>
+  </header>
+
+  <section class="panel post-panel" aria-label="Posts">
+    <ul class="post-list" id="post-list" data-blog-base="">
+      <li class="post-note">Loading posts…</li>
+    </ul>
+    <noscript><p class="post-note">The post list needs JavaScript. The posts themselves are plain Markdown files in <a href="https://github.com/ZiruiSongBest/ziruisongbest.github.io/tree/main/blog/posts">blog/posts</a>.</p></noscript>
+  </section>
+</main>
+
+<footer id="site-foot">© 2026 Zirui Song · <a href="../">Home</a></footer>
+
+<script src="../js/main.js" defer></script>
+<script src="../js/blog.js" defer></script>
+</body>
+</html>

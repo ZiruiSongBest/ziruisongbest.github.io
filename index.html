@@ -27,6 +27,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/blog.css">
+<link rel="alternate" type="application/rss+xml" title="Zirui Song · Blog" href="blog/feed.xml">
 </head>
 <body>
 <a class="skip-link" href="#content-about">Skip to content</a>
@@ -50,6 +52,7 @@
       <a href="#content-building">Building</a>
       <a href="#content-publications">Research</a>
       <a href="#content-news">News</a>
+      <a href="blog/">Blog</a>
       <a href="#content-contact">Contact</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark theme">
@@ -340,6 +343,22 @@
     </div>
   </section>
 
+  <!-- ───────── Blog ───────── -->
+  <section class="section" id="content-blog" aria-labelledby="blog-title">
+    <header class="section-head reveal">
+      <p class="eyebrow">Blog</p>
+      <h2 class="display" id="blog-title">Writing</h2>
+      <p class="section-intro">Notes from research and building, posted as I go.</p>
+    </header>
+    <div class="panel reveal">
+      <!-- filled with the newest posts from blog/posts.json by js/blog.js -->
+      <ul class="post-list" data-latest-posts="3" data-blog-base="blog/">
+        <li class="post-note">The newest posts are listed on the <a href="blog/">blog page</a>.</li>
+      </ul>
+      <p class="writing-foot"><a href="blog/">All posts <span aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
   <!-- ───────── Background ───────── -->
   <section class="section" id="content-background" aria-labelledby="background-title">
     <header class="section-head reveal">
@@ -449,15 +468,6 @@
           </div>
         </div>
       </details>
-      <details class="archive" id="content-blog">
-        <summary>Writing and resources</summary>
-        <ul class="blog-list">
-          <li><time>05/24</time><a href="files/grammargpt-rp.pdf" target="_blank" rel="noopener">National Undergraduate Innovation Project Documentation</a> <span class="lang">中文</span></li>
-          <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/GX7Vw4IfBiYq6okUDf7cAGCJnHh" target="_blank" rel="noopener">Negative Transfer</a> <span class="lang">中文</span></li>
-          <li><time>03/24</time><a href="https://k034sybliz3.feishu.cn/wiki/MjBFwFm9giBTg3kQ9v6cJ7uQnFb" target="_blank" rel="noopener">Mixture of Experts Explained</a> <span class="lang">中文</span></li>
-          <li><time>01/24</time><a href="https://k034sybliz3.feishu.cn/wiki/Mo2xwR6B4iDV7nk4CZ5clwymnze" target="_blank" rel="noopener">EMNLP 2020 Tutorial Notes — Explainable AI</a> <span class="lang">中文</span></li>
-        </ul>
-      </details>
     </div>
   </section>
 
@@ -483,5 +493,6 @@
   <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&amp;w=a&amp;t=tt&amp;d=HluXDGOSdszkRFTgzVSVKaRQAYXHoBEke-V3oK7ljWk"></script>
 </div>
 <script src="js/main.js" defer></script>
+<script src="js/blog.js" defer></script>
 </body>
 </html>
