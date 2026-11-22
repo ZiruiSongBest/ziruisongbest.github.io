@@ -112,14 +112,21 @@
     if (terminal) terminal.classList.add('run');
   }
 
-  /* ── live numbers from the public GitHub API (static values stay as fallback) ── */
+  /* ── live numbers for ChemLab-Assets (the values in the HTML stay as fallback) ──
+     The GitHub API allows 60 unauthenticated requests per hour per IP, which a
+     shared campus or office network can use up; shields.io (cached server side,
+     no per-visitor limit) then supplies the star count. Each browser asks at
+     most once a day; the answer is kept in localStorage in between. */
   var REPO_API = 'https://api.github.com/repos/mbzuai-nlp/ChemLab-Assets';
-  var CACHE_KEY = 'chemlab-repo-v1';
+  var STARS_FALLBACK = 'https://img.shields.io/github/stars/mbzuai-nlp/ChemLab-Assets.json';
+  var CACHE_KEY = 'chemlab-repo-v2';
+  var CACHE_MS = 24 * 60 * 60 * 1000;
   function applyRepo(data) {
     if (!data) return;
-    if (typeof data.stars === 'number') {
+    if (typeof data.stars === 'number' || typeof data.stars === 'string') {
+      var stars = typeof data.stars === 'number' ? data.stars.toLocaleString('en-US') : data.stars;
       Array.prototype.forEach.call(document.querySelectorAll('[data-stars]'), function (el) {
-        el.textContent = data.stars.toLocaleString('en-US');
+        el.textContent = stars;
       });
     }
     var pushed = data.pushed && new Date(data.pushed);
@@ -130,20 +137,36 @@
       });
     }
   }
+  function getJson(url, headers) {
+    return fetch(url, { headers: headers || {} }).then(function (res) {
+      if (!res.ok) throw new Error(url + ' ' + res.status);
+      return res.json();
+    });
+  }
   var cached = null;
-  try { cached = JSON.parse(sessionStorage.getItem(CACHE_KEY)); } catch (e) {}
+  try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch (e) {}
+  if (cached && !(Date.now() - cached.at < CACHE_MS)) cached = null;
   if (!document.querySelector('[data-stars], [data-pushed]')) {
     /* pages without the ChemLab card (the blog) have nothing to update */
   } else if (cached) {
     applyRepo(cached);
   } else if (window.fetch) {
-    fetch(REPO_API, { headers: { Accept: 'application/vnd.github+json' } })
-      .then(function (res) { return res.ok ? res.json() : null; })
+    getJson(REPO_API, { Accept: 'application/vnd.github+json' })
       .then(function (json) {
-        if (!json) return;
-        var data = { stars: json.stargazers_count, pushed: json.pushed_at };
+        if (typeof json.stargazers_count !== 'number') throw new Error('no star count');
+        return { stars: json.stargazers_count, pushed: json.pushed_at };
+      })
+      .catch(function () {
+        return getJson(STARS_FALLBACK).then(function (json) {
+          var value = String(json.value || json.message || '');
+          if (!/^\d[\d.,]*k?$/i.test(value)) throw new Error('no star count');
+          return { stars: /^\d+$/.test(value) ? parseInt(value, 10) : value };
+        });
+      })
+      .then(function (data) {
         applyRepo(data);
-        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
+        data.at = Date.now();
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
       })
       .catch(function () {});
   }
